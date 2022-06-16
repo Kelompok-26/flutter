@@ -4,7 +4,8 @@ import 'package:portal_costumer/Model/Navbar_model.dart';
 import 'package:portal_costumer/Model/PromoList_model.dart';
 import 'package:portal_costumer/Model/Pulsa_model.dart';
 import 'package:portal_costumer/Model/paketData_model.dart';
-import 'package:portal_costumer/Screen/ListRekom_Screen.dart';
+import 'package:portal_costumer/Screen/ListRekomPaket_Screen.dart';
+import 'package:portal_costumer/Screen/ListRekomPulsa_Screen.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({ Key? key }) : super(key: key);
 
@@ -315,7 +316,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             mainAxisAlignment : MainAxisAlignment.spaceBetween,
                             children: [ 
                              Text('Rekomendasi Paket Untuk Anda'), 
-                              Text('Liat Semua'),
+                              GestureDetector(
+                               child: Text('Liat Semua'),
+                              onTap: (){
+                                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>listRekomPaket() ), (route) => false);
+                              }, ),
                               ],
                          
                           ),
