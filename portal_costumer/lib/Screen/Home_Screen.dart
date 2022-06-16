@@ -4,6 +4,7 @@ import 'package:portal_costumer/Model/Navbar_model.dart';
 import 'package:portal_costumer/Model/PromoList_model.dart';
 import 'package:portal_costumer/Model/Pulsa_model.dart';
 import 'package:portal_costumer/Model/paketData_model.dart';
+import 'package:portal_costumer/Screen/ListRekom_Screen.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({ Key? key }) : super(key: key);
 
@@ -140,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ],
                                   ),
                               ),
-    
+  
                             ],
                           ),
                         ),
@@ -152,7 +153,6 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: MaterialButton(
                                minWidth: MediaQuery.of(context).size.width,
                                onPressed: (){
-                                 // signUp(newUsernameController.text, newPasswordController.text);
                              },
                            child: Row(
                              children: [
@@ -167,11 +167,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                    Text('Tahukah Cara Menggunakan Poin ?', 
                                    textAlign: TextAlign.start,
                                    style: TextStyle(
-                                   fontSize: 17,
+                                   fontWeight: FontWeight.w700,
+                                   fontSize: 12,
                                    color: Colors.black,),),
                                    Text('tap here !', 
                                    textAlign: TextAlign.start,
                                    style: TextStyle(
+                                   fontWeight : FontWeight.w100,
                                    fontSize: 12,
                                    color: Colors.black,),),
                                  ],
@@ -251,9 +253,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             mainAxisAlignment : MainAxisAlignment.spaceBetween,
                             children: [ 
                              Text('Rekomendasi Pulsa Untuk Anda'), 
-                              Text('Liat Semua'),
+                              GestureDetector(
+                                child: Text('Liat Semua'),
+                                onTap: (){
+                                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>listRekom() ), (route) => false);
+                                },),
                               ],
-                         
                           ),
                            SizedBox(height: 20,),
                             SingleChildScrollView(

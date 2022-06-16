@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portal_costumer/Screen/Login_Screen.dart';
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({ Key? key }) : super(key: key);
 
@@ -121,7 +122,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           color: Color.fromARGB(255, 66, 179, 235),
           ),
           onPressed: (){
-            Navigator.of(context).pop();
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>loginScreen() ), (route) => false);
           },
         ),
       ),
