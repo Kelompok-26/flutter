@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
+import 'package:portal_costumer/Screen/Detail_Screen.dart';
 import 'package:portal_costumer/Screen/Home_Screen.dart';
 import 'package:portal_costumer/Screen/Registration_Screen.dart';
 import 'package:portal_costumer/Screen/Login_Screen.dart';

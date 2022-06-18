@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                      ],
                    ),
                    SizedBox(width: MediaQuery.of(context).size.width * 0.28,),
-                   Icon(Icons.logout,size: 30,)
+                   Icon(Icons.question_mark_rounded,size: 20,color: Colors.black,)
                    ],
                  ),
                 ],
