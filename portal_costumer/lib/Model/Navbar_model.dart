@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Screen/Home_Screen.dart';
+import 'package:portal_costumer/Screen/Point_Screen.dart';
 class itemNav extends StatefulWidget {
    itemNav({
     Key? key,
@@ -13,7 +14,7 @@ class _itemNavState extends State<itemNav> {
   static const List page = [
     HomeScreen(),
     Text('Riwayat Screen'),
-    Text('Point Screen'),
+    PointScreen(),
     Text('Redeem Screen'),
     Text('Profile Screen'), 
 
