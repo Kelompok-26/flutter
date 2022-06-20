@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Container(
               height: 250,
               width: double.infinity,
-              color: Colors.amber,
+              color: Color.fromARGB(255, 54, 36, 255),
               child: Column(
                 children: [
                   Padding(padding: EdgeInsets.all(10.0)),
@@ -42,14 +42,17 @@ class _HomeScreenState extends State<HomeScreen> {
                    SizedBox(height: 20,),
                   Text('Selamat datang', style: TextStyle(
                     fontSize: 20, 
-                    fontWeight: FontWeight.w800),),
+                    fontWeight: FontWeight.w100,
+                    color: Colors.white),),
                    Text('Fradricast', style: TextStyle(
                     fontSize: 15, 
-                    fontWeight: FontWeight.w800)),
+                    fontWeight: FontWeight.w500, 
+                    color: Colors.white)),
                      ],
                    ),
                    SizedBox(width: MediaQuery.of(context).size.width * 0.28,),
-                   Icon(Icons.question_mark_rounded,size: 30,color: Colors.black,)
+                   CircleAvatar( backgroundImage: AssetImage('assets/logo/question.png'),
+                                   radius : 20.0,),
                    ],
                  ),
                 ],
@@ -71,8 +74,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           height: 150,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(colors: [
-                                  Colors.amber,
-                                  Color.fromARGB(255, 201, 152, 5),
+                                Color.fromARGB(255, 14, 0, 166),
+                                Color.fromARGB(0, 54, 36, 255)
                             ])
                           ),
                           child: Row(
@@ -80,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Container(
                                 decoration: BoxDecoration(
-                                  color: Color.fromRGBO(28, 163, 200, 1),
+                                  color: Colors.white,
                                   border: null,
                                   borderRadius: BorderRadius.all(Radius.circular(15.0))
                                 ),
@@ -114,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                  height: 40,
                                  width: 130,
                               decoration: BoxDecoration(
-                                  color: Color.fromRGBO(28, 163, 200, 1),
+                                  color: Colors.white,
                                   border: null,
                                   borderRadius: BorderRadius.all(Radius.circular(15.0))
                                 ),
@@ -150,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Material(
                         elevation: 5,
                          borderRadius: BorderRadius.circular(30),
-                          color: Color.fromARGB(255, 158, 188, 250),
+                          color: Color.fromARGB(201, 0, 1, 78),
                         child: MaterialButton(
                                minWidth: MediaQuery.of(context).size.width,
                                onPressed: (){
@@ -170,13 +173,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                    style: TextStyle(
                                    fontWeight: FontWeight.w700,
                                    fontSize: 12,
-                                   color: Colors.black,),),
+                                   color: Colors.white,),),
                                    Text('tap here !', 
                                    textAlign: TextAlign.start,
                                    style: TextStyle(
                                    fontWeight : FontWeight.w100,
                                    fontSize: 12,
-                                   color: Colors.black,),),
+                                   color: Colors.white,),),
                                  ],
                                ),
                              ],

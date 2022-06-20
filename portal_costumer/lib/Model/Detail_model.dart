@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portal_costumer/Screen/TukarPoint_Screen.dart';
 class Detail_model extends StatelessWidget {
   const Detail_model({
     Key? key,
@@ -70,7 +71,7 @@ class Detail_model extends StatelessWidget {
            child: MaterialButton(
           padding:EdgeInsets.fromLTRB(20, 15, 20, 15) ,
           onPressed: (){
-               // signIn(usernameController.text, passwordController.text);
+          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>TukarPointScreen() ), (route) => false);
            },
            child: Text('Konfirmasi Tukar Point', 
           textAlign: TextAlign.center,
