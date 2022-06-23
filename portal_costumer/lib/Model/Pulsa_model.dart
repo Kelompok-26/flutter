@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, prefer_const_constructors_in_immutables
+
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
 class RekomendasiPulsa extends StatelessWidget {
@@ -14,10 +16,10 @@ class RekomendasiPulsa extends StatelessWidget {
     return Card(
       elevation: 3,
       child: GestureDetector(
-        onTap:(){ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen() ), (route) => false);
+        onTap:(){ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>const DetailScreen() ), (route) => false);
         },
         child: Container(
-          decoration : BoxDecoration(
+          decoration : const BoxDecoration(
             border: null,
             borderRadius: BorderRadius.all(Radius.circular(40.0)),
           ),
@@ -32,20 +34,20 @@ class RekomendasiPulsa extends StatelessWidget {
                    mainAxisAlignment : MainAxisAlignment.center,
                   crossAxisAlignment :CrossAxisAlignment.center,
                    children: [ 
-                     Container(
+                     SizedBox(
                        height: 50,
                        width: 150,
-                       child: Image.asset('$img', fit: BoxFit.contain,)),
-                      SizedBox(height: 4,)
+                       child: Image.asset(img, fit: BoxFit.contain,)),
+                      const SizedBox(height: 4,)
                    ],
                  ),
                  Row(
                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                    children:[
-                     Text('$pulsa'),
+                     Text(pulsa),
                    ],
                  ),
-                 SizedBox(height: 5,),
+                 const SizedBox(height: 5,),
                    Text('Point $point')
                ],
              ),

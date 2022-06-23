@@ -1,6 +1,7 @@
+// ignore_for_file: prefer_const_constructors, file_names
+
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/Clippath_model.dart';
-import 'package:portal_costumer/Model/Navbar_model.dart';
 import 'package:portal_costumer/Model/PromoList_model.dart';
 import 'package:portal_costumer/Model/Pulsa_model.dart';
 import 'package:portal_costumer/Model/paketData_model.dart';
@@ -38,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(width: 5,),
                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                     children: [
+                     children: const [
                    SizedBox(height: 20,),
                   Text('Selamat datang', style: TextStyle(
                     fontSize: 20, 
@@ -63,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
             margin: EdgeInsets.only(top: 90),
             child:Column(
               children: [
-                Container(
+                SizedBox(
                   height: MediaQuery.of(context).size.height * 0.3,
                   // color: Colors.red,
                   child: Column(
@@ -73,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Container(
                           height: 150,
                           decoration: BoxDecoration(
-                            gradient: LinearGradient(colors: [
+                            gradient: LinearGradient(colors: const [
                                 Color.fromARGB(255, 14, 0, 166),
                                 Color.fromARGB(0, 54, 36, 255)
                             ])
@@ -95,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Column(
                                        mainAxisAlignment : MainAxisAlignment.center,
                                        crossAxisAlignment :CrossAxisAlignment.center,
-                                      children: [
+                                      children: const [
                                         Text('POINT KAMU', style: 
                                         TextStyle(
                                           fontSize: 12, 
@@ -106,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           fontWeight: FontWeight.w900),),
                                       ],
                                 ),
-                                     Container(
+                                     SizedBox(
                                  height: 27,
                                  width: 27,
                                  child: Image.asset('assets/logo/logo-bagcoin.png', fit: BoxFit.contain,)),
@@ -127,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Column(
                                        mainAxisAlignment : MainAxisAlignment.center,
                                        crossAxisAlignment :CrossAxisAlignment.center,
-                                      children: [
+                                      children: const [
                                         Text('Cari Tahu' ,style: 
                                         TextStyle(
                                           fontSize: 12, 
@@ -138,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           fontWeight: FontWeight.bold),),
                                       ],
                                 ),
-                                   Container(
+                                   SizedBox(
                                  height: 27,
                                  width: 27,
                                  child: Image.asset('assets/logo/logo-benefit.png', fit: BoxFit.contain,)),
@@ -160,14 +161,14 @@ class _HomeScreenState extends State<HomeScreen> {
                              },
                            child: Row(
                              children: [
-                               Container(
+                               SizedBox(
                                  height: 27,
                                  width: 27,
                                  child: Image.asset('assets/logo/logo-bantuan.png', fit: BoxFit.contain,)),
                                Column(
                                  mainAxisAlignment: MainAxisAlignment.start,
                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                 children: [
+                                 children: const [
                                    Text('Tahukah Cara Menggunakan Poin ?', 
                                    textAlign: TextAlign.start,
                                    style: TextStyle(
@@ -193,7 +194,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 7, 
                   color: Colors.grey[300],),
                   Expanded(
-                    child: Container(
+                    child: SizedBox(
                     height: 100,
                     child: Column(
                       children: [

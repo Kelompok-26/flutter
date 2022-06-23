@@ -1,7 +1,10 @@
+// ignore_for_file: file_names, camel_case_types, prefer_const_constructors_in_immutables, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Screen/History_Screen.dart';
 import 'package:portal_costumer/Screen/Home_Screen.dart';
 import 'package:portal_costumer/Screen/Point_Screen.dart';
+import 'package:portal_costumer/Screen/Profile_Screen.dart';
 class itemNav extends StatefulWidget {
    itemNav({
     Key? key,
@@ -17,7 +20,7 @@ class _itemNavState extends State<itemNav> {
     HistoryScreen(),
     PointScreen(),
     Text('redeem Screen'),
-    Text('Profile Screen'), 
+    ProfileScreen()
 
   ];
 

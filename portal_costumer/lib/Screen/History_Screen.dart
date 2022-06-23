@@ -1,5 +1,7 @@
-import 'package:portal_costumer/Model/History_model.dart';
+// ignore_for_file: file_names, prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:portal_costumer/Model/History_model.dart';
 
 class HistoryScreen extends StatefulWidget {
   const HistoryScreen({ Key? key }) : super(key: key);

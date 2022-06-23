@@ -1,7 +1,9 @@
+// ignore_for_file: file_names, unnecessary_const
+
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
 class ListRekomPaket extends StatelessWidget {
-   ListRekomPaket({ 
+   const ListRekomPaket({ 
     Key? key,
     required this.img, required this.paket , required this.point
   }) : super(key: key);
@@ -15,12 +17,12 @@ class ListRekomPaket extends StatelessWidget {
       elevation: 3,
       child: GestureDetector(
         onTap : (){
-          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen() ), (route) => false);
+          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>const DetailScreen() ), (route) => false);
         }, 
         child: Container(
-          decoration : BoxDecoration(
+          decoration : const BoxDecoration(
             border: null,
-            borderRadius: BorderRadius.all(Radius.circular(40.0)),
+            borderRadius: BorderRadius.all(const Radius.circular(40.0)),
           ),
           height: 100,
           width: 400,
@@ -33,14 +35,14 @@ class ListRekomPaket extends StatelessWidget {
                    mainAxisAlignment : MainAxisAlignment.center,
                   crossAxisAlignment :CrossAxisAlignment.center,
                    children: [ 
-                     Image.asset('$img',width: 400,height: 60,fit: BoxFit.cover,),
-                     SizedBox(height: 2,),
+                     Image.asset(img,width: 400,height: 60,fit: BoxFit.cover,),
+                     const SizedBox(height: 2,),
                    ],
                  ),
                  Row(
                    mainAxisAlignment: MainAxisAlignment.start,
                    children:[
-                     Text('$paket'),
+                     Text(paket),
                    ],
                  ),
                    Text('Point $point')

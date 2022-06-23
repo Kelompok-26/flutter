@@ -1,3 +1,6 @@
+// ignore: file_names
+// ignore_for_file: file_names, duplicate_ignore, camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Screen/TukarPoint_Screen.dart';
 class Detail_model extends StatelessWidget {
@@ -16,47 +19,47 @@ class Detail_model extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
+        SizedBox(
           height: 200,
           width: 700,
-          child: Image.asset('$image', fit: BoxFit.cover,),
+          child: Image.asset(image, fit: BoxFit.cover,),
         ),
         Expanded(
           child: Card(
             elevation: 10,
             child: Container(
-              decoration : BoxDecoration(
+              decoration : const BoxDecoration(
                 borderRadius: BorderRadius.only(topLeft : Radius.circular(20),topRight : Radius.circular(20)),
               ),
             child : Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(padding: EdgeInsets.only(top: 25)),
-                Text('$benefit'),
+                const Padding(padding: EdgeInsets.only(top: 25)),
+                Text(benefit),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Point'),
+                    const Text('Point'),
                     Text('$point Point')
                   ],),
                  Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Berlaku Sampai dengan'),
-                    Text('$tanggal')
+                    const Text('Berlaku Sampai dengan'),
+                    Text(tanggal)
                   ],),
-              Padding(padding: EdgeInsets.only(top: 10)),
+              const Padding(padding: EdgeInsets.only(top: 10)),
               Container(
                 height: 7,
                 color: Colors.grey[300],
             ),
-            SizedBox(height: 20,),
-            Text('Detail'),
-            Text('$detail'),
-            SizedBox(height: 20,),
-            Text('Syarat & Ketentuan'),
-            Text('$syarat')
+            const SizedBox(height: 20,),
+            const Text('Detail'),
+            Text(detail),
+            const SizedBox(height: 20,),
+            const Text('Syarat & Ketentuan'),
+            Text(syarat)
               ],)
             ),
           )),
@@ -64,16 +67,16 @@ class Detail_model extends StatelessWidget {
             height: 7,
             color: Colors.grey[300],
           ),
-          Padding(padding: EdgeInsets.only(top: 10)),
+          const Padding(padding: EdgeInsets.only(top: 10)),
           Material(
            elevation: 5,
-           color: Color.fromARGB(255, 158, 188, 250),
+           color: const Color.fromARGB(255, 158, 188, 250),
            child: MaterialButton(
-          padding:EdgeInsets.fromLTRB(20, 15, 20, 15) ,
+          padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
           onPressed: (){
-          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>TukarPointScreen() ), (route) => false);
+          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>const TukarPointScreen() ), (route) => false);
            },
-           child: Text('Konfirmasi Tukar Point', 
+           child: const Text('Konfirmasi Tukar Point', 
           textAlign: TextAlign.center,
           style: TextStyle(
           fontSize: 20,

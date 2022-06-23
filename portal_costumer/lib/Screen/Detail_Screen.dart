@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, prefer_const_constructors, duplicate_ignore
+
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/Detail_model.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
@@ -13,7 +15,8 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold( 
       appBar: AppBar( 
-          backgroundColor:Colors.transparent,
+          backgroundColor:Colors.white,
+          // ignore: prefer_const_constructors
           title: Text('Rekomendasi',style: TextStyle(color:Colors.black),),
           centerTitle: true,
             leading: IconButton(

@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, prefer_const_constructors_in_immutables, prefer_const_constructors, sized_box_for_whitespace, unnecessary_string_interpolations
+
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
 class RekomendasiPaket extends StatelessWidget {

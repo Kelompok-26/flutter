@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 class ChartModel{
   final String date;
   final String message;

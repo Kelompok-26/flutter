@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
 import 'package:portal_costumer/Model/listRekomPaket_model.dart';
@@ -13,11 +15,11 @@ class _listRekomPaketState extends State<listRekomPaket> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar( 
-          backgroundColor:Colors.transparent,
-          title: Text('Rekomendasi',style: TextStyle(color:Colors.black),),
+           backgroundColor : Colors.white,
+          title: const Text('Rekomendasi',style: TextStyle(color:Colors.black),),
           centerTitle: true,
             leading: IconButton(
-            icon: Icon(Icons.arrow_back, 
+            icon: const Icon(Icons.arrow_back, 
              color: Colors.black,
           ),
           onPressed: (){
@@ -27,25 +29,25 @@ class _listRekomPaketState extends State<listRekomPaket> {
         ),
         body: Column(
            children :[
-            Padding(padding: EdgeInsets.only(top : 10)),
+            const Padding(padding: EdgeInsets.only(top : 10)),
              Card(
               elevation: 10,
                child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
                     height: 120,
                     width: 400,
                     color: Colors.blue,
                child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Point Anda Saat ini',
+                  const Text('Point Anda Saat ini',
                       style: TextStyle(
                         fontWeight: FontWeight.w200 , 
                         color: Colors.white , 
                         fontSize: 15),),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text('300',
                       style: TextStyle(
                         fontWeight: FontWeight.w800 , 
@@ -59,7 +61,7 @@ class _listRekomPaketState extends State<listRekomPaket> {
                         fontSize: 15),)
 
                   ],),
-                  SizedBox(height: 5,),
+                  const SizedBox(height: 5,),
                   Center(
                     child: Column(
                       children: [
@@ -69,7 +71,7 @@ class _listRekomPaketState extends State<listRekomPaket> {
                           color: Colors.grey,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: const [
                               Icon(Icons.menu_book_outlined),
                               SizedBox(width: 10,),
                               Text('Riwayat Point')
@@ -86,37 +88,37 @@ class _listRekomPaketState extends State<listRekomPaket> {
            Container(
                   height: 7, 
                   color: Colors.grey[300],),
-          Padding(padding: EdgeInsets.only(top : 10)),
-          Text('Menampilkan Rekomendasi Paket Paket'), 
-          Padding(padding: EdgeInsets.only(top : 10)),
-          SingleChildScrollView(
-            scrollDirection : Axis.vertical,
-             child: Column(
-                  children: [
-               ListRekomPaket(
+          const Padding(padding: EdgeInsets.only(top : 10)),
+          const Text('Menampilkan Rekomendasi Paket Paket'), 
+          const Padding(padding: EdgeInsets.only(top : 10)),
+          Expanded(
+            child: ListView(
+              scrollDirection : Axis.vertical,
+               children: const [ 
+                ListRekomPaket(
                                  img :'assets/logo/logo.jpg',
                                  point : 5,
                                  paket : 'XL 20GB' , 
                                ),
                                SizedBox(height: 20,),
-              ListRekomPaket(
+                ListRekomPaket(
                                  img :'assets/logo/logo.jpg' ,
                                  point : 12 ,
                                  paket :'Indosat 20GB' , 
                                ),
                                   SizedBox(height: 20,),
-              ListRekomPaket(
+                ListRekomPaket(
                                  img :'assets/logo/logo.jpg' ,
                                  point : 12,
                                  paket : 'Smartfren 40GB' , 
                                ),
                                   SizedBox(height: 20,),
-              ListRekomPaket(
+                ListRekomPaket(
                                  img :'assets/logo/logo.jpg' ,
                                  point : 13 ,
                                  paket : 'Telkomsel 10GB' , 
-                               ),
-                           ]))
+                               )]),
+          )
         ]) 
           
 
