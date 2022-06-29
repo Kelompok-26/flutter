@@ -1,13 +1,14 @@
  class ProduckAllModel {
   int? productID;
-  late String typeProduct;
-  late String providerName;
-  late String productName;
-  late int nominal;
+  String? typeProduct;
+  String? providerName;
+  String? productName;
+  int? nominal;
   int? stock;
 
   ProduckAllModel(
-      {this.productID,
+      {
+      this.productID,
      required this.typeProduct,
      required this.providerName,
      required this.productName,

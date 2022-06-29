@@ -26,16 +26,16 @@ class _HomeScreenState extends State<HomeScreen> {
      apimodel.getProduckAllModel();
     super.initState();
   }
-    Widget GetDataProduct(){
-    return Column(
-      children: 
-      apimodel.throwProduct.map((e) => RekomendasiPulsa(
-         typeProduct: e.typeProduct,
-         productName : e.productName,
-         providerName: e.providerName,
-         nominal : e.nominal
-        )).toList());
-  }
+  //   Widget GetDataProduct(){
+  //   return Column(
+  //     children: 
+  //     apimodel.throwProduct.map((e) => RekomendasiPulsa(
+  //        typeProduct: e['TypeProduct'],
+  //        productName : e.productName,
+  //        providerName: e.providerName,
+  //        nominal : e.nominal
+  //       )).toList());
+  // }
   @override
   Widget build(BuildContext context) {
      apimodel = Provider.of<APIModel>(context);
@@ -292,7 +292,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Row(
                            children: [
                                   SizedBox(width: 20,),
-                               GetDataProduct()
+                              //  GetDataProduct()
                               ],),
                             ),
                             Padding(padding: EdgeInsets.only(top: 20)),

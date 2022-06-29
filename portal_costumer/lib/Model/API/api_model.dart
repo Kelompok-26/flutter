@@ -4,21 +4,17 @@ import 'package:portal_costumer/Model/ModelClass/Produck_model.dart';
   class  APIModel extends ChangeNotifier{
    List<ProduckAllModel> produckallmodel = [];
 
-  get typeProduct => null;
-   Future getProduckAllModel() async {
+   Future<void> getProduckAllModel() async {
     List<ProduckAllModel> newproduckallmodel = [];
-    final response = await Dio().get('https://app.swaggerhub.com/apis/Dzaakk/C-loyal/1.0.0#/Product%20API/get_products');
-    (response.data as Map<String, dynamic>).forEach((key, value) {
-      newproduckallmodel.add(
-        ProduckAllModel(
-          typeProduct: value['typeProduct'],
-          providerName: value ['providerName'],
-          productName: value['productName'],
-          nominal: value ['nominal'],
-          ));
-    });
+    final response = await Dio().get('https://virtserver.swaggerhub.com/Dzaakk/C-loyal/1.0.0/products');
+       final produckallmodel = (
+        response.data['data'] as List).map((e) => ProduckAllModel(
+        typeProduct: e['TypeProduct'],
+        providerName: e['ProviderName'],
+        productName: e['ProductName'],
+        nominal: e['Nominal'],
+        )).toList();
      print(produckallmodel);
-     produckallmodel = newproduckallmodel;
      notifyListeners();
   }
    List<ProduckAllModel> get throwProduct{
