@@ -243,48 +243,19 @@ class _PointScreenState extends State<PointScreen> {
                               scrollDirection : Axis.horizontal,
                               child: Row(
                            children: [
-                               RekomendasiPulsa(
-                                img :'assets/logo/logo.jpg',
-                                pulsa : 'Pulsa 20RB' , 
-                                point : 12,
+                                RekomendasiPulsa(
+                                typeProduct : 'Pulsa' , 
+                                nominal : 2000,
+                                productName : 'Pulsa 20rb',
+                                providerName: 'Telkomsel',
                                ),
                                const SizedBox(width: 20,),
-                                 RekomendasiPulsa(
-                                img :'assets/logo/logo.jpg',
-                                pulsa :'Pulsa 40RB' , 
-                                point : 15,
+                                  RekomendasiPulsa(
+                                typeProduct : 'Pulsa' , 
+                                nominal : 2000,
+                                productName : 'Pulsa 20rb',
+                                providerName: 'Telkomsel',
                                ),
-                                  const SizedBox(width: 20,),
-                                 RekomendasiPulsa(
-                                img :'assets/logo/logo.jpg',
-                                pulsa : 'Pulsa 10RB' , 
-                                point : 16,
-                               ),
-                                  const SizedBox(width: 20,),
-                                 RekomendasiPulsa(
-                                img :'assets/logo/logo.jpg',
-                                pulsa : 'Pulsa 12RB', 
-                                point : 20,
-                               ),
-                                const SizedBox(width: 20,),
-                                 RekomendasiPulsa(
-                                img :'assets/logo/logo.jpg',
-                                pulsa : 'Pulsa 70RB', 
-                                point : 30,
-                               ),
-                                const SizedBox(width: 20,),
-                                 RekomendasiPulsa(
-                                img :'assets/logo/logo.jpg',
-                                pulsa : 'Pulsa 20RB', 
-                                point : 31,
-                               ),
-                                const SizedBox(width: 20,),
-                                 RekomendasiPulsa(
-                                img :'assets/logo/logo.jpg',
-                                pulsa :'Pulsa 80RB' , 
-                                point : 200,
-                               ),
-                               
                               ],),
                             ),
                             const Padding(padding: EdgeInsets.only(top: 20)),

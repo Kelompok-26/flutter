@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, file_names
-
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Model/Clippath_model.dart';
+import 'package:portal_costumer/Model/ModelClass/Produck_model.dart';
 import 'package:portal_costumer/Model/PromoList_model.dart';
 import 'package:portal_costumer/Model/Pulsa_model.dart';
 import 'package:portal_costumer/Model/paketData_model.dart';
@@ -15,9 +17,28 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  
+   late APIModel apimodel;
+   List<APIModel> produckallmodel =[];
+  @override
+  void initState() {
+     APIModel apimodel = Provider.of<APIModel>(context, listen: false);
+     //mengambil api Product
+     apimodel.getProduckAllModel();
+    super.initState();
+  }
+    Widget GetDataProduct(){
+    return Column(
+      children: 
+      apimodel.throwProduct.map((e) => RekomendasiPulsa(
+         typeProduct: e.typeProduct,
+         productName : e.productName,
+         providerName: e.providerName,
+         nominal : e.nominal
+        )).toList());
+  }
   @override
   Widget build(BuildContext context) {
+     apimodel = Provider.of<APIModel>(context);
     return Scaffold(
       body: Stack(
         children: [
@@ -139,7 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           fontWeight: FontWeight.bold),),
                                       ],
                                 ),
-                                   SizedBox(
+                                    SizedBox(
                                  height: 27,
                                  width: 27,
                                  child: Image.asset('assets/logo/logo-benefit.png', fit: BoxFit.contain,)),
@@ -270,48 +291,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               scrollDirection : Axis.horizontal,
                               child: Row(
                            children: [
-                               RekomendasiPulsa(
-                                img :'assets/logo/logo.jpg',
-                                pulsa : 'Pulsa 20RB' , 
-                                point : 12,
-                               ),
-                               SizedBox(width: 20,),
-                                 RekomendasiPulsa(
-                                img :'assets/logo/logo.jpg',
-                                pulsa :'Pulsa 40RB' , 
-                                point : 15,
-                               ),
                                   SizedBox(width: 20,),
-                                 RekomendasiPulsa(
-                                img :'assets/logo/logo.jpg',
-                                pulsa : 'Pulsa 10RB' , 
-                                point : 16,
-                               ),
-                                  SizedBox(width: 20,),
-                                 RekomendasiPulsa(
-                                img :'assets/logo/logo.jpg',
-                                pulsa : 'Pulsa 12RB', 
-                                point : 20,
-                               ),
-                                SizedBox(width: 20,),
-                                 RekomendasiPulsa(
-                                img :'assets/logo/logo.jpg',
-                                pulsa : 'Pulsa 70RB', 
-                                point : 30,
-                               ),
-                                SizedBox(width: 20,),
-                                 RekomendasiPulsa(
-                                img :'assets/logo/logo.jpg',
-                                pulsa : 'Pulsa 20RB', 
-                                point : 31,
-                               ),
-                                SizedBox(width: 20,),
-                                 RekomendasiPulsa(
-                                img :'assets/logo/logo.jpg',
-                                pulsa :'Pulsa 80RB' , 
-                                point : 200,
-                               ),
-                               
+                               GetDataProduct()
                               ],),
                             ),
                             Padding(padding: EdgeInsets.only(top: 20)),

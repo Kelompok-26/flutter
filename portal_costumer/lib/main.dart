@@ -4,10 +4,17 @@ import 'package:portal_costumer/Screen/Home_Screen.dart';
 import 'package:portal_costumer/Screen/Point_Screen.dart';
 import 'package:portal_costumer/Screen/Profile_Screen.dart';
 import 'package:portal_costumer/Screen/TukarPoint_Screen.dart';
-
+import 'package:provider/provider.dart';
+import './Model/API/api_model.dart' as api_store;
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+    ChangeNotifierProvider(create: (_) => api_store.APIModel(),),
+  ],
+   child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +26,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: itemNav(),
+      home: HomeScreen(),
     );
   }
 }

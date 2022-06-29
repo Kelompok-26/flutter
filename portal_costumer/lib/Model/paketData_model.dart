@@ -1,8 +1,9 @@
 // ignore_for_file: file_names, prefer_const_constructors_in_immutables, prefer_const_constructors, sized_box_for_whitespace, unnecessary_string_interpolations
 
 import 'package:flutter/material.dart';
+import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
-class RekomendasiPaket extends StatelessWidget {
+class RekomendasiPaket extends StatefulWidget {
    RekomendasiPaket({ 
     Key? key,
     required this.img, required this.paket , required this.point
@@ -10,6 +11,12 @@ class RekomendasiPaket extends StatelessWidget {
   final String img;
   final String paket  ;
   final int point ; 
+
+  @override
+  State<RekomendasiPaket> createState() => _RekomendasiPaketState();
+}
+
+class _RekomendasiPaketState extends State<RekomendasiPaket> {
 
   @override
   Widget build(BuildContext context) {
@@ -37,18 +44,18 @@ class RekomendasiPaket extends StatelessWidget {
                      Container(
                        height: 50,
                        width: 150,
-                       child: Image.asset('$img', fit: BoxFit.contain,)),
+                       child: Image.asset('${widget.img}', fit: BoxFit.contain,)),
                       SizedBox(height: 4,)
                    ],
                  ),
                  Row(
                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                    children:[
-                     Text('$paket'),
+                     Text('${widget.paket}'),
                    ],
                  ),
                  SizedBox(height: 5,),
-                   Text('Point $point')
+                   Text('Point ${widget.point}')
                ],
              ),
          

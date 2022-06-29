@@ -1,18 +1,30 @@
 // ignore_for_file: file_names, prefer_const_constructors_in_immutables
-
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
-class RekomendasiPulsa extends StatelessWidget {
-   RekomendasiPulsa({ 
+class RekomendasiPulsa extends StatefulWidget {
+   RekomendasiPulsa( { 
     Key? key,
-    required this.img, required this.pulsa , required this.point
+    required this.typeProduct , required this.providerName,required this.productName,
+    required this.nominal,
   }) : super(key: key);
-  final String img;
-  final String pulsa  ;
-  final int point ; 
+  String typeProduct;
+  String providerName;
+  String productName;
+  int nominal ; 
+
+  @override
+  State<RekomendasiPulsa> createState() => _RekomendasiPulsaState();
+}
+
+class _RekomendasiPulsaState extends State<RekomendasiPulsa> {
+
+  
 
   @override
   Widget build(BuildContext context) {
+    APIModel apiModel = Provider.of<APIModel>(context,listen : false); 
     return Card(
       elevation: 3,
       child: GestureDetector(
@@ -37,18 +49,22 @@ class RekomendasiPulsa extends StatelessWidget {
                      SizedBox(
                        height: 50,
                        width: 150,
-                       child: Image.asset(img, fit: BoxFit.contain,)),
+                       child: Image.asset('assets/logo/logo.jpg', fit: BoxFit.contain,)),
                       const SizedBox(height: 4,)
                    ],
                  ),
                  Row(
                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                    children:[
-                     Text(pulsa),
+                     Text('${widget.typeProduct}'),
                    ],
                  ),
                  const SizedBox(height: 5,),
-                   Text('Point $point')
+                   Text('Point ${widget.providerName}'),
+                     const SizedBox(height: 5,),
+                   Text('Point ${widget.productName}'),
+                     const SizedBox(height: 5,),
+                   Text('Point ${widget.nominal}')
                ],
              ),
          
