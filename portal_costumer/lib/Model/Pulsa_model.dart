@@ -1,31 +1,9 @@
 // ignore_for_file: file_names, prefer_const_constructors_in_immutables
-import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
-import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
-class RekomendasiPulsa extends StatefulWidget {
-   RekomendasiPulsa( { 
-    Key? key,
-    required this.typeProduct , required this.providerName,required this.productName,
-    required this.nominal,
-  }) : super(key: key);
-  String typeProduct;
-  String providerName;
-  String productName;
-  int nominal ; 
-
-  @override
-  State<RekomendasiPulsa> createState() => _RekomendasiPulsaState();
-}
-
-class _RekomendasiPulsaState extends State<RekomendasiPulsa> {
-
-  
-
-  @override
-  Widget build(BuildContext context) {
-    APIModel apiModel = Provider.of<APIModel>(context,listen : false); 
-    return Card(
+Widget productall({
+  required String? typeProduct ,required String? providerName,required String? productName,required int? nominal, required BuildContext context }) {
+ return Card(
       elevation: 3,
       child: GestureDetector(
         onTap:(){ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>const DetailScreen() ), (route) => false);
@@ -35,7 +13,7 @@ class _RekomendasiPulsaState extends State<RekomendasiPulsa> {
             border: null,
             borderRadius: BorderRadius.all(Radius.circular(40.0)),
           ),
-          height: 100,
+          height: 150,
           width: 150,
            child :
              Column(
@@ -56,22 +34,18 @@ class _RekomendasiPulsaState extends State<RekomendasiPulsa> {
                  Row(
                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                    children:[
-                     Text('${widget.typeProduct}'),
+                     Text(typeProduct.toString()),
                    ],
                  ),
                  const SizedBox(height: 5,),
-                   Text('Point ${widget.providerName}'),
+                   Text(providerName.toString()),
                      const SizedBox(height: 5,),
-                   Text('Point ${widget.productName}'),
+                   Text(productName.toString()),
                      const SizedBox(height: 5,),
-                   Text('Point ${widget.nominal}')
+                   Text('Harga Rp.$nominal')
                ],
-             ),
-         
-             
-            
+             ),            
         ),
       ),
     );
-  }
 }

@@ -17,8 +17,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-   late APIModel apimodel;
-   List<APIModel> produckallmodel =[];
+    APIModel? apimodel;
   @override
   void initState() {
      APIModel apimodel = Provider.of<APIModel>(context, listen: false);
@@ -26,25 +25,16 @@ class _HomeScreenState extends State<HomeScreen> {
      apimodel.getProduckAllModel();
     super.initState();
   }
-  //   Widget GetDataProduct(){
-  //   return Column(
-  //     children: 
-  //     apimodel.throwProduct.map((e) => RekomendasiPulsa(
-  //        typeProduct: e['TypeProduct'],
-  //        productName : e.productName,
-  //        providerName: e.providerName,
-  //        nominal : e.nominal
-  //       )).toList());
-  // }
   @override
   Widget build(BuildContext context) {
-     apimodel = Provider.of<APIModel>(context);
+    final apimodel = Provider.of<APIModel>(context);
     return Scaffold(
       body: Stack(
         children: [
           ClipPath(
             clipper: ClipPathClass(),
-            child: Container(
+            child: 
+            Container(
               height: 250,
               width: double.infinity,
               color: Color.fromARGB(255, 54, 36, 255),
@@ -81,6 +71,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
+
+
           Container(
             margin: EdgeInsets.only(top: 90),
             child:Column(
@@ -117,8 +109,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Column(
                                        mainAxisAlignment : MainAxisAlignment.center,
                                        crossAxisAlignment :CrossAxisAlignment.center,
-                                      children: const [
-                                        Text('POINT KAMU', style: 
+                                      children:  [
+                                        Text('Point Anda', style: 
                                         TextStyle(
                                           fontSize: 12, 
                                           fontWeight: FontWeight.bold),),
@@ -211,16 +203,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
+
+
+
                 Container(
                   height: 7, 
                   color: Colors.grey[300],),
+
+
+
+
                   Expanded(
                     child: SizedBox(
                     height: 100,
                     child: Column(
                       children: [
                         // body
-                        Expanded(child: ListView(
+                        Expanded(
+                          child: ListView(
                           scrollDirection: Axis.vertical,
                           padding: EdgeInsets.symmetric(horizontal: 5),
                           children: [
@@ -287,14 +287,27 @@ class _HomeScreenState extends State<HomeScreen> {
                               ],
                           ),
                            SizedBox(height: 20,),
-                            SingleChildScrollView(
-                              scrollDirection : Axis.horizontal,
-                              child: Row(
-                           children: [
-                                  SizedBox(width: 20,),
-                              //  GetDataProduct()
-                              ],),
+                          SizedBox(
+                            height: 197 ,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: apimodel.produckmodel?.data?.length,
+                                   itemBuilder: ( (context, index) {
+                                    return productall(
+                                     typeProduct : apimodel.produckmodel?.data?[index].typeProduct ,
+                                      providerName :  apimodel.produckmodel?.data?[index].providerName, 
+                                      productName : apimodel.produckmodel?.data?[index].productName, 
+                                     nominal : apimodel.produckmodel?.data?[index].nominal,
+                                      context: context);
+                                    })
+                                                              ),
+                                ),
+                              ],
                             ),
+                          ),
                             Padding(padding: EdgeInsets.only(top: 20)),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.end,

@@ -59,7 +59,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
               ),
                   trailing: Text(items[i].cash
               ),
-            );
+            ); 
         }, separatorBuilder: (ctx,i){
             return Divider();
         }, 

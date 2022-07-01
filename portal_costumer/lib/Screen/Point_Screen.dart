@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Model/Pulsa_model.dart';
 import 'package:portal_costumer/Model/paketData_model.dart';
 import 'package:portal_costumer/Screen/ListRekomPaket_Screen.dart';
 import 'package:portal_costumer/Screen/ListRekomPulsa_Screen.dart';
+import 'package:provider/provider.dart';
 class PointScreen extends StatefulWidget {
   const PointScreen({ Key? key }) : super(key: key);
 
@@ -11,8 +13,17 @@ class PointScreen extends StatefulWidget {
 }
 
 class _PointScreenState extends State<PointScreen> {
+  APIModel? apimodel;
+  @override
+  void initState() {
+     APIModel apimodel = Provider.of<APIModel>(context, listen: false);
+     //mengambil api Product
+     apimodel.getProduckAllModel();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+    final apimodel = Provider.of<APIModel>(context);
     return Column(
       children: [
         Container(
@@ -239,25 +250,27 @@ class _PointScreenState extends State<PointScreen> {
                               ],
                           ),
                            const SizedBox(height: 20,),
-                            SingleChildScrollView(
-                              scrollDirection : Axis.horizontal,
-                              child: Row(
-                           children: [
-                                RekomendasiPulsa(
-                                typeProduct : 'Pulsa' , 
-                                nominal : 2000,
-                                productName : 'Pulsa 20rb',
-                                providerName: 'Telkomsel',
-                               ),
-                               const SizedBox(width: 20,),
-                                  RekomendasiPulsa(
-                                typeProduct : 'Pulsa' , 
-                                nominal : 2000,
-                                productName : 'Pulsa 20rb',
-                                providerName: 'Telkomsel',
-                               ),
-                              ],),
+                            SizedBox(
+                            height: 197 ,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: apimodel.produckmodel?.data?.length,
+                                   itemBuilder: ( (context, index) {
+                                    return productall(
+                                     typeProduct : apimodel.produckmodel?.data?[index].typeProduct ,
+                                      providerName :  apimodel.produckmodel?.data?[index].providerName, 
+                                      productName : apimodel.produckmodel?.data?[index].productName, 
+                                     nominal : apimodel.produckmodel?.data?[index].nominal,
+                                      context: context);
+                                    })
+                                                              ),
+                                ),
+                              ],
                             ),
+                          ),
                             const Padding(padding: EdgeInsets.only(top: 20)),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.end,

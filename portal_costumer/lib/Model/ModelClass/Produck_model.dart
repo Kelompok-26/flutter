@@ -1,4 +1,33 @@
- class ProduckAllModel {
+class ProductModel {
+  double? code;
+  String? status;
+  List<Data>? data;
+
+  ProductModel({this.code, this.status, this.data});
+
+  ProductModel.fromJson(Map<String, dynamic> json) {
+    code = json['code'];
+    status = json['status'];
+    if (json['data'] != null) {
+      data = <Data>[];
+      json['data'].forEach((v) {
+        data!.add(new Data.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['code'] = this.code;
+    data['status'] = this.status;
+    if (this.data != null) {
+      data['data'] = this.data!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class Data {
   int? productID;
   String? typeProduct;
   String? providerName;
@@ -6,16 +35,15 @@
   int? nominal;
   int? stock;
 
-  ProduckAllModel(
-      {
-      this.productID,
-     required this.typeProduct,
-     required this.providerName,
-     required this.productName,
-     required this.nominal,
+  Data(
+      {this.productID,
+      this.typeProduct,
+      this.providerName,
+      this.productName,
+      this.nominal,
       this.stock});
 
-  ProduckAllModel.fromJson(Map<String, dynamic> json) {
+  Data.fromJson(Map<String, dynamic> json) {
     productID = json['productID'];
     typeProduct = json['TypeProduct'];
     providerName = json['ProviderName'];
