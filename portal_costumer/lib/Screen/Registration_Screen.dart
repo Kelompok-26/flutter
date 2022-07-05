@@ -269,15 +269,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       //     } catch(e){
       //       Fluttertoast.showToast(msg: e.toString());
       //     }
-      // }
+      },
         child: Text('SignUp', 
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontSize: 20,
-          color: Colors.black,
-          fontWeight: FontWeight.bold),);
-   } ),
-   );
+          fontSize: 15,
+          color: Colors.white,
+          fontWeight: FontWeight.w800),)
+   ) );
+  
 
     return Scaffold(
       appBar: AppBar(

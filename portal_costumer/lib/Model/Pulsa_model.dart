@@ -4,11 +4,11 @@ import 'package:portal_costumer/Screen/Detail_Screen.dart';
 Widget productall({
   required String? typeProduct ,required String? providerName,required String? productName,required int? nominal, required BuildContext context }) {
  return Card(
-      elevation: 3,
+      elevation: 3,        
       child: GestureDetector(
         onTap:(){ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>const DetailScreen() ), (route) => false);
         },
-        child: Container(
+        child: Container(    
           decoration : const BoxDecoration(
             border: null,
             borderRadius: BorderRadius.all(Radius.circular(40.0)),

@@ -9,7 +9,7 @@ import 'package:portal_costumer/Model/ModelClass/SignUp_model.dart';
    //view Model Product
    ProductModel? produckmodel;
    Future<void> getProduckAllModel() async {
-    var _dio = Dio();
+    var _dio = Dio();  
     // _dio.interceptors
     //     .add(LogInterceptor(responseBody: true, requestBody: true));
 
@@ -23,10 +23,10 @@ import 'package:portal_costumer/Model/ModelClass/SignUp_model.dart';
     return produckmodel;
   }
 
+
   //View Model Login
    loginModel? loginmodel;
-   Future<loginModel?> login(String? phonenumber, String? password) async {
-   
+   Future<dynamic> login(String? phonenumber, String? password) async {
     final _dio = Dio();
         try {
           final response = await _dio.post(
@@ -37,14 +37,15 @@ import 'package:portal_costumer/Model/ModelClass/SignUp_model.dart';
             },
           );
           final login = loginModel.fromJson(response.data);
-          //returns the successful user data json object
-          loginmodel =login;
-           print('data : $loginmodel');
+
+          loginmodel = login;
+          return response.data['token'];
         } on DioError catch (e) {
-          //returns the error object if any
-          return e.response!.data;
+          print('Te bisa');
+          return null;
         }
       }
+      
 // view model SignUp
 
  

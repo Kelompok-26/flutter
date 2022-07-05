@@ -38,7 +38,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                    ),
                     SizedBox(width: MediaQuery.of(context).size.width * 0.28,),
                    const CircleAvatar( backgroundImage: AssetImage('assets/logo/edit.png'),
-                                   radius : 20.0,),
+                                   radius : 15.0,),
                    
                 ],
               ),
@@ -46,150 +46,156 @@ class _ProfileScreenState extends State<ProfileScreen> {
          Container(
           height : 10, 
           color: Colors.grey[300]),
-        Expanded(child: Column(
-          children: [
-            Card(
-              elevation: 10,
-              child: Container(
-                height: 200,
-                width: 360,
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(40.0)),
-                ),
-                child: Column(
-                  children: [
-                    const Padding(padding: EdgeInsets.only(top: 20)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const Icon(Icons.star_border_outlined, size: 35,),
-                        const Text('Beri Penilaian',
-                          style: TextStyle(
-                            fontSize: 20,
+        Expanded(
+          child: 
+          SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+            children: [
+              Card(
+                elevation: 10,
+                child: Container(
+                  height: 200,
+                  width: 360,
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(40.0)),
+                  ),
+                  child: Column(
+                    children: [
+                      const Padding(padding: EdgeInsets.only(top: 20)),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Icon(Icons.star_border_outlined, size: 35,),
+                          const Text('Beri Penilaian',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
                           ),
-                        ),
-                           SizedBox(width: MediaQuery.of(context).size.width * 0.34,),
-                        const Icon(Icons.arrow_right_sharp,size: 40),
-                      ],
-                    ),
-                     const Padding(padding: EdgeInsets.only(top: 20)),
-                       Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const Icon(Icons.lock_outline,size: 35,),
-                        const Text('Ubah Password',
-                          style: TextStyle(
-                            fontSize: 20,
+                             SizedBox(width: MediaQuery.of(context).size.width * 0.34,),
+                          const Icon(Icons.arrow_right_sharp,size: 40),
+                        ],
+                      ),
+                       const Padding(padding: EdgeInsets.only(top: 20)),
+                         Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Icon(Icons.lock_outline,size: 35,),
+                          const Text('Ubah Password',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
                           ),
-                        ),
-                           SizedBox(width: MediaQuery.of(context).size.width * 0.3,),
-                        const Icon(Icons.arrow_right_sharp,size: 40),
-                      ],
-                    ),
-                     const Padding(padding: EdgeInsets.only(top: 20)),
-                       Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const Icon(Icons.notifications, size: 35,),
-                        const Text('Notifikasi',
-                          style: TextStyle(
-                            fontSize: 20,
+                             SizedBox(width: MediaQuery.of(context).size.width * 0.3,),
+                          const Icon(Icons.arrow_right_sharp,size: 40),
+                        ],
+                      ),
+                       const Padding(padding: EdgeInsets.only(top: 20)),
+                         Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Icon(Icons.notifications, size: 35,),
+                          const Text('Notifikasi',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
                           ),
-                        ),
-                           SizedBox(width: MediaQuery.of(context).size.width * 0.44,),
-                        const Icon(Icons.arrow_right_sharp,size: 40),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
-            Container(
-                height: 20,
-                color: Colors.grey[300],
-            ),
-           Card(
-              elevation: 10,
-              child: Container(
-                height: 200,
-                width: 360,
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(40.0)),
-                ),
-                child: Column(
-                  children: [
-                    const Padding(padding: EdgeInsets.only(top: 20)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const Icon(Icons.headphones_outlined, size: 35,),
-                        const Text('Pusat Bantuan',
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                           SizedBox(width: MediaQuery.of(context).size.width * 0.34,),
-                        const Icon(Icons.arrow_right_sharp,size: 40),
-                      ],
-                    ),
-                     const Padding(padding: EdgeInsets.only(top: 20)),
-                       Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const Icon(Icons.menu_book_outlined,size: 35,),
-                        const Text('Syarat dan Ketentuan',
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                           SizedBox(width: MediaQuery.of(context).size.width * 0.2,),
-                        const Icon(Icons.arrow_right_sharp,size: 40),
-                      ],
-                    ),
-                     const Padding(padding: EdgeInsets.only(top: 20)),
-                       Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const Icon(Icons.privacy_tip_outlined, size: 35,),
-                        const Text('Kebijakan Privasi',
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                           SizedBox(width: MediaQuery.of(context).size.width * 0.3,),
-                        const Icon(Icons.arrow_right_sharp,size: 40),
-                      ],
-                    )
-                  ],
+                             SizedBox(width: MediaQuery.of(context).size.width * 0.44,),
+                          const Icon(Icons.arrow_right_sharp,size: 40),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
-            ),
-           Container(
-                height: 30,
-                color: Colors.grey[300],
-            ),
-
-            Card( 
-              elevation: 10,
-              child: Container(
-                 height: 50,
-                child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const Icon(Icons.login_outlined,size: 35,),
-                        const Text('Keluar',
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                           SizedBox(width: MediaQuery.of(context).size.width * 0.47,),
-                        const Icon(Icons.arrow_right_sharp,size: 40),
-                      ],
-                    ),
+              Container(
+                  height: 20,
+                  color: Colors.grey[300],
               ),
-            )
-          ],
-        ))
+             Card(
+                elevation: 10,
+                child: Container(
+                  height: 200,
+                  width: 360,
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(40.0)),
+                  ),
+                  child: Column(
+                    children: [
+                      const Padding(padding: EdgeInsets.only(top: 20)),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Icon(Icons.headphones_outlined, size: 35,),
+                          const Text('Pusat Bantuan',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                             SizedBox(width: MediaQuery.of(context).size.width * 0.34,),
+                          const Icon(Icons.arrow_right_sharp,size: 40),
+                        ],
+                      ),
+                       const Padding(padding: EdgeInsets.only(top: 20)),
+                         Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Icon(Icons.menu_book_outlined,size: 35,),
+                          const Text('Syarat dan Ketentuan',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                             SizedBox(width: MediaQuery.of(context).size.width * 0.2,),
+                          const Icon(Icons.arrow_right_sharp,size: 40),
+                        ],
+                      ),
+                       const Padding(padding: EdgeInsets.only(top: 20)),
+                         Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Icon(Icons.privacy_tip_outlined, size: 35,),
+                          const Text('Kebijakan Privasi',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                             SizedBox(width: MediaQuery.of(context).size.width * 0.3,),
+                          const Icon(Icons.arrow_right_sharp,size: 40),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+             Container(
+                  height: 30,
+                  color: Colors.grey[300],
+              ),
+          
+              Card( 
+                elevation: 10,
+                child: Container(
+                   height: 50,
+                  child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const Icon(Icons.login_outlined,size: 35,),
+                          const Text('Keluar',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                             SizedBox(width: MediaQuery.of(context).size.width * 0.47,),
+                          const Icon(Icons.arrow_right_sharp,size: 40),
+                        ],
+                      ),
+                ),
+              )
+          
+            ],
+                  ),
+          ))
       ],
       
     );

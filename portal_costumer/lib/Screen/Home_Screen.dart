@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Color.fromARGB(255, 54, 36, 255),
               child: Column(
                 children: [
-                  Padding(padding: EdgeInsets.all(10.0)),
+                  Padding(padding: EdgeInsets.all(25.0)),
                  Row(
                    mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                    ),
                    SizedBox(width: MediaQuery.of(context).size.width * 0.28,),
                    CircleAvatar( backgroundImage: AssetImage('assets/logo/question.png'),
-                                   radius : 20.0,),
+                                   radius : 15.0,),
                    ],
                  ),
                 ],
@@ -78,6 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
             margin: EdgeInsets.only(top: 90),
             child:Column(
               children: [
+                Padding(padding: EdgeInsets.only(top : 20)),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.3,
                   // color: Colors.red,
@@ -297,20 +298,20 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 197 ,
                             child: Row(
                               children: [
-                                Expanded(
-                                  child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: apimodel.throwProduct,
-                                   itemBuilder: ( (context, index) {
-                                    return productall(
-                                     typeProduct : apimodel.produckmodel?.typeProduct,
-                                      providerName :apimodel.produckmodel?.providerName, 
-                                      productName : apimodel.produckmodel?.productName, 
-                                     nominal :apimodel.produckmodel?.nominal,
-                                      context: context);
-                                    })
-                                                              ),
-                                ),
+                                // Expanded(
+                                //   child: ListView.builder(
+                                //     scrollDirection: Axis.horizontal,
+                                //     itemCount: apimodel.produckmodel?,
+                                //    itemBuilder: ( (context, index) {
+                                //     return productall(
+                                //       typeProduct : apimodel.produckmodel?.typeProduct,
+                                //       providerName :apimodel.produckmodel?.providerName, 
+                                //       productName : apimodel.produckmodel?.productName, 
+                                //       nominal :apimodel.produckmodel?.nominal,
+                                //       context: context);
+                                //     })
+                                //                               ),
+                                // ),
                               ],
                             ),
                           ),

@@ -6,6 +6,7 @@ import 'package:portal_costumer/Model/Navbar_model.dart';
 import 'package:portal_costumer/Screen/Home_Screen.dart';
 import 'package:portal_costumer/Screen/Registration_Screen.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 class loginScreen extends StatefulWidget {
   const loginScreen({ Key? key }) : super(key: key);
 
@@ -15,6 +16,9 @@ class loginScreen extends StatefulWidget {
 
 class _loginScreenState extends State<loginScreen> {
  APIModel? apimodel;
+ final _formkey = GlobalKey<FormState>();
+  final  phonenumberController = new TextEditingController();
+  final  passwordController = new TextEditingController();
 
   @override
   void initState() {
@@ -23,47 +27,35 @@ class _loginScreenState extends State<loginScreen> {
   }
   @override
   Widget build(BuildContext context) {
-  final _formkey = GlobalKey<FormState>();
-  final TextEditingController phonenumber = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
   final apimodel = Provider.of<APIModel>(context);
-   final PhoneField = TextFormField(
+  final EmailField = TextFormField(
       autofocus: false,
-      controller: phonenumber,
+      controller: phonenumberController,
       keyboardType: TextInputType.emailAddress,
       // validator: (value){
       //   if(value!.isEmpty){
-      //     return ("Please Enter Your Phone or Email");
+      //     return ("Please Enter Your Email");
       //   }
       //   if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
-      //     return ("Please Enter Valid Phone or Email");
+      //     return ("Please Enter Valid Email");
       //   }
       //   return null;
       // },
       onSaved: (value){
-        phonenumber.text=value!;
+        phonenumberController.text=value!;
       },
       textInputAction: TextInputAction.next,
       decoration : InputDecoration(
-        prefixIcon: const Icon(Icons.email),
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        hintText: "Phone number or Email",
-         hintStyle: const TextStyle(
-                      color: Colors.black, 
-                      fontSize: 15 , 
-                    fontWeight: FontWeight.w400),
-        labelText: "Phone number or Email",
-         labelStyle: const TextStyle(
-                      color: Colors.black, 
-                      fontSize: 15 , 
-                    fontWeight: FontWeight.w400),
+        prefixIcon: Icon(Icons.mail_outline),
+        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        hintText: "Email",
+        labelText:"Email",
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
         )
       )
     );
-
-    final passwordField = TextFormField(
+   final PasswordField = TextFormField(
       autofocus: false,
       controller: passwordController,
       obscureText: true,
@@ -75,83 +67,67 @@ class _loginScreenState extends State<loginScreen> {
         if(!regex.hasMatch(value)){
           return ("Password not Valid(Min. 5 Character)");
         }
-        return null;
       },
       onSaved: (value){
         passwordController.text=value!;
       },
+       textInputAction: TextInputAction.next,
       decoration : InputDecoration(
-        prefixIcon: const Icon(Icons.vpn_key),
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        prefixIcon: Icon(Icons.vpn_key),
+        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Password",
-        hintStyle: const TextStyle(
-                      color: Colors.black, 
-                      fontSize: 15 , 
-                      fontWeight: FontWeight.w400),
         labelText: "Password",
-        labelStyle: const TextStyle(
-                      color: Colors.black, 
-                      fontSize: 15 , 
-                    fontWeight: FontWeight.w400),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
         )
       ),
-      textInputAction: TextInputAction.done,
-     );
-  
+    );
     final loginButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
       color: const Color.fromARGB(255, 158, 188, 250),
       child: MaterialButton(
+           child : Text('Login',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 15, 
+              fontWeight: FontWeight.w800,
+               color: Colors.white),),
         padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () async {
            if (_formkey.currentState!.validate()) {
           //show snackbar to indicate loading
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: const Text('Processing Data'),
+            content: const Text('Loging'),
             backgroundColor: Colors.green.shade300,
           ));
-
           //get response from ApiClient
-          dynamic res = await apimodel.login(
-            phonenumber.text,
+          final res = await apimodel.login(
+            phonenumberController.text,
             passwordController.text,
           );
           ScaffoldMessenger.of(context).hideCurrentSnackBar();
-
-          //if there is no error, get the user's accesstoken and pass it to HomeScreen
-          if (res['ErrorCode'] == null) {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => HomeScreen()));
-          } else {
-          //if an error occurs, show snackbar with error message
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text('Error: ${res['Message']}'),
-            backgroundColor: Colors.red.shade300,
-          ));
+          print(res);
+          if(res == null){
+              Fluttertoast.showToast(msg: 'Invalid Phonenumber / Password');
+              return ; 
           }
-        }
-        child: Text('Login', 
-        textAlign: TextAlign.center,
-        style: const TextStyle(
-          fontSize: 20,
-          color: Colors.black,
-          fontWeight: FontWeight.bold),); }),
+          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => itemNav(),), (route) => false);
+        };
+       }
+       ),
    );
     return Scaffold(
-      
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          const Padding(padding:const EdgeInsets.only(top : 9.0)),
-          const CircleAvatar(
-            backgroundImage: AssetImage('assets/logo/logo.jpg'),
-            radius : 100.0,),
+          const Padding(padding:const EdgeInsets.only(top : 45.0)),
+           SizedBox(
+            height: 50, 
+          child : SvgPicture.asset('assets/logo/cuate.svg')
+           ),
+         Padding(padding: EdgeInsets.only(top:  40.0)),
           Expanded(
             child: Container(
               decoration: const BoxDecoration(
@@ -170,24 +146,23 @@ class _loginScreenState extends State<loginScreen> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                              crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
+                            children: [
                               const Text('Welcome ',
                                         style: const TextStyle(
                                         color: Color.fromARGB(245, 27, 25, 21),
                                         fontWeight:  FontWeight.w800,
-                                        fontSize: 70,
+                                        fontSize: 50,
                                       ),),
                                const Text('Login to continue',
                                       style: const TextStyle(
                                       color: Color.fromARGB(245, 27, 25, 21),
                                       fontWeight:  FontWeight.w600,
-                                      fontSize: 30,
+                                      fontSize: 15,
                                     ),),
-                                 
-                              const SizedBox(height: 45,),
-                              PhoneField,
+                                 const SizedBox(height: 45,),
+                              EmailField,
                                  const SizedBox(height: 25,),
-                              passwordField,
+                              PasswordField,
                                  const SizedBox(height: 35,),
                               loginButton,
                                  const SizedBox(height: 15,),

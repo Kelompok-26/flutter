@@ -1,7 +1,7 @@
 class ProductModel {
   int? id;
   String? typeProduct;
-  String? providerName;
+  String? providerName;   
   String? productName;
   int? nominal;
   int? point;

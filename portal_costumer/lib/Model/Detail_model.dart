@@ -25,42 +25,44 @@ class Detail_model extends StatelessWidget {
           child: Image.asset(image, fit: BoxFit.cover,),
         ),
         Expanded(
-          child: Card(
-            elevation: 10,
-            child: Container(
-              decoration : const BoxDecoration(
-                borderRadius: BorderRadius.only(topLeft : Radius.circular(20),topRight : Radius.circular(20)),
+          child: SingleChildScrollView(
+            child: Card(
+              elevation: 10,
+              child: Container(
+                decoration : const BoxDecoration(
+                  borderRadius: BorderRadius.only(topLeft : Radius.circular(20),topRight : Radius.circular(20)),
+                ),
+              child : Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(padding: EdgeInsets.only(top: 25)),
+                  Text(benefit),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text('Point'),
+                      Text('$point Point')
+                    ],),
+                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text('Berlaku Sampai dengan'),
+                      Text(tanggal)
+                    ],),
+                const Padding(padding: EdgeInsets.only(top: 10)),
+                Container(
+                  height: 7,
+                  color: Colors.grey[300],
               ),
-            child : Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Padding(padding: EdgeInsets.only(top: 25)),
-                Text(benefit),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text('Point'),
-                    Text('$point Point')
-                  ],),
-                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text('Berlaku Sampai dengan'),
-                    Text(tanggal)
-                  ],),
-              const Padding(padding: EdgeInsets.only(top: 10)),
-              Container(
-                height: 7,
-                color: Colors.grey[300],
-            ),
-            const SizedBox(height: 20,),
-            const Text('Detail'),
-            Text(detail),
-            const SizedBox(height: 20,),
-            const Text('Syarat & Ketentuan'),
-            Text(syarat)
-              ],)
+              const SizedBox(height: 20,),
+              const Text('Detail'),
+              Text(detail),
+              const SizedBox(height: 20,),
+              const Text('Syarat & Ketentuan'),
+              Text(syarat)
+                ],)
+              ),
             ),
           )),
           Container(

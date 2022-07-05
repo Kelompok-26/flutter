@@ -27,10 +27,10 @@ class _PointScreenState extends State<PointScreen> {
     return Column(
       children: [
         Container(
-          height: 400,
+          height: 450,
           child : Column(
             children: [
-              const SizedBox(height: 10,),
+             Padding(padding: EdgeInsets.only(top: 40)),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                children:[
@@ -50,15 +50,14 @@ class _PointScreenState extends State<PointScreen> {
                 ]
               ),
           Card(
+              shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0)),
+              color: Colors.blue,
               elevation: 10,
                child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
                     height: 130,
                     width: 400,
-                    decoration: const BoxDecoration(
-                      color: Colors.blue,
-                     borderRadius: const BorderRadius.all(Radius.circular(15.0))
-                    ),
                child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -172,7 +171,7 @@ class _PointScreenState extends State<PointScreen> {
        const SizedBox(width: 10),
          Material(
            elevation: 5,
-           borderRadius:  BorderRadius.circular(2),
+          borderRadius: BorderRadius.circular(10),
            color: const Color.fromARGB(255, 158, 188, 250),
            child: MaterialButton(
           padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
@@ -191,23 +190,22 @@ class _PointScreenState extends State<PointScreen> {
             ),
       const SizedBox(height : 10),
       Material(
-      elevation: 5,
-      borderRadius: BorderRadius.circular(30),
-      color: const Color.fromARGB(255, 158, 188, 250),
-      child: MaterialButton(
-        padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
-        minWidth: MediaQuery.of(context).size.width,
-        onPressed: (){
-          // signIn(usernameController.text, passwordController.text);
-        },
-        child: const Text('Cek Benefit Penukaran Point', 
-        textAlign: TextAlign.center,
-        style: const TextStyle(
+           elevation: 5,
+          borderRadius: BorderRadius.circular(10),
+           color: const Color.fromARGB(255, 158, 188, 250),
+           child: MaterialButton(
+          padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
+          onPressed: (){
+               // signIn(usernameController.text, passwordController.text);
+           },
+           child: const Text('Cek Benefit Penukaran Point', 
+          textAlign: TextAlign.center,
+          style: TextStyle(
           fontSize: 15,
           color: Colors.black,
           fontWeight: FontWeight.bold),),  
-           ),
-           )    
+      ),
+   ),  
             ],
           ), ),
        Container(
@@ -252,24 +250,24 @@ class _PointScreenState extends State<PointScreen> {
                            const SizedBox(height: 20,),
                             SizedBox(
                             height: 197 ,
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: apimodel.throwProduct,
-                                   itemBuilder: ( (context, index) {
-                                    return productall(
-                                     typeProduct : apimodel.produckmodel?.typeProduct ,
-                                      providerName :  apimodel.produckmodel?.providerName, 
-                                      productName : apimodel.produckmodel?.productName, 
-                                     nominal : apimodel.produckmodel?.nominal,
-                                      context: context);
-                                    })
-                                                              ),
-                                ),
-                              ],
-                            ),
+                            // child: Row(
+                            //   children: [
+                            //     Expanded(
+                            //       child: ListView.builder(
+                            //         scrollDirection: Axis.horizontal,
+                            //         itemCount: apimodel.throwProduct,
+                            //        itemBuilder: ( (context, index) {
+                            //         return productall(
+                            //          typeProduct : apimodel.produckmodel?.typeProduct ,
+                            //           providerName :  apimodel.produckmodel?.providerName, 
+                            //           productName : apimodel.produckmodel?.productName, 
+                            //          nominal : apimodel.produckmodel?.nominal,
+                            //           context: context);
+                            //         })
+                            //                                   ),
+                            //     ),
+                            //   ],
+                            // ),
                           ),
                             const Padding(padding: EdgeInsets.only(top: 20)),
                           Row(

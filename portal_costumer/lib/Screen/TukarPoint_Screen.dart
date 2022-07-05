@@ -76,57 +76,59 @@ class _PointScreenState extends State<TukarPointScreen> {
         ),
         Expanded(child: 
             Container(
-              child: Column(
-                children: [
-                  SizedBox(height: 20,),
-                  Text('Form Penukaran Point ke paket Data'),
-                  SizedBox(height: 20,),
-                  Text('Isi form berikut untuk melakukan penukaran point ke paket data yang kamu inginkan'),
-                  SizedBox(height: 30,),
-                  PhoneNumberField,
-                  SizedBox(height: 20,),
-                  SizedBox(
-                    height: 100,
-                    width: MediaQuery.of(context).size.width,
-                    child: DropdownButtonFormField(
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: BorderSide(
-                            width: 2, 
-                            color : Colors.black))),
-                            value :selectedItem,
-                            items: items
-                              .map((item) =>DropdownMenuItem<String>(
-                              value :item,
-                              child: Text(
-                                item,style: TextStyle(fontSize: 15,fontWeight: FontWeight.w800))) )
-                                .toList(),
-                       onChanged: (item) => setState(()=>selectedItem = item as String?),
-                       ),
-                  ),
-                  SizedBox(height: 100,),
-                     Container(
-            height: 7,
-            color: Colors.grey[300],
-          ),
-                  Material(
-           elevation: 5,
-           color: Color.fromARGB(255, 158, 188, 250),
-           child: MaterialButton(
-          padding:EdgeInsets.fromLTRB(20, 15, 20, 15) ,
-          onPressed: (){
-               // signIn(usernameController.text, passwordController.text);
-           },
-           child: Text('Submit', 
-          textAlign: TextAlign.center,
-          style: TextStyle(
-          fontSize: 20,
-          color: Colors.black,
-          fontWeight: FontWeight.bold),),  
-      ),
-   )
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(height: 20,),
+                    Text('Form Penukaran Point ke paket Data'),
+                    SizedBox(height: 20,),
+                    Text('Isi form berikut untuk melakukan penukaran point ke paket data yang kamu inginkan'),
+                    SizedBox(height: 30,),
+                    PhoneNumberField,
+                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 100,
+                      width: MediaQuery.of(context).size.width,
+                      child: DropdownButtonFormField(
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide(
+                              width: 2, 
+                              color : Colors.black))),
+                              value :selectedItem,
+                              items: items
+                                .map((item) =>DropdownMenuItem<String>(
+                                value :item,
+                                child: Text(
+                                  item,style: TextStyle(fontSize: 15,fontWeight: FontWeight.w800))) )
+                                  .toList(),
+                         onChanged: (item) => setState(()=>selectedItem = item as String?),
+                         ),
+                    ),
+                    SizedBox(height: 100,),
+                       Container(
+                          height: 7,
+                          color: Colors.grey[300],
+                        ),
+                    Material(
+                         elevation: 5,
+                         color: Color.fromARGB(255, 158, 188, 250),
+                         child: MaterialButton(
+                        padding:EdgeInsets.fromLTRB(20, 15, 20, 15) ,
+                        onPressed: (){
+                 // signIn(usernameController.text, passwordController.text);
+                         },
+                         child: Text('Submit', 
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),),  
+                    ),
+                 )
+                  ],
+                ),
               ),
             )),
         
