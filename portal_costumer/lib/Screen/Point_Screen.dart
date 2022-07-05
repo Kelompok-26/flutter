@@ -257,13 +257,13 @@ class _PointScreenState extends State<PointScreen> {
                                 Expanded(
                                   child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
-                                    itemCount: apimodel.produckmodel?.data?.length,
+                                    itemCount: apimodel.throwProduct,
                                    itemBuilder: ( (context, index) {
                                     return productall(
-                                     typeProduct : apimodel.produckmodel?.data?[index].typeProduct ,
-                                      providerName :  apimodel.produckmodel?.data?[index].providerName, 
-                                      productName : apimodel.produckmodel?.data?[index].productName, 
-                                     nominal : apimodel.produckmodel?.data?[index].nominal,
+                                     typeProduct : apimodel.produckmodel?.typeProduct ,
+                                      providerName :  apimodel.produckmodel?.providerName, 
+                                      productName : apimodel.produckmodel?.productName, 
+                                     nominal : apimodel.produckmodel?.nominal,
                                       context: context);
                                     })
                                                               ),

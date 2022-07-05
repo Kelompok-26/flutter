@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, file_names
+import 'package:portal_costumer/Screen/Benefit_Screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
@@ -127,37 +128,42 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ],
                                   ),
                               ),
-                              Container(
-                                 height: 40,
-                                 width: 130,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  border: null,
-                                  borderRadius: BorderRadius.all(Radius.circular(15.0))
-                                ),
-                               child: Row(
-                                     mainAxisAlignment : MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Column(
-                                       mainAxisAlignment : MainAxisAlignment.center,
-                                       crossAxisAlignment :CrossAxisAlignment.center,
-                                      children: const [
-                                        Text('Cari Tahu' ,style: 
-                                        TextStyle(
-                                          fontSize: 12, 
-                                          fontWeight: FontWeight.bold),),
-                                        Text('Benefit Mu', style: 
-                                        TextStyle(
-                                          fontSize: 12, 
-                                          fontWeight: FontWeight.bold),),
-                                      ],
-                                ),
-                                    SizedBox(
-                                 height: 27,
-                                 width: 27,
-                                 child: Image.asset('assets/logo/logo-benefit.png', fit: BoxFit.contain,)),
-                                    ],
+                              GestureDetector(
+                                onTap : (){
+                               Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>const BenefitScreen() ), (route) => false);
+                                },
+                                child: Container(
+                                   height: 40,
+                                   width: 130,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    border: null,
+                                    borderRadius: BorderRadius.all(Radius.circular(15.0))
                                   ),
+                                 child: Row(
+                                       mainAxisAlignment : MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Column(
+                                         mainAxisAlignment : MainAxisAlignment.center,
+                                         crossAxisAlignment :CrossAxisAlignment.center,
+                                        children: const [
+                                          Text('Cari Tahu' ,style: 
+                                          TextStyle(
+                                            fontSize: 12, 
+                                            fontWeight: FontWeight.bold),),
+                                          Text('Benefit Mu', style: 
+                                          TextStyle(
+                                            fontSize: 12, 
+                                            fontWeight: FontWeight.bold),),
+                                        ],
+                                  ),
+                                      SizedBox(
+                                   height: 27,
+                                   width: 27,
+                                   child: Image.asset('assets/logo/logo-benefit.png', fit: BoxFit.contain,)),
+                                      ],
+                                    ),
+                                ),
                               ),
   
                             ],
@@ -294,13 +300,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Expanded(
                                   child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
-                                    itemCount: apimodel.produckmodel?.data?.length,
+                                    itemCount: apimodel.throwProduct,
                                    itemBuilder: ( (context, index) {
                                     return productall(
-                                     typeProduct : apimodel.produckmodel?.data?[index].typeProduct ,
-                                      providerName :  apimodel.produckmodel?.data?[index].providerName, 
-                                      productName : apimodel.produckmodel?.data?[index].productName, 
-                                     nominal : apimodel.produckmodel?.data?[index].nominal,
+                                     typeProduct : apimodel.produckmodel?.typeProduct,
+                                      providerName :apimodel.produckmodel?.providerName, 
+                                      productName : apimodel.produckmodel?.productName, 
+                                     nominal :apimodel.produckmodel?.nominal,
                                       context: context);
                                     })
                                                               ),
