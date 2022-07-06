@@ -108,7 +108,6 @@ class _loginScreenState extends State<loginScreen> {
             passwordController.text,
           );
           ScaffoldMessenger.of(context).hideCurrentSnackBar();
-          print(res);
           if(res == null){
               Fluttertoast.showToast(msg: 'Invalid Phonenumber / Password');
               return ; 
@@ -123,11 +122,12 @@ class _loginScreenState extends State<loginScreen> {
       body: Column(
         children: [
           const Padding(padding:const EdgeInsets.only(top : 45.0)),
-           SizedBox(
-            height: 50, 
-          child : SvgPicture.asset('assets/logo/cuate.svg')
+           Container(
+            height: 250, 
+            width: 250,
+          child:  SvgPicture.asset('assets/logo/cuate.svg', fit: BoxFit.cover,)
            ),
-         Padding(padding: EdgeInsets.only(top:  40.0)),
+         Padding(padding: EdgeInsets.only(top:  10.0)),
           Expanded(
             child: Container(
               decoration: const BoxDecoration(

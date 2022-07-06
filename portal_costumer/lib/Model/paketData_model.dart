@@ -1,14 +1,15 @@
 // ignore_for_file: file_names, prefer_const_constructors_in_immutables, prefer_const_constructors, sized_box_for_whitespace, unnecessary_string_interpolations
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
 class RekomendasiPaket extends StatefulWidget {
    RekomendasiPaket({ 
     Key? key,
-    required this.img, required this.paket , required this.point
+ required this.paket , required this.point
   }) : super(key: key);
-  final String img;
+ 
   final String paket  ;
   final int point ; 
 
@@ -44,7 +45,7 @@ class _RekomendasiPaketState extends State<RekomendasiPaket> {
                      Container(
                        height: 50,
                        width: 150,
-                       child: Image.asset('${widget.img}', fit: BoxFit.contain,)),
+                       child: SvgPicture.asset('assets/logo/paket.svg', fit: BoxFit.contain,)),
                       SizedBox(height: 4,)
                    ],
                  ),

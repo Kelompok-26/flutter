@@ -1,5 +1,6 @@
 // ignore_for_file: file_names, prefer_const_constructors_in_immutables
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
 Widget productall({
   required String? typeProduct ,required String? providerName,required String? productName,required int? nominal, required BuildContext context }) {
@@ -27,7 +28,7 @@ Widget productall({
                      SizedBox(
                        height: 50,
                        width: 150,
-                       child: Image.asset('assets/logo/logo.jpg', fit: BoxFit.contain,)),
+                       child: SvgPicture.asset('assets/logo/pulsa.svg', fit: BoxFit.contain,)),
                       const SizedBox(height: 4,)
                    ],
                  ),

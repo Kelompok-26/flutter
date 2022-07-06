@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Screen/Login_Screen.dart';
@@ -306,10 +307,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                        crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                     SizedBox(
-                          child:CircleAvatar(
-                                 backgroundImage: AssetImage('assets/logo/logo.jpg'),
-                                   radius : 100.0,),),
+                     Container(
+                        height: 250, 
+                        width: 250,
+                        child:  SvgPicture.asset('assets/logo/pendaftaran.svg', fit: BoxFit.cover,)
+           ),
                       SizedBox(height: 45,),
                       Column(
                       mainAxisAlignment: MainAxisAlignment.start,

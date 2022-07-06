@@ -335,46 +335,19 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Row(
                            children: [
                                RekomendasiPaket(
-                                 img :'assets/logo/logo.jpg',
                                  point : 5,
                                  paket : 'XL 20GB' , 
                                ),
                                SizedBox(width: 20,),
                                  RekomendasiPaket(
-                                 img :'assets/logo/logo.jpg' ,
                                  point : 12 ,
                                  paket :'Indosat 20GB' , 
                                ),
                                   SizedBox(width: 20,),
                                  RekomendasiPaket(
-                                 img :'assets/logo/logo.jpg' ,
                                  point : 12,
                                  paket : 'Smartfren 40GB' , 
-                               ),
-                                  SizedBox(width: 20,),
-                                 RekomendasiPaket(
-                                 img :'assets/logo/logo.jpg' ,
-                                 point : 13 ,
-                                 paket : 'Telkomsel 10GB' , 
-                               ),
-                                SizedBox(width: 20,),
-                                 RekomendasiPaket(
-                                 img :'assets/logo/logo.jpg' ,
-                                 point : 31,
-                                 paket : 'XL 5GB', 
-                               ),
-                                SizedBox(width: 20,),
-                                 RekomendasiPaket(
-                                 img :'assets/logo/logo.jpg' ,
-                                 point : 41,
-                                 paket  : 'Oredo 12GB', 
-                               ),
-                                SizedBox(width: 20,),
-                                 RekomendasiPaket(
-                                 img :'assets/logo/logo.jpg' ,
-                                 point : 12 ,
-                                 paket : 'Esia 12GB', 
-                               ),
+                               ), 
                                
                               ],),
                             )
