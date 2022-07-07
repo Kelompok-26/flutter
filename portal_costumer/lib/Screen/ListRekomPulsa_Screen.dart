@@ -96,25 +96,25 @@ class _listRekomState extends State<listRekom> {
               scrollDirection: Axis.vertical,
               children: [
                 ListRekomPulsa(
-                 img :'assets/logo/logo.jpg',
+                 img :'assets/logo/pulsa.svg',
                  pulsa : 'Pulsa 20RB' , 
                  point : 12,
                  ),
                   const SizedBox(height: 20,),
                 ListRekomPulsa(
-                  img :'assets/logo/logo.jpg',
+                  img :'assets/logo/pulsa.svg',
                   pulsa :'Pulsa 40RB' , 
                   point : 15,
                  ),
                   const SizedBox(height: 20,),
                  ListRekomPulsa(
-                  img :'assets/logo/logo.jpg',
+                  img :'assets/logo/pulsa.svg',
                   pulsa :'Pulsa 40RB' , 
                   point : 15,
                  ),
                   const SizedBox(height: 20,),
                  ListRekomPulsa(
-                  img :'assets/logo/logo.jpg',
+                  img :'assets/logo/pulsa.svg',
                   pulsa :'Pulsa 40RB' , 
                   point : 15,
                  ),

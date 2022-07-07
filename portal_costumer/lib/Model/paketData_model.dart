@@ -7,10 +7,10 @@ import 'package:portal_costumer/Screen/Detail_Screen.dart';
 class RekomendasiPaket extends StatefulWidget {
    RekomendasiPaket({ 
     Key? key,
- required this.paket , required this.point
+ required this.paket , required this.point, required this.image
   }) : super(key: key);
- 
-  final String paket  ;
+  final String image;
+  final String paket ;
   final int point ; 
 
   @override
@@ -24,7 +24,7 @@ class _RekomendasiPaketState extends State<RekomendasiPaket> {
     return Card(
       elevation: 3,
       child: GestureDetector(
-        onTap:(){ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen() ), (route) => false);
+        onTap:(){ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen(image: widget.image) ), (route) => false);
         },
         child: Container(
           decoration : BoxDecoration(
@@ -45,7 +45,7 @@ class _RekomendasiPaketState extends State<RekomendasiPaket> {
                      Container(
                        height: 50,
                        width: 150,
-                       child: SvgPicture.asset('assets/logo/paket.svg', fit: BoxFit.contain,)),
+                       child: SvgPicture.asset(widget.image, fit: BoxFit.contain,)),
                       SizedBox(height: 4,)
                    ],
                  ),

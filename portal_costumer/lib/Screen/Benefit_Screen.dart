@@ -31,16 +31,17 @@ class BenefitScreen extends StatelessWidget {
                shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0)),
               child: Container(
-                height:  150,
+                height:  100,
                 width: double.infinity,
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                   
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(padding: EdgeInsets.only(top:20)),
-                    Text('Kamu dapat melakukan penukaran poin dengan berbagai macam penawaran', style : TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
-                    Text('Sejak bergabung menjadi member C-', style : TextStyle(fontSize: 20, fontWeight: FontWeight.w700)), 
-                    Text('Loyal ', style : TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
+                    Text('Kamu dapat melakukan penukaran poin ', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
+                      Text('dengan berbagai macam penawaran', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
+                    SizedBox(height: 2,),
+                    Text('Sejak bergabung menjadi member C-Loyal', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)), 
                   ],
                 ),
               ),
@@ -53,14 +54,16 @@ class BenefitScreen extends StatelessWidget {
                shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0)),
               child: Container(
-                height:  150,
+                height:  110,
                 width: double.infinity,
                 child: Column(
                    mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                       Padding(padding: EdgeInsets.only(top:30)),
-                    Text('Dapatkan lebih banyak penawaran yang menarik dengan mengumpulkan poin yang sebanyak-banyaknya', style : TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),  
+                    Text('Dapatkan lebih banyak penawaran ', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),  
+                     Text('yang menarik dengan mengumpulkan poin', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)), 
+                      Text('yang sebanyak-banyaknya', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)), 
                   ],
                 ),
               ),
@@ -73,16 +76,17 @@ class BenefitScreen extends StatelessWidget {
                shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0)),
               child: Container(
-                height:  161,
+                height:  100,
                 width: double.infinity,
                 child: Column(
                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(padding: EdgeInsets.only(top : 10)),
-                    Text('Kamu dapat mengumpulkan poin', style : TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
-                    Text('melalui pembelian yang dilakukan pada halaman redeem dan dapat kamu', style : TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),  
-                   Text('tukarkan secara langsung pada aplikasi C-Loyal', style : TextStyle(fontSize: 20, fontWeight: FontWeight.w700)), 
+                    Text('Kamu dapat mengumpulkan poin', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
+                    Text('melalui pembelian yang dilakukan', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)), 
+                      Text(' pada halaman redeem dan dapat kamu tukarkan', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),   
+                   Text('secara langsung pada aplikasi C-Loyal', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)), 
                   ],
                 ),
               ),
@@ -95,16 +99,16 @@ class BenefitScreen extends StatelessWidget {
                shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0)),
               child: Container(
-                height:  150,
+                height:  100,
                 width: double.infinity,
                 child: Column(
                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Padding(padding: EdgeInsets.only(top:25)),
-                    Text('C-Loyal poin memberikanmu', style : TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
-                    Text('kemudahan untuk melakukan berbagai', style : TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),  
-                    Text('transaksi degan cepat', style : TextStyle(fontSize: 20, fontWeight: FontWeight.w700)), 
+                    Text('C-Loyal poin memberikanmu', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
+                    Text('kemudahan untuk melakukan berbagai', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),  
+                    Text('transaksi degan cepat', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)), 
                   ],
                 ),
               ),

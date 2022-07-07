@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, prefer_const_constructors_in_immutables, prefer_const_constructors, unnecessary_string_interpolations
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
 class ListRekomPulsa extends StatelessWidget {
    ListRekomPulsa({ 
@@ -17,7 +18,7 @@ class ListRekomPulsa extends StatelessWidget {
       elevation: 3,
       child: GestureDetector(
          onTap : (){
-          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen() ), (route) => false);
+          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen(image: img,) ), (route) => false);
         },
         child: Container(
           decoration : BoxDecoration(
@@ -31,21 +32,14 @@ class ListRekomPulsa extends StatelessWidget {
                  mainAxisAlignment : MainAxisAlignment.start,
                   crossAxisAlignment :CrossAxisAlignment.start,
                children: [
-                 Column(
-                   mainAxisAlignment : MainAxisAlignment.center,
-                  crossAxisAlignment :CrossAxisAlignment.center,
-                   children: [ 
-                     Image.asset('$img',width: 400,height: 60,fit: BoxFit.cover,),
-                     SizedBox(height: 2,),
-                   ],
-                 ),
-                 Row(
-                   mainAxisAlignment: MainAxisAlignment.start,
-                   children:[
-                     Text('$pulsa'),
-                   ],
-                 ),
-                   Text('Point $point')
+              Container
+                 (
+                 height: 60, 
+                 width: 400,
+                  child: SvgPicture.asset(img ,fit: BoxFit.contain,)),
+                 SizedBox(height: 2,),
+                 Text('$pulsa'),
+                 Text('Point $point')
                ],
              ),
          

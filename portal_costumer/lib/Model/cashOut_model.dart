@@ -2,8 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
-Widget productall({
-  required String? typeProduct ,required String? providerName,required String? productName,required int? nominal, required String? image ,required BuildContext context }) {
+Widget cashOut({
+  required String? typeProduct ,required String? image,
+  required int? nominal, required BuildContext context }) {
  return Card(
       elevation: 3,        
       child: GestureDetector(
@@ -39,10 +40,6 @@ Widget productall({
                    ],
                  ),
                  const SizedBox(height: 5,),
-                   Text(providerName.toString()),
-                     const SizedBox(height: 5,),
-                   Text(productName.toString()),
-                     const SizedBox(height: 5,),
                    Text('Harga Rp.$nominal')
                ],
              ),            

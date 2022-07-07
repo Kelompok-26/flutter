@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
 class TukarPointScreen extends StatefulWidget {
-  const TukarPointScreen({ Key? key }) : super(key: key);
-
+   TukarPointScreen({ Key? key ,
+  required this.image,
+  }) : super(key: key);
+  final String image;
+  
   @override
   State<TukarPointScreen> createState() => _PointScreenState();
 }
@@ -51,7 +55,7 @@ class _PointScreenState extends State<TukarPointScreen> {
     );
     return Scaffold(
         appBar: AppBar( 
-          backgroundColor:Colors.transparent,
+          backgroundColor:Colors.white,
           title: Text('Tukar Point',style: TextStyle(color:Colors.black),),
           centerTitle: true,
             leading: IconButton(
@@ -59,7 +63,7 @@ class _PointScreenState extends State<TukarPointScreen> {
              color: Colors.black,
           ),
           onPressed: (){
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen() ), (route) => false);
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen(image: widget.image,) ), (route) => false);
           },
         ),
         ),
@@ -68,7 +72,7 @@ class _PointScreenState extends State<TukarPointScreen> {
         Container(
           height: 200,
           width: 700,
-          child: Image.asset('assets/logo/logo.jpg', fit: BoxFit.cover,),
+          child: SvgPicture.asset(widget.image ,fit: BoxFit.cover,),
         ),
         Container(
           height: 7,

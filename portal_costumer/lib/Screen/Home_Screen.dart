@@ -1,5 +1,11 @@
 // ignore_for_file: prefer_const_constructors, file_names
+import 'package:flutter/rendering.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portal_costumer/Model/Emoney_model.dart';
+import 'package:portal_costumer/Model/cashOut_model.dart';
 import 'package:portal_costumer/Screen/Benefit_Screen.dart';
+import 'package:portal_costumer/Screen/RekomEmoney_screen.dart';
+import 'package:portal_costumer/Screen/RekomcashOut_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
@@ -237,47 +243,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Row(
                            children: [
                                ListPromo(
-                                 image: 'assets/logo/logo.jpg',
-                                 title: 'Promo',
-                                 subtitle: 'PromoKecil',
+                                 image: 'assets/logo/listPromo.svg',
                                ),
                                SizedBox(width: 20,),
                                  ListPromo(
-                                 image: 'assets/logo/logo.jpg',
-                                 title: 'Promo',
-                                 subtitle: 'PromoKecil',
+                                 image: 'assets/logo/listPromo2.svg',
                                ),
-                                  SizedBox(width: 20,),
-                                 ListPromo(
-                                 image: 'assets/logo/logo.jpg',
-                                 title: 'Promo',
-                                 subtitle: 'PromoKecil',
-                               ),
-                                  SizedBox(width: 20,),
-                                 ListPromo(
-                                 image: 'assets/logo/logo.jpg',
-                                 title: 'Promo',
-                                 subtitle: 'PromoKecil',
-                               ),
-                                SizedBox(width: 20,),
-                                 ListPromo(
-                                 image: 'assets/logo/logo.jpg',
-                                 title: 'Promo',
-                                 subtitle: 'PromoKecil',
-                               ),
-                                SizedBox(width: 20,),
-                                 ListPromo(
-                                 image: 'assets/logo/logo.jpg',
-                                 title: 'Promo',
-                                 subtitle: 'PromoKecil',
-                               ),
-                                SizedBox(width: 20,),
-                                 ListPromo(
-                                 image: 'assets/logo/logo.jpg',
-                                 title: 'Promo',
-                                 subtitle: 'PromoKecil',
-                               ),
-                               
+                                 
                               ],),
                             ),
                           Padding(padding: EdgeInsets.only(top: 20)),
@@ -335,27 +307,119 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Row(
                            children: [
                                RekomendasiPaket(
+                               image :'assets/logo/paket.svg',
                                  point : 5,
                                  paket : 'XL 20GB' , 
                                ),
                                SizedBox(width: 20,),
                                  RekomendasiPaket(
+                                    image :'assets/logo/paket.svg',
                                  point : 12 ,
                                  paket :'Indosat 20GB' , 
                                ),
                                   SizedBox(width: 20,),
                                  RekomendasiPaket(
+                                    image :'assets/logo/paket.svg',
                                  point : 12,
                                  paket : 'Smartfren 40GB' , 
                                ), 
                                
                               ],),
+                            ),
+                           Padding(padding: EdgeInsets.only(top: 20)),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment : MainAxisAlignment.spaceBetween,
+                            children: [ 
+                             Text('Rekomendasi Cash Out Untuk Anda'), 
+                              GestureDetector(
+                               child: Text('Liat Semua'),
+                              onTap: (){
+                                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>ListRekomCashout() ), (route) => false);
+                              }, ),
+                              ],
+                         
+                          ),
+                           SizedBox(height: 20,),
+                            SingleChildScrollView(
+                              scrollDirection : Axis.horizontal,
+                              child: Row(
+                           children: [
+                               cashOut(
+                                 image :'assets/logo/cashout.svg',
+                                 typeProduct : 'Cashout',
+                                 nominal : 30000 ,
+                                 context: context, 
+                               ),
+                               SizedBox(width: 20,),
+                                   cashOut(
+                                image :'assets/logo/cashout.svg',
+                                 typeProduct : 'Cashout',
+                                 nominal : 30000 ,
+                                 context: context, 
+                               ),
+                                  SizedBox(width: 20,),
+                                   cashOut(
+                                 image :'assets/logo/cashout.svg',
+                                 typeProduct : 'Cashout',
+                                 nominal : 30000 ,
+                                 context: context, 
+                               ), 
+                               
+                              ],),
+                            ),
+                          Padding(padding: EdgeInsets.only(top: 20)),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment : MainAxisAlignment.spaceBetween,
+                            children: [ 
+                             Text('Rekomendasi E Money Untuk Anda'), 
+                              GestureDetector(
+                               child: Text('Liat Semua'),
+                              onTap: (){
+                                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>ListRekomEmoney() ), (route) => false);
+                              }, ),
+                              ],
+                         
+                          ),
+                           SizedBox(height: 20,),
+                            SingleChildScrollView(
+                              scrollDirection : Axis.horizontal,
+                              child: Row(
+                           children: [
+                               Emoney(
+                                image :'assets/logo/emoney.svg',
+                                 typeProduct : 'Emoney',
+                                 nominal : 20000 , 
+                                 context: context, 
+                               ),
+                               SizedBox(width: 20,),
+                                 Emoney(
+                                   image :'assets/logo/emoney.svg',
+                                 typeProduct : 'Emoney',
+                                 nominal : 20000 , 
+                                 context: context, 
+                               ),
+                                  SizedBox(width: 20,),
+                                 Emoney(
+                                        image :'assets/logo/emoney.svg',
+                                 typeProduct : 'Emoney',
+                                 nominal : 20000 , 
+                                 context: context, 
+                               ), 
+                             ],),
+                            ),
+
+                            Container(
+                              height: 200,
+                              width: double.infinity,
+                              child: SvgPicture.asset('assets/logo/Promo.svg',fit : BoxFit.contain ),
                             )
                           ],
                         )),
                       ],
                     ),
-                                  ),
+                    ),
                   )
               ],
             ),

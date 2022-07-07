@@ -3,20 +3,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
-class ListRekomPaket extends StatefulWidget {
-   const ListRekomPaket({ 
+class RekomCashOutModel extends StatefulWidget {
+    RekomCashOutModel({ 
     Key? key,
-    required this.img, required this.paket , required this.point
+    required this.img, required this.typeProduct , required this.nominal
   }) : super(key: key);
   final String img;
-  final String paket  ;
-  final int point ; 
+  final String typeProduct  ;
+  final int nominal ; 
 
   @override
-  State<ListRekomPaket> createState() => _ListRekomPaketState();
+  State<RekomCashOutModel> createState() => _RekomCashOutModelState();
 }
 
-class _ListRekomPaketState extends State<ListRekomPaket> {
+class _RekomCashOutModelState extends State<RekomCashOutModel> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -31,7 +31,7 @@ class _ListRekomPaketState extends State<ListRekomPaket> {
             borderRadius: BorderRadius.all(const Radius.circular(40.0)),
           ),
           height: 100,
-          width: double.infinity,
+          width: 400,
            child :
              Column(
                  mainAxisAlignment : MainAxisAlignment.start,
@@ -40,11 +40,16 @@ class _ListRekomPaketState extends State<ListRekomPaket> {
                  Container
                  (
                  height: 60, 
-                 width: 400,
-                  child: SvgPicture.asset(widget.img ,fit: BoxFit.contain,)),
+                 width: double.infinity,
+                  child: SvgPicture.asset(widget.img)),
                  const SizedBox(height: 2,),
-                 Text(widget.paket),
-                 Text('Point ${widget.point}')
+                 Row(
+                   mainAxisAlignment: MainAxisAlignment.start,
+                   children:[
+                     Text(widget.typeProduct),
+                   ],
+                 ),
+                   Text('Harga Rp.${widget.nominal}')
                ],
              ),
          

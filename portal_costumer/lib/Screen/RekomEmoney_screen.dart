@@ -2,15 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
-import 'package:portal_costumer/Model/listRekomPaket_model.dart';
-class listRekomPaket extends StatefulWidget {
-  const listRekomPaket({ Key? key }) : super(key: key);
+import 'package:portal_costumer/Model/RekomEmoney_model.dart';
+
+class ListRekomEmoney extends StatefulWidget {
+  const ListRekomEmoney({ Key? key }) : super(key: key);
 
   @override
-  State<listRekomPaket> createState() => _listRekomPaketState();
+  State<ListRekomEmoney> createState() => _ListRekomEmoneyState();
 }
 
-class _listRekomPaketState extends State<listRekomPaket> {
+class _ListRekomEmoneyState extends State<ListRekomEmoney> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,30 +95,30 @@ class _listRekomPaketState extends State<listRekomPaket> {
           Expanded(
             child: ListView(
               scrollDirection : Axis.vertical,
-               children: const [ 
-                ListRekomPaket(
-                                 img :'assets/logo/paket.svg',
-                                 point : 5,
-                                 paket : 'XL 20GB' , 
+               children:  [ 
+                rekomEmoneyModel(
+                                 img :'assets/logo/emoney.svg' ,
+                                 typeProduct : 'Emoney' ,
+                                 nominal :20000 , 
                                ),
                                SizedBox(height: 20,),
-                ListRekomPaket(
-                                 img :'assets/logo/paket.svg' ,
-                                 point : 12 ,
-                                 paket :'Indosat 20GB' , 
+                rekomEmoneyModel(
+                                 img :'assets/logo/emoney.svg' ,
+                                 typeProduct : 'Emoney' ,
+                                 nominal :20000 , 
                                ),
                                   SizedBox(height: 20,),
-                ListRekomPaket(
-                                 img :'assets/logo/paket.svg' ,
-                                 point : 12,
-                                 paket : 'Smartfren 40GB' , 
+                 rekomEmoneyModel(
+                                 img :'assets/logo/emoney.svg' ,
+                                 typeProduct : 'Emoney' ,
+                                 nominal :20000 , 
                                ),
                                   SizedBox(height: 20,),
-                ListRekomPaket(
-                                 img :'assets/logo/paket.svg' ,
-                                 point : 13 ,
-                                 paket : 'Telkomsel 10GB' , 
-                               )]),
+              rekomEmoneyModel(
+                                 img :'assets/logo/emoney.svg' ,
+                                 typeProduct : 'Emoney' ,
+                                 nominal :20000 , 
+                               ),]),
           )
         ]) 
           

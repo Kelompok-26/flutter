@@ -302,49 +302,24 @@ class _PointScreenState extends State<PointScreen> {
                               scrollDirection : Axis.horizontal,
                               child: Row(
                            children: [
-                               RekomendasiPaket(
-                                
+                             RekomendasiPaket(
+                               image :'assets/logo/paket.svg',
                                  point : 5,
                                  paket : 'XL 20GB' , 
                                ),
-                               const SizedBox(width: 20,),
+                               SizedBox(width: 20,),
                                  RekomendasiPaket(
-                       
+                                    image :'assets/logo/paket.svg',
                                  point : 12 ,
                                  paket :'Indosat 20GB' , 
                                ),
-                                  const SizedBox(width: 20,),
+                                  SizedBox(width: 20,),
                                  RekomendasiPaket(
-                    
+                                    image :'assets/logo/paket.svg',
                                  point : 12,
                                  paket : 'Smartfren 40GB' , 
-                               ),
-                                  const SizedBox(width: 20,),
-                                 RekomendasiPaket(
-                             
-                                 point : 13 ,
-                                 paket : 'Telkomsel 10GB' , 
-                               ),
-                                const SizedBox(width: 20,),
-                                 RekomendasiPaket(
-                
-                                 point : 31,
-                                 paket : 'XL 5GB', 
-                               ),
-                                const SizedBox(width: 20,),
-                                 RekomendasiPaket(
-                          
-                                 point : 41,
-                                 paket  : 'Oredo 12GB', 
-                               ),
-                                const SizedBox(width: 20,),
-                                 RekomendasiPaket(
-                     
-                                 point : 12 ,
-                                 paket : 'Esia 12GB', 
-                               ),
-                               
-                              ],),
+                               ), 
+                                                             ],),
                             )
                           ],
                         )),

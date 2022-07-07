@@ -2,6 +2,7 @@
 // ignore_for_file: file_names, duplicate_ignore, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portal_costumer/Screen/TukarPoint_Screen.dart';
 class Detail_model extends StatelessWidget {
   const Detail_model({
@@ -22,7 +23,7 @@ class Detail_model extends StatelessWidget {
         SizedBox(
           height: 200,
           width: 700,
-          child: Image.asset(image, fit: BoxFit.cover,),
+          child: SvgPicture.asset(image, fit: BoxFit.cover,),
         ),
         Expanded(
           child: SingleChildScrollView(
@@ -76,7 +77,7 @@ class Detail_model extends StatelessWidget {
            child: MaterialButton(
           padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
           onPressed: (){
-          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>const TukarPointScreen() ), (route) => false);
+          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => TukarPointScreen(image: image,) ), (route) => false);
            },
            child: const Text('Konfirmasi Tukar Point', 
           textAlign: TextAlign.center,

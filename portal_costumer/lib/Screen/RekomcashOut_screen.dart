@@ -2,15 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
-import 'package:portal_costumer/Model/listRekomPaket_model.dart';
-class listRekomPaket extends StatefulWidget {
-  const listRekomPaket({ Key? key }) : super(key: key);
+import 'package:portal_costumer/Model/RekomCashout_model.dart';
+
+class ListRekomCashout extends StatefulWidget {
+  const ListRekomCashout({ Key? key }) : super(key: key);
 
   @override
-  State<listRekomPaket> createState() => _listRekomPaketState();
+  State<ListRekomCashout> createState() => _ListRekomCashoutState();
 }
 
-class _listRekomPaketState extends State<listRekomPaket> {
+class _ListRekomCashoutState extends State<ListRekomCashout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,30 +95,30 @@ class _listRekomPaketState extends State<listRekomPaket> {
           Expanded(
             child: ListView(
               scrollDirection : Axis.vertical,
-               children: const [ 
-                ListRekomPaket(
-                                 img :'assets/logo/paket.svg',
-                                 point : 5,
-                                 paket : 'XL 20GB' , 
+               children:  [ 
+                RekomCashOutModel(
+                                 img :'assets/logo/cashout.svg' ,
+                                 typeProduct : 'CashOut' ,
+                                 nominal :20000 , 
                                ),
                                SizedBox(height: 20,),
-                ListRekomPaket(
-                                 img :'assets/logo/paket.svg' ,
-                                 point : 12 ,
-                                 paket :'Indosat 20GB' , 
+                RekomCashOutModel(
+                                 img :'assets/logo/cashout.svg' ,
+                                 typeProduct : 'CashOut' ,
+                                 nominal :20000 , 
                                ),
                                   SizedBox(height: 20,),
-                ListRekomPaket(
-                                 img :'assets/logo/paket.svg' ,
-                                 point : 12,
-                                 paket : 'Smartfren 40GB' , 
+                 RekomCashOutModel(
+                                 img :'assets/logo/cashout.svg' ,
+                                 typeProduct : 'CashOut' ,
+                                 nominal :20000 , 
                                ),
                                   SizedBox(height: 20,),
-                ListRekomPaket(
-                                 img :'assets/logo/paket.svg' ,
-                                 point : 13 ,
-                                 paket : 'Telkomsel 10GB' , 
-                               )]),
+              RekomCashOutModel(
+                                 img :'assets/logo/cashout.svg' ,
+                                 typeProduct : 'CashOut' ,
+                                 nominal :20000 , 
+                               ),]),
           )
         ]) 
           

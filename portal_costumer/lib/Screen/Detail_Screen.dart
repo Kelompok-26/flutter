@@ -1,11 +1,12 @@
 // ignore_for_file: file_names, prefer_const_constructors, duplicate_ignore
-
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/Detail_model.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
 class DetailScreen extends StatefulWidget {
-  const DetailScreen({ Key? key }) : super(key: key);
-
+ DetailScreen({ Key? key,  
+  required this.image }) : super(key: key);
+final String image;
   @override
   State<DetailScreen> createState() => _DetailScreenState();
 }
@@ -33,7 +34,7 @@ class _DetailScreenState extends State<DetailScreen> {
           syarat : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
           point: 14,
           benefit: 'Pulsa 50RB',
-          image : 'assets/logo/logo.jpg',
+          image : widget.image,
           tanggal: '10 Oktober 2000',
         ),
       
