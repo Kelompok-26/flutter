@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:portal_costumer/Model/Navbar_model.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
 class TukarPointScreen extends StatefulWidget {
    TukarPointScreen({ Key? key ,
@@ -43,7 +44,7 @@ class _PointScreenState extends State<TukarPointScreen> {
                       color: Colors.black, 
                       fontSize: 15 , 
                     fontWeight: FontWeight.w400),
-        labelText: "Phone numberl",
+        labelText: "Phone number",
          labelStyle: TextStyle(
                       color: Colors.black, 
                       fontSize: 15 , 
@@ -117,11 +118,50 @@ class _PointScreenState extends State<TukarPointScreen> {
                         ),
                     Material(
                          elevation: 5,
-                         color: Color.fromARGB(255, 158, 188, 250),
+                         color: Color.fromARGB(255, 144, 181, 255),
                          child: MaterialButton(
                         padding:EdgeInsets.fromLTRB(20, 15, 20, 15) ,
                         onPressed: (){
-                 // signIn(usernameController.text, passwordController.text);
+                        showModalBottomSheet(context: context, builder: (BuildContext context){
+                           return Container(
+                            height: double.infinity,
+                            width: double.infinity,
+                            child : Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children : [
+                                Padding(padding: EdgeInsets.only(top: 10)),
+                                Container(
+                                  height: 200,
+                                  width : 200,
+                                  child: SvgPicture.asset('assets/logo/notifberhasil.svg' ,
+                                  fit :BoxFit.contain,)),
+                                 Padding(padding: EdgeInsets.only(top: 10)),
+                                 Text('Selamat !!!'),
+                                 Text('Permintaan untuk Penukaran '),
+                                 Text('Berhasil Dilakukan'),
+
+                                 Padding(padding: EdgeInsets.only(top : 30)),
+                                 Material(
+                                  elevation: 5,
+                                  color: Colors.blue,
+                                  child: MaterialButton(
+                                  padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
+                                  onPressed: (){
+                                   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>itemNav() ), (route) => false);
+                },
+                                 child: const Text('Tutup', 
+                                 textAlign: TextAlign.center,
+                                 style: TextStyle(
+                                 fontSize: 15,
+                                 color: Colors.white,
+                                 fontWeight: FontWeight.w800),),  
+                 ),
+                  )
+                              ]
+                            ),           
+                           );
+                        });
                          },
                          child: Text('Submit', 
                         textAlign: TextAlign.center,

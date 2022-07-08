@@ -6,6 +6,7 @@ import 'package:portal_costumer/Model/cashOut_model.dart';
 import 'package:portal_costumer/Screen/Benefit_Screen.dart';
 import 'package:portal_costumer/Screen/RekomEmoney_screen.dart';
 import 'package:portal_costumer/Screen/RekomcashOut_screen.dart';
+import 'package:portal_costumer/Screen/informasi_Screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
@@ -184,6 +185,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: MaterialButton(
                                minWidth: MediaQuery.of(context).size.width,
                                onPressed: (){
+                                 Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>InformasiScreen() ), (route) => false);
                              },
                            child: Row(
                              children: [

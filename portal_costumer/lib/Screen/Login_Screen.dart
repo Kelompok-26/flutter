@@ -108,6 +108,7 @@ class _loginScreenState extends State<loginScreen> {
             passwordController.text,
           );
           ScaffoldMessenger.of(context).hideCurrentSnackBar();
+          print(res);
           if(res == null){
               Fluttertoast.showToast(msg: 'Invalid Phonenumber / Password');
               return ; 
