@@ -1,6 +1,9 @@
 // ignore_for_file: file_names, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:portal_costumer/Screen/KebijakanPrivasi_Screen.dart';
+import 'package:portal_costumer/Screen/SyaratdanKetentuan_Screen.dart';
+import 'package:portal_costumer/Screen/editProfile.dart';
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({ Key? key }) : super(key: key);
 
@@ -55,7 +58,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Card(
                 elevation: 10,
                 child: Container(
-                  height: 200,
+                  height: 120,
                   width: 360,
                   decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(40.0)),
@@ -63,41 +66,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: Column(
                     children: [
                       const Padding(padding: EdgeInsets.only(top: 20)),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          const Icon(Icons.star_border_outlined, size: 35,),
-                          const Text('Beri Penilaian',
-                            style: TextStyle(
-                              fontSize: 20,
+                      GestureDetector(
+                        onTap: (){
+                           Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>EditProfileScreen() ), (route) => false);
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            const Icon(Icons.account_circle_rounded, size: 24,),
+                            const Text('Edit Profil',
+                              style: TextStyle(
+                                fontSize: 15,
+                              ),
                             ),
-                          ),
-                             SizedBox(width: MediaQuery.of(context).size.width * 0.34,),
-                          const Icon(Icons.arrow_right_sharp,size: 40),
-                        ],
+                               SizedBox(width: MediaQuery.of(context).size.width * 0.42,),
+                            const Icon(Icons.arrow_right_sharp,size: 40),
+                          ],
+                        ),
                       ),
-                       const Padding(padding: EdgeInsets.only(top: 20)),
+                       const Padding(padding: EdgeInsets.only(top: 10)),
                          Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          const Icon(Icons.lock_outline,size: 35,),
-                          const Text('Ubah Password',
-                            style: TextStyle(
-                              fontSize: 20,
-                            ),
-                          ),
-                             SizedBox(width: MediaQuery.of(context).size.width * 0.3,),
-                          const Icon(Icons.arrow_right_sharp,size: 40),
-                        ],
-                      ),
-                       const Padding(padding: EdgeInsets.only(top: 20)),
-                         Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          const Icon(Icons.notifications, size: 35,),
+                          const Icon(Icons.notifications, size: 24,),
                           const Text('Notifikasi',
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 15,
                             ),
                           ),
                              SizedBox(width: MediaQuery.of(context).size.width * 0.44,),
@@ -109,67 +103,76 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               Container(
-                  height: 20,
+                  height: 3,
                   color: Colors.grey[300],
               ),
              Card(
                 elevation: 10,
                 child: Container(
-                  height: 200,
+                  height: 150,
                   width: 360,
                   decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(40.0)),
                   ),
                   child: Column(
                     children: [
-                      const Padding(padding: EdgeInsets.only(top: 20)),
+                      const Padding(padding: EdgeInsets.only(top: 10)),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          const Icon(Icons.headphones_outlined, size: 35,),
-                          const Text('Pusat Bantuan',
+                          const Icon(Icons.question_mark_outlined, size: 24,),
+                          const Text('FAQ',
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 15,
                             ),
                           ),
-                             SizedBox(width: MediaQuery.of(context).size.width * 0.34,),
+                             SizedBox(width: MediaQuery.of(context).size.width * 0.47,),
                           const Icon(Icons.arrow_right_sharp,size: 40),
                         ],
                       ),
-                       const Padding(padding: EdgeInsets.only(top: 20)),
-                         Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          const Icon(Icons.menu_book_outlined,size: 35,),
-                          const Text('Syarat dan Ketentuan',
-                            style: TextStyle(
-                              fontSize: 20,
+                       const Padding(padding: EdgeInsets.only(top: 10)),
+                         GestureDetector(
+                          onTap: (){
+                             Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>SyaratDanKetentuanScreen() ), (route) => false);
+                          },
+                           child: Row(
+                                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                 children: [
+                            const Icon(Icons.menu_book_outlined,size: 24,),
+                            const Text('Syarat dan Ketentuan',
+                              style: TextStyle(
+                                fontSize: 15,
+                              ),
                             ),
-                          ),
-                             SizedBox(width: MediaQuery.of(context).size.width * 0.2,),
-                          const Icon(Icons.arrow_right_sharp,size: 40),
-                        ],
-                      ),
-                       const Padding(padding: EdgeInsets.only(top: 20)),
-                         Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          const Icon(Icons.privacy_tip_outlined, size: 35,),
-                          const Text('Kebijakan Privasi',
-                            style: TextStyle(
-                              fontSize: 20,
+                               SizedBox(width: MediaQuery.of(context).size.width * 0.2,),
+                            const Icon(Icons.arrow_right_sharp,size: 40),
+                                                 ],
+                                               ),
+                         ),
+                       const Padding(padding: EdgeInsets.only(top: 10)),
+                         GestureDetector(
+                          onTap: (){ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>KebijakanPrivasiScreen() ), (route) => false);
+                          },
+                           child: Row(
+                                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                 children: [
+                            const Icon(Icons.privacy_tip_outlined, size: 24,),
+                            const Text('Kebijakan Privasi',
+                              style: TextStyle(
+                                fontSize: 15,
+                              ),
                             ),
-                          ),
-                             SizedBox(width: MediaQuery.of(context).size.width * 0.3,),
-                          const Icon(Icons.arrow_right_sharp,size: 40),
-                        ],
-                      )
+                               SizedBox(width: MediaQuery.of(context).size.width * 0.3,),
+                            const Icon(Icons.arrow_right_sharp,size: 40),
+                                                 ],
+                                               ),
+                         )
                     ],
                   ),
                 ),
               ),
              Container(
-                  height: 30,
+                  height: 3,
                   color: Colors.grey[300],
               ),
           
@@ -180,14 +183,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          const Icon(Icons.login_outlined,size: 35,),
+                          const Icon(Icons.logout_outlined,size: 24, color: Colors.red,),
                           const Text('Keluar',
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 15,
+                              color: Colors.red
                             ),
                           ),
-                             SizedBox(width: MediaQuery.of(context).size.width * 0.47,),
-                          const Icon(Icons.arrow_right_sharp,size: 40),
+                             SizedBox(width: MediaQuery.of(context).size.width * 0.4,),
+                          const Icon(Icons.arrow_right_sharp,size: 40, color: Colors.red,),
                         ],
                       ),
                 ),
