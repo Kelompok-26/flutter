@@ -1,9 +1,10 @@
-// ignore_for_file: prefer_const_constructors, file_names
+// ignore_for_file: prefer_const_constructors, file_names, unnecessary_import, prefer_const_literals_to_create_immutables
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portal_costumer/Model/Emoney_model.dart';
 import 'package:portal_costumer/Model/cashOut_model.dart';
 import 'package:portal_costumer/Screen/Benefit_Screen.dart';
+import 'package:portal_costumer/Screen/FAQ_Screen.dart';
 import 'package:portal_costumer/Screen/RekomEmoney_screen.dart';
 import 'package:portal_costumer/Screen/RekomcashOut_screen.dart';
 import 'package:portal_costumer/Screen/informasi_Screen.dart';
@@ -11,7 +12,6 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Model/Clippath_model.dart';
-import 'package:portal_costumer/Model/ModelClass/Produck_model.dart';
 import 'package:portal_costumer/Model/PromoList_model.dart';
 import 'package:portal_costumer/Model/Pulsa_model.dart';
 import 'package:portal_costumer/Model/paketData_model.dart';
@@ -71,8 +71,13 @@ class _HomeScreenState extends State<HomeScreen> {
                      ],
                    ),
                    SizedBox(width: MediaQuery.of(context).size.width * 0.28,),
-                   CircleAvatar( backgroundImage: AssetImage('assets/logo/question.png'),
-                                   radius : 15.0,),
+                   GestureDetector(
+                    onTap: (){
+                           Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>FaqScreen() ), (route) => false);
+                        },
+                     child: CircleAvatar( backgroundImage: AssetImage('assets/logo/question.png'),
+                                     radius : 15.0,),
+                   ),
                    ],
                  ),
                 ],
@@ -272,20 +277,21 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 197 ,
                             child: Row(
                               children: [
-                                // Expanded(
-                                //   child: ListView.builder(
-                                //     scrollDirection: Axis.horizontal,
-                                //     itemCount: apimodel.produckmodel?,
-                                //    itemBuilder: ( (context, index) {
-                                //     return productall(
-                                //       typeProduct : apimodel.produckmodel?.typeProduct,
-                                //       providerName :apimodel.produckmodel?.providerName, 
-                                //       productName : apimodel.produckmodel?.productName, 
-                                //       nominal :apimodel.produckmodel?.nominal,
-                                //       context: context);
-                                //     })
-                                //                               ),
-                                // ),
+                                Expanded(
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: apimodel.produckmodel?.data?.length,
+                                   itemBuilder: ( (context, index) {
+                                    return productall(
+                                      typeProduct : apimodel.produckmodel?.data?[index].typeProduct,
+                                      providerName :apimodel.produckmodel?.data?[index].providerName, 
+                                      productName : apimodel.produckmodel?.data?[index].productName, 
+                                      nominal :apimodel.produckmodel?.data?[index].nominal,
+                                      image : 'assets/logo/pulsa.svg',
+                                      context: context);
+                                    })
+                                                              ),
+                                ),
                               ],
                             ),
                           ),
@@ -412,7 +418,7 @@ class _HomeScreenState extends State<HomeScreen> {
                              ],),
                             ),
 
-                            Container(
+                            SizedBox(
                               height: 200,
                               width: double.infinity,
                               child: SvgPicture.asset('assets/logo/Promo.svg',fit : BoxFit.contain ),

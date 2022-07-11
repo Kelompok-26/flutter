@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
 class SyaratDanKetentuanScreen extends StatelessWidget {
@@ -8,14 +10,14 @@ class SyaratDanKetentuanScreen extends StatelessWidget {
     return Scaffold( 
       appBar: AppBar( 
         backgroundColor: Colors.white,
-        title: Text('Syarat Dan Ketentuan',
+        title: const Text('Syarat Dan Ketentuan',
             style: TextStyle(
               fontSize: 20,
                 color: Colors.black,
         ),),
         centerTitle: true, 
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, 
+          icon: const Icon(Icons.arrow_back, 
           color: Color.fromARGB(255, 66, 179, 235),
           ),
           onPressed: (){
@@ -24,22 +26,22 @@ class SyaratDanKetentuanScreen extends StatelessWidget {
         ),
       ),
     body: ListView(
-      padding: EdgeInsets.only(left: 20 , right: 20),
+      padding: const EdgeInsets.only(left: 20 , right: 20),
       scrollDirection: Axis.vertical,
       children: [
-        Padding(padding: EdgeInsets.only(top: 20)),
-        Text('Ketentuan Umum aplikasi C-Loyal', style: TextStyle( 
+        const Padding(padding: EdgeInsets.only(top: 20)),
+        const Text('Ketentuan Umum aplikasi C-Loyal', style: TextStyle( 
           fontSize: 20, 
           fontWeight: FontWeight.w800, 
           color: Colors.black,
         ),), 
-         Padding(padding: EdgeInsets.only(top: 20)),
-         Container( 
+         const Padding(padding: EdgeInsets.only(top: 20)),
+         SizedBox( 
           width: 100,
           child: Column( 
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: const [
               Text('1. Aplikasi C-Loyal hanya digunakan untuk menggunakan layanan yang tersedia',
                    style: TextStyle(
                       fontSize: 15, 

@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:portal_costumer/Screen/FAQ_Screen.dart';
 import 'package:portal_costumer/Screen/KebijakanPrivasi_Screen.dart';
 import 'package:portal_costumer/Screen/SyaratdanKetentuan_Screen.dart';
 import 'package:portal_costumer/Screen/editProfile.dart';
@@ -117,23 +118,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: Column(
                     children: [
                       const Padding(padding: EdgeInsets.only(top: 10)),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          const Icon(Icons.question_mark_outlined, size: 24,),
-                          const Text('FAQ',
-                            style: TextStyle(
-                              fontSize: 15,
+                      GestureDetector(
+                         onTap: (){
+                           Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>const FaqScreen() ), (route) => false);
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            const Icon(Icons.question_mark_outlined, size: 24,),
+                            const Text('FAQ',
+                              style: TextStyle(
+                                fontSize: 15,
+                              ),
                             ),
-                          ),
-                             SizedBox(width: MediaQuery.of(context).size.width * 0.47,),
-                          const Icon(Icons.arrow_right_sharp,size: 40),
-                        ],
+                               SizedBox(width: MediaQuery.of(context).size.width * 0.47,),
+                            const Icon(Icons.arrow_right_sharp,size: 40),
+                          ],
+                        ),
                       ),
                        const Padding(padding: EdgeInsets.only(top: 10)),
                          GestureDetector(
                           onTap: (){
-                             Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>SyaratDanKetentuanScreen() ), (route) => false);
+                             Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>const SyaratDanKetentuanScreen() ), (route) => false);
                           },
                            child: Row(
                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -151,7 +157,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                          ),
                        const Padding(padding: EdgeInsets.only(top: 10)),
                          GestureDetector(
-                          onTap: (){ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>KebijakanPrivasiScreen() ), (route) => false);
+                          onTap: (){ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>const KebijakanPrivasiScreen() ), (route) => false);
                           },
                            child: Row(
                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -178,7 +184,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           
               Card( 
                 elevation: 10,
-                child: Container(
+                child: SizedBox(
                    height: 50,
                   child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

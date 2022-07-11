@@ -32,7 +32,7 @@ class ListRekomPulsa extends StatelessWidget {
                  mainAxisAlignment : MainAxisAlignment.start,
                   crossAxisAlignment :CrossAxisAlignment.start,
                children: [
-              Container
+              SizedBox
                  (
                  height: 60, 
                  width: 400,

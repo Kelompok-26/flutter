@@ -1,6 +1,7 @@
+// ignore_for_file: file_names, non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Screen/Login_Screen.dart';
 class RegistrationScreen extends StatefulWidget {
@@ -14,14 +15,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     APIModel? apimodel;
       
    final _formkey = GlobalKey<FormState>();
-    final usernameController  = new TextEditingController();
-     final phonenumberController  = new TextEditingController();
-    final emailController  = new TextEditingController();
-    final newPasswordController  = new TextEditingController();
-    final confirmPasswordController = new TextEditingController();
-    final pointControler  = new TextEditingController();
-    final dateofBirdController = new TextEditingController();
-    final accountNumberController = new TextEditingController();
+    final usernameController  = TextEditingController();
+     final phonenumberController  = TextEditingController();
+    final emailController  = TextEditingController();
+    final newPasswordController  = TextEditingController();
+    final confirmPasswordController = TextEditingController();
+    final pointControler  = TextEditingController();
+    final dateofBirdController = TextEditingController();
+    final accountNumberController = TextEditingController();
   @override
   Widget build(BuildContext context) {  
       final EmailField = TextFormField(
@@ -42,8 +43,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       },
       textInputAction: TextInputAction.next,
       decoration : InputDecoration(
-        prefixIcon: Icon(Icons.mail_outline),
-        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        prefixIcon: const Icon(Icons.mail_outline),
+        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Email",
         labelText:"Email",
         border: OutlineInputBorder(
@@ -69,8 +70,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       },
       textInputAction: TextInputAction.next,
       decoration : InputDecoration(
-        prefixIcon: Icon(Icons.people),
-        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        prefixIcon: const Icon(Icons.people),
+        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Username",
         labelText:"Username",
         border: OutlineInputBorder(
@@ -96,8 +97,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       },
       textInputAction: TextInputAction.next,
       decoration : InputDecoration(
-        prefixIcon: Icon(Icons.card_giftcard_outlined),
-        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        prefixIcon: const Icon(Icons.card_giftcard_outlined),
+        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Tanggal Lahir",
         labelText:"Tanggal Lahir",
         border: OutlineInputBorder(
@@ -123,8 +124,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       },
       textInputAction: TextInputAction.next,
       decoration : InputDecoration(
-        prefixIcon: Icon(Icons.account_balance_wallet_rounded),
-        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        prefixIcon: const Icon(Icons.account_balance_wallet_rounded),
+        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "accountNumber",
         labelText:"accountNumber",
         border: OutlineInputBorder(
@@ -150,8 +151,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       },
       textInputAction: TextInputAction.next,
       decoration : InputDecoration(
-        prefixIcon: Icon(Icons.phone),
-        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        prefixIcon: const Icon(Icons.phone),
+        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Phone Number",
         labelText:"Phone Number",
         border: OutlineInputBorder(
@@ -177,8 +178,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       },
       textInputAction: TextInputAction.next,
       decoration : InputDecoration(
-        prefixIcon: Icon(Icons.copyright_outlined),
-        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        prefixIcon: const Icon(Icons.copyright_outlined),
+        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Point",
         labelText:"Point",
         border: OutlineInputBorder(
@@ -191,21 +192,22 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       controller: newPasswordController,
       obscureText: true,
       validator: (value){
-        RegExp regex = new RegExp(r'^.{5,}$');
+        RegExp regex = RegExp(r'^.{5,}$');
         if(value!.isEmpty){
           return ("Please Is Required for Loggin");
         }
         if(!regex.hasMatch(value)){
           return ("Password not Valid(Min. 5 Character)");
         }
+        return null;
       },
       onSaved: (value){
         newPasswordController.text=value!;
       },
        textInputAction: TextInputAction.next,
       decoration : InputDecoration(
-        prefixIcon: Icon(Icons.vpn_key),
-        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        prefixIcon: const Icon(Icons.vpn_key),
+        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Password",
         labelText: "Password",
         border: OutlineInputBorder(
@@ -220,7 +222,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       validator: (value){
         if(confirmPasswordController.text != newPasswordController.text){
             return "Password don't Match";
-        };
+        }
         return null;
       },
       onSaved: (value){
@@ -228,8 +230,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       },
        textInputAction: TextInputAction.done,
       decoration : InputDecoration(
-        prefixIcon: Icon(Icons.vpn_key),
-        contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        prefixIcon: const Icon(Icons.vpn_key),
+        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Confirm Password",
         labelText: "Confirm Password" ,
         border: OutlineInputBorder(
@@ -240,9 +242,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
      final SignUpButton = Material(
       elevation: 5,
       borderRadius: BorderRadius.circular(30),
-      color: Color.fromARGB(255, 158, 188, 250),
+      color: const Color.fromARGB(255, 158, 188, 250),
       child: MaterialButton(
-        padding:EdgeInsets.fromLTRB(20, 15, 20, 15) ,
+        padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () async {
       //     if(_formkey.currentState!.validate()){
@@ -271,7 +273,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       //       Fluttertoast.showToast(msg: e.toString());
       //     }
       },
-        child: Text('SignUp', 
+        child: const Text('SignUp', 
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: 15,
@@ -285,11 +287,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, 
+          icon: const Icon(Icons.arrow_back, 
           color: Color.fromARGB(255, 66, 179, 235),
           ),
           onPressed: (){
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>loginScreen() ), (route) => false);
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>const loginScreen() ), (route) => false);
           },
         ),
       ),
@@ -302,56 +304,54 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               padding: const EdgeInsets.all(36.0),
               child: Form(
                 key: _formkey,
-                child: Container(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                       crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                     Container(
-                        height: 250, 
-                        width: 250,
-                        child:  SvgPicture.asset('assets/logo/pendaftaran.svg', fit: BoxFit.cover,)
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                     crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                   SizedBox(
+                      height: 250, 
+                      width: 250,
+                      child:  SvgPicture.asset('assets/logo/pendaftaran.svg', fit: BoxFit.cover,)
            ),
-                      SizedBox(height: 45,),
-                      Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                       crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text('Hi ',
-                            style: TextStyle(
-                                  color: Color.fromARGB(245, 27, 25, 21),
-                                  fontWeight:  FontWeight.w800,
-                                  fontSize: 60,
-                                ),),
-                          Text('Create a new account',
-                            style: TextStyle(
+                    const SizedBox(height: 45,),
+                    Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        const Text('Hi ',
+                          style: TextStyle(
                                 color: Color.fromARGB(245, 27, 25, 21),
-                                fontWeight:  FontWeight.w600,
-                                fontSize: 20,
-                              )),
-                             SizedBox(height: 45,),
-                          EmailField,
-                             SizedBox(height: 20,),
-                          usernameField,
-                          SizedBox(height: 20,),
-                          PhonenumberField,
-                             SizedBox(height: 20,),
-                          newPasswordField,
-                             SizedBox(height: 20,),
-                          ConfirmPasswordField,
-                             SizedBox(height: 20,),
-                          PointField,
-                             SizedBox(height: 20,),
-                          BirthdayField,
-                             SizedBox(height: 20,),
-                          AccountNumberField,
-                            SizedBox(height: 20,),
-                          SignUpButton,
-                             SizedBox(height: 15,),
-                        ],
-                      ),
-                    ],
-                  ),
+                                fontWeight:  FontWeight.w800,
+                                fontSize: 60,
+                              ),),
+                        const Text('Create a new account',
+                          style: TextStyle(
+                              color: Color.fromARGB(245, 27, 25, 21),
+                              fontWeight:  FontWeight.w600,
+                              fontSize: 20,
+                            )),
+                           const SizedBox(height: 45,),
+                        EmailField,
+                           const SizedBox(height: 20,),
+                        usernameField,
+                        const SizedBox(height: 20,),
+                        PhonenumberField,
+                           const SizedBox(height: 20,),
+                        newPasswordField,
+                           const SizedBox(height: 20,),
+                        ConfirmPasswordField,
+                           const SizedBox(height: 20,),
+                        PointField,
+                           const SizedBox(height: 20,),
+                        BirthdayField,
+                           const SizedBox(height: 20,),
+                        AccountNumberField,
+                          const SizedBox(height: 20,),
+                        SignUpButton,
+                           const SizedBox(height: 15,),
+                      ],
+                    ),
+                  ],
                 ) ),
             ),
           ),

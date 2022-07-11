@@ -101,19 +101,19 @@ class _ListRekomCashoutState extends State<ListRekomCashout> {
                                  typeProduct : 'CashOut' ,
                                  nominal :20000 , 
                                ),
-                               SizedBox(height: 20,),
+                               const SizedBox(height: 20,),
                 RekomCashOutModel(
                                  img :'assets/logo/cashout.svg' ,
                                  typeProduct : 'CashOut' ,
                                  nominal :20000 , 
                                ),
-                                  SizedBox(height: 20,),
+                                  const SizedBox(height: 20,),
                  RekomCashOutModel(
                                  img :'assets/logo/cashout.svg' ,
                                  typeProduct : 'CashOut' ,
                                  nominal :20000 , 
                                ),
-                                  SizedBox(height: 20,),
+                                  const SizedBox(height: 20,),
               RekomCashOutModel(
                                  img :'assets/logo/cashout.svg' ,
                                  typeProduct : 'CashOut' ,

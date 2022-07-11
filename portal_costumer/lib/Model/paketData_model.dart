@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, prefer_const_constructors_in_immutables, prefer_const_constructors, sized_box_for_whitespace, unnecessary_string_interpolations
+// ignore_for_file: file_names, prefer_const_constructors_in_immutables, prefer_const_constructors, sized_box_for_whitespace, unnecessary_string_interpolations, unused_import
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

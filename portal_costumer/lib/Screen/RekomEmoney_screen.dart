@@ -101,19 +101,19 @@ class _ListRekomEmoneyState extends State<ListRekomEmoney> {
                                  typeProduct : 'Emoney' ,
                                  nominal :20000 , 
                                ),
-                               SizedBox(height: 20,),
+                               const SizedBox(height: 20,),
                 rekomEmoneyModel(
                                  img :'assets/logo/emoney.svg' ,
                                  typeProduct : 'Emoney' ,
                                  nominal :20000 , 
                                ),
-                                  SizedBox(height: 20,),
+                                  const SizedBox(height: 20,),
                  rekomEmoneyModel(
                                  img :'assets/logo/emoney.svg' ,
                                  typeProduct : 'Emoney' ,
                                  nominal :20000 , 
                                ),
-                                  SizedBox(height: 20,),
+                                  const SizedBox(height: 20,),
               rekomEmoneyModel(
                                  img :'assets/logo/emoney.svg' ,
                                  typeProduct : 'Emoney' ,

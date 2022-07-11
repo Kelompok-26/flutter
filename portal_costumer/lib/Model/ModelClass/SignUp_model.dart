@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, camel_case_types, prefer_collection_literals
+
 class signUpModel {
   String? name;
   String? email;
@@ -27,14 +29,14 @@ class signUpModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['Name'] = this.name;
-    data['Email'] = this.email;
-    data['PhoneNumber'] = this.phoneNumber;
-    data['Password'] = this.password;
-    data['Point'] = this.point;
-    data['DateofBirth'] = this.dateofBirth;
-    data['AccountNumber'] = this.accountNumber;
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['Name'] = name;
+    data['Email'] = email;
+    data['PhoneNumber'] = phoneNumber;
+    data['Password'] = password;
+    data['Point'] = point;
+    data['DateofBirth'] = dateofBirth;
+    data['AccountNumber'] = accountNumber;
     return data;
   }
 }

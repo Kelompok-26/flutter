@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, unnecessary_const
+// ignore_for_file: file_names, unnecessary_const, prefer_const_constructors_in_immutables
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -37,7 +37,7 @@ class _RekomCashOutModelState extends State<RekomCashOutModel> {
                  mainAxisAlignment : MainAxisAlignment.start,
                   crossAxisAlignment :CrossAxisAlignment.start,
                children: [
-                 Container
+                 SizedBox
                  (
                  height: 60, 
                  width: double.infinity,

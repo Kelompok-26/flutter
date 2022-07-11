@@ -1,10 +1,9 @@
 // ignore_for_file: file_names, prefer_const_constructors, duplicate_ignore
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/Detail_model.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
 class DetailScreen extends StatefulWidget {
- DetailScreen({ Key? key,  
+ const DetailScreen({ Key? key,  
   required this.image }) : super(key: key);
 final String image;
   @override

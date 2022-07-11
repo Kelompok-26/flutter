@@ -1,6 +1,7 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
-import 'package:portal_costumer/Model/Pulsa_model.dart';
 import 'package:portal_costumer/Model/paketData_model.dart';
 import 'package:portal_costumer/Screen/ListRekomPaket_Screen.dart';
 import 'package:portal_costumer/Screen/ListRekomPulsa_Screen.dart';
@@ -23,14 +24,13 @@ class _PointScreenState extends State<PointScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    final apimodel = Provider.of<APIModel>(context);
     return Column(
       children: [
-        Container(
+        SizedBox(
           height: 450,
           child : Column(
             children: [
-             Padding(padding: EdgeInsets.only(top: 40)),
+             const Padding(padding: EdgeInsets.only(top: 40)),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                children:[
@@ -40,9 +40,9 @@ class _PointScreenState extends State<PointScreen> {
                                        radius : 30.0,),
                   const SizedBox(width : 10),
                   Column(
-                    children: [
-                       const SizedBox(height: 15,),
-                      const Text('Halo , Indah Cahya',style: const TextStyle(
+                    children: const [
+                       SizedBox(height: 15,),
+                      Text('Halo , Indah Cahya',style: TextStyle(
                         fontSize: 20, 
                         fontWeight: FontWeight.w800),),
                     ],
@@ -62,21 +62,21 @@ class _PointScreenState extends State<PointScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text('Point Anda Saat ini',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontWeight: FontWeight.w200 , 
                         color: Colors.white , 
                         fontSize: 15),),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const Text('300',
-                      style: const TextStyle(
+                    children: const [
+                      Text('300',
+                      style: TextStyle(
                         fontWeight: FontWeight.w800 , 
                         color: Colors.white , 
                         fontSize: 15),),
-                        const SizedBox(width: 5,),
-                      const Text('Point',
-                      style: const TextStyle(
+                        SizedBox(width: 5,),
+                      Text('Point',
+                      style: TextStyle(
                         fontWeight: FontWeight.w800 , 
                         color: Colors.white , 
                         fontSize: 15),)
@@ -92,10 +92,10 @@ class _PointScreenState extends State<PointScreen> {
                           color: Colors.grey,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Icon(Icons.menu_book_outlined),
-                              const SizedBox(width: 10,),
-                              const Text('Riwayat Point')
+                            children: const [
+                              Icon(Icons.menu_book_outlined),
+                              SizedBox(width: 10,),
+                              Text('Riwayat Point')
                             ],
                           ),
                         )
@@ -213,7 +213,7 @@ class _PointScreenState extends State<PointScreen> {
                   color: Colors.grey[300],),
         Expanded(
           child: 
-          Container(
+          SizedBox(
                 height: 100,
                     child: Column(
                       children: [
@@ -248,7 +248,7 @@ class _PointScreenState extends State<PointScreen> {
                               ],
                           ),
                            const SizedBox(height: 20,),
-                            SizedBox(
+                            const SizedBox(
                             height: 197 ,
                             // child: Row(
                             //   children: [
@@ -276,7 +276,7 @@ class _PointScreenState extends State<PointScreen> {
                             children: [ 
                              const Text('Rekomendasi Paket Untuk Anda',
                              style: 
-                             const TextStyle(
+                             TextStyle(
                                inherit: false,
                               fontSize: 15,
                                color: Colors.black,
@@ -307,13 +307,13 @@ class _PointScreenState extends State<PointScreen> {
                                  point : 5,
                                  paket : 'XL 20GB' , 
                                ),
-                               SizedBox(width: 20,),
+                               const SizedBox(width: 20,),
                                  RekomendasiPaket(
                                     image :'assets/logo/paket.svg',
                                  point : 12 ,
                                  paket :'Indosat 20GB' , 
                                ),
-                                  SizedBox(width: 20,),
+                                  const SizedBox(width: 20,),
                                  RekomendasiPaket(
                                     image :'assets/logo/paket.svg',
                                  point : 12,

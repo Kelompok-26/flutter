@@ -13,7 +13,7 @@ class ListPromo extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
-      child: Container(
+      child: SizedBox(
         height: 100,
         width: 200,
          child : SvgPicture.asset('$image', fit : BoxFit.contain)

@@ -29,7 +29,7 @@ class _listRekomState extends State<listRekom> {
         ),
         body: Column(
            children :[
-            const Padding(padding: const EdgeInsets.only(top : 10)),
+            const Padding(padding: EdgeInsets.only(top : 10)),
              Card(
               elevation: 10,
                child: Container(
@@ -41,21 +41,21 @@ class _listRekomState extends State<listRekom> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text('Point Anda Saat ini',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontWeight: FontWeight.w200 , 
                         color: Colors.white , 
                         fontSize: 15),),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const Text('300',
-                      style: const TextStyle(
+                    children: const [
+                      Text('300',
+                      style: TextStyle(
                         fontWeight: FontWeight.w800 , 
                         color: Colors.white , 
                         fontSize: 15),),
-                        const SizedBox(width: 5,),
-                      const Text('Point',
-                      style: const TextStyle(
+                        SizedBox(width: 5,),
+                      Text('Point',
+                      style: TextStyle(
                         fontWeight: FontWeight.w800 , 
                         color: Colors.white , 
                         fontSize: 15),)
@@ -71,10 +71,10 @@ class _listRekomState extends State<listRekom> {
                           color: Colors.grey,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Icon(Icons.menu_book_outlined),
-                              const SizedBox(width: 10,),
-                              const Text('Riwayat Point')
+                            children: const [
+                              Icon(Icons.menu_book_outlined),
+                              SizedBox(width: 10,),
+                              Text('Riwayat Point')
                             ],
                           ),
                         )
@@ -90,7 +90,7 @@ class _listRekomState extends State<listRekom> {
                   color: Colors.grey[300],),
           const Padding(padding: EdgeInsets.only(top : 10)),
           const Text('Menampilkan Rekomendasi Paket Pulsa'), 
-          const Padding(padding: const EdgeInsets.only(top : 10)),
+          const Padding(padding: EdgeInsets.only(top : 10)),
           Expanded(
             child: ListView(
               scrollDirection: Axis.vertical,

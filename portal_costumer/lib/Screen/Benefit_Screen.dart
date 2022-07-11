@@ -1,6 +1,7 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portal_costumer/Screen/Home_Screen.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
 class BenefitScreen extends StatelessWidget {
   const BenefitScreen({ Key? key }) : super(key: key);
@@ -10,14 +11,14 @@ class BenefitScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.white,
-        title: Text('Benefit yang kamu dapatkan', style: TextStyle(
+        title: const Text('Benefit yang kamu dapatkan', style: TextStyle(
                   inherit : false,
                   color : Colors.black,
                   fontSize: 15,
                    fontWeight : FontWeight.w600,),),
         centerTitle: true,
       leading: IconButton(
-          icon: Icon(Icons.arrow_back, 
+          icon: const Icon(Icons.arrow_back, 
           color: Color.fromARGB(255, 66, 179, 235),
           ),
           onPressed: (){
@@ -27,7 +28,7 @@ class BenefitScreen extends StatelessWidget {
       ),
       body : Column(
         children: [
-            Container(
+            SizedBox(
             width : double.infinity, 
             height : 80,
             child: SvgPicture.asset('assets/logo/taginformasi.svg'),
@@ -43,20 +44,20 @@ class BenefitScreen extends StatelessWidget {
                 Column(
                 crossAxisAlignment : CrossAxisAlignment.start ,
                 children: [
-                  Padding(padding: EdgeInsets.only(top: 30)),
+                  const Padding(padding: EdgeInsets.only(top: 30)),
                   Card(
-                    margin: EdgeInsets.only(right : 8.0, left: 8.0),
-                       color: Color.fromARGB(97, 150, 150, 150),
+                    margin: const EdgeInsets.only(right : 8.0, left: 8.0),
+                       color: const Color.fromARGB(97, 150, 150, 150),
                     elevation : 10,
                      shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0)),
-                    child: Container(
+                    child: SizedBox(
                       height:  100,
                       width: double.infinity,
                       child: Column(
                          
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
+                        children: const [
                           Padding(padding: EdgeInsets.only(top:20)),
                           Text('Kamu dapat melakukan penukaran poin ', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
                             Text('dengan berbagai macam penawaran', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
@@ -66,20 +67,20 @@ class BenefitScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                 Padding(padding: EdgeInsets.only(top:10)),
+                 const Padding(padding: EdgeInsets.only(top:10)),
                   Card(
-                     margin: EdgeInsets.only(right : 8.0, left: 8.0),
-                       color: Color.fromARGB(97, 150, 150, 150),
+                     margin: const EdgeInsets.only(right : 8.0, left: 8.0),
+                       color: const Color.fromARGB(97, 150, 150, 150),
                     elevation : 10,
                      shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0)),
-                    child: Container(
+                    child: SizedBox(
                       height:  110,
                       width: double.infinity,
                       child: Column(
                          mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
+                        children: const [
                             Padding(padding: EdgeInsets.only(top:30)),
                           Text('Dapatkan lebih banyak penawaran ', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),  
                            Text('yang menarik dengan mengumpulkan poin', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)), 
@@ -88,20 +89,20 @@ class BenefitScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(padding: EdgeInsets.only(top:10)),
+                  const Padding(padding: EdgeInsets.only(top:10)),
                   Card(
-                     margin: EdgeInsets.only(right : 8.0, left: 8.0),
-                       color: Color.fromARGB(97, 150, 150, 150),
+                     margin: const EdgeInsets.only(right : 8.0, left: 8.0),
+                       color: const Color.fromARGB(97, 150, 150, 150),
                     elevation : 10,
                      shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0)),
-                    child: Container(
+                    child: SizedBox(
                       height:  100,
                       width: double.infinity,
                       child: Column(
                        mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
+                        children: const [
                           Padding(padding: EdgeInsets.only(top : 10)),
                           Text('Kamu dapat mengumpulkan poin', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
                           Text('melalui pembelian yang dilakukan', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)), 
@@ -111,20 +112,20 @@ class BenefitScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(padding: EdgeInsets.only(top:10)),
+                  const Padding(padding: EdgeInsets.only(top:10)),
                   Card(
-                     margin: EdgeInsets.only(right : 8.0, left: 8.0),
-                       color: Color.fromARGB(97, 150, 150, 150),
+                     margin: const EdgeInsets.only(right : 8.0, left: 8.0),
+                       color: const Color.fromARGB(97, 150, 150, 150),
                     elevation : 10,
                      shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0)),
-                    child: Container(
+                    child: SizedBox(
                       height:  100,
                       width: double.infinity,
                       child: Column(
                        mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
+                        children: const [
                           Padding(padding: EdgeInsets.only(top:25)),
                           Text('C-Loyal poin memberikanmu', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
                           Text('kemudahan untuk melakukan berbagai', style : TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),  
@@ -133,7 +134,7 @@ class BenefitScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(padding: EdgeInsets.only(top: 20)),
+                  const Padding(padding: EdgeInsets.only(top: 20)),
                 ],      
                     ),
              Column(
