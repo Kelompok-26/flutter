@@ -2,8 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Screen/Login_Screen.dart';
+import 'package:provider/provider.dart';
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({ Key? key }) : super(key: key);
 
@@ -24,7 +26,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     final dateofBirdController = TextEditingController();
     final accountNumberController = TextEditingController();
   @override
+  void initState() {
+     APIModel apimodel = Provider.of<APIModel>(context, listen: false);
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {  
+     final apimodel = Provider.of<APIModel>(context);
       final EmailField = TextFormField(
       autofocus: false,
       controller: emailController,
@@ -83,15 +91,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       autofocus: false,
       controller: dateofBirdController,
       keyboardType: TextInputType.text,
-      validator: (value){
-        if(value!.isEmpty){
-          return ("Please Enter Your Date Of Birday");
-        }
-        if(!RegExp("^(?=.{4,20})(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])").hasMatch(value)){
-          return ("Please Enter Valid Date Of Birday");
-        }
-        return null;
-      },
+      // validator: (value){
+      //   if(value!.isEmpty){
+      //     return ("Please Enter Your Date Of Birday");
+      //   }
+      //   if(!RegExp("^(?=.{4,20})(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])").hasMatch(value)){
+      //     return ("Please Enter Valid Date Of Birday");
+      //   }
+      //   return null;
+      // },
       onSaved: (value){
         dateofBirdController.text=value!;
       },
@@ -247,31 +255,30 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () async {
-      //     if(_formkey.currentState!.validate()){
-      //      _formkey.currentState!.save();
-      //      try {
-      //       await Future.delayed(const Duration(seconds: 2))
-      //       .then((value) async =>
-      //        await apimodel?.signup(
-      //         name : usernameController.text, 
-      //         email : emailController.text,
-      //         phoneNumber: phonenumberController.text,
-      //         password: newPasswordController.text,
-      //         point: int.parse(pointControler.text),
-      //         dateofBirth: dateofBirdController.text,
-      //         accountNumber: accountNumberController.text
-      //         )).then((value) => {
-      //          Fluttertoast.showToast(msg: "Login Success").then(
-      //                     (value) => Navigator.of(context).pushReplacement(
-      //                       MaterialPageRoute(
-      //                         builder: (context) =>  loginScreen(),
-      //                       ),
-      //                     ),
-      //                   ),
-      //      });
-      //     } catch(e){
-      //       Fluttertoast.showToast(msg: e.toString());
-      //     }
+           if (_formkey.currentState!.validate()) {
+          //show snackbar to indicate loading
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: const Text('Signup'),
+            backgroundColor: Colors.green.shade300,
+          ));
+          //get response from ApiClient
+          final res = await apimodel.SignUp(
+            usernameController.text,   
+            emailController.text, 
+            phonenumberController.text,
+            newPasswordController.text,
+            dateofBirdController.text,
+             int.parse(pointControler.text) , 
+             accountNumberController.text,
+          );
+          ScaffoldMessenger.of(context).hideCurrentSnackBar();
+          print(res);
+          if(res == null){
+              Fluttertoast.showToast(msg: 'Invalid Phonenumber / Password');
+              return ; 
+          }
+          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => loginScreen(),), (route) => false);
+        }
       },
         child: const Text('SignUp', 
         textAlign: TextAlign.center,
@@ -361,30 +368,4 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       
     );
   }
-
-//  void signUp(String email, String password) async { 
-//     if(_formkey.currentState!.validate()){
-//         await _auth.createUserWithEmailAndPassword(email: email, password: password).then((value) => {
-//           postDetailsToFirestore()
-//         }).catchError((e){
-//           Fluttertoast.showToast(msg: e!.message);
-//         });
-//     };
-//   }
-//   postDetailsToFirestore()async{
-//       FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-//       User? user = _auth.currentUser;
-
-//       userModel usermodel = userModel();
-
-//       usermodel.email = user!.email;
-//       usermodel.uid = user.uid;
-//       usermodel.firstName = firstNameController.text;
-//       usermodel.secondName = secondNameController.text;
-  
-//       await firebaseFirestore.collection("users").doc(user.uid).set(usermodel.toMap());
-
-//       Fluttertoast.showToast(msg: "Account Created Successfully");
-//       Navigator.pushAndRemoveUntil((context), MaterialPageRoute(builder: (context)=> loginScreen()), (route) => false);
-//   }
 }

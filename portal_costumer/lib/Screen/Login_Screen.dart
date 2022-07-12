@@ -103,7 +103,7 @@ class _loginScreenState extends State<loginScreen> {
             backgroundColor: Colors.green.shade300,
           ));
           //get response from ApiClient
-          final res = await apimodel.login(
+          final res = await apimodel.login(   
             phonenumberController.text,
             passwordController.text,
           );

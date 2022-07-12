@@ -1,42 +1,69 @@
-// ignore_for_file: file_names, camel_case_types, prefer_collection_literals
-
 class signUpModel {
+  String? message;
+  Data? data;
+
+  signUpModel({this.message, this.data});
+
+  signUpModel.fromJson(Map<String, dynamic> json) {
+    message = json['message'];
+    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['message'] = this.message;
+    if (this.data != null) {
+      data['data'] = this.data!.toJson();
+    }
+    return data;
+  }
+}
+
+class Data {
+  int? id;
   String? name;
   String? email;
   String? phoneNumber;
   String? password;
+  String? dateOfBirth;
+  String? gender;
   int? point;
-  String? dateofBirth;
   String? accountNumber;
 
-  signUpModel(
-      {this.name,
+  Data(
+      {this.id,
+      this.name,
       this.email,
       this.phoneNumber,
       this.password,
+      this.dateOfBirth,
+      this.gender,
       this.point,
-      this.dateofBirth,
       this.accountNumber});
 
-  signUpModel.fromJson(Map<String, dynamic> json) {
-    name = json['Name'];
-    email = json['Email'];
-    phoneNumber = json['PhoneNumber'];
-    password = json['Password'];
-    point = json['Point'];
-    dateofBirth = json['DateofBirth'];
-    accountNumber = json['AccountNumber'];
+  Data.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    email = json['email'];
+    phoneNumber = json['phone_number'];
+    password = json['password'];
+    dateOfBirth = json['date_of_birth'];
+    gender = json['gender'];
+    point = json['point'];
+    accountNumber = json['account_number'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['Name'] = name;
-    data['Email'] = email;
-    data['PhoneNumber'] = phoneNumber;
-    data['Password'] = password;
-    data['Point'] = point;
-    data['DateofBirth'] = dateofBirth;
-    data['AccountNumber'] = accountNumber;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['email'] = this.email;
+    data['phone_number'] = this.phoneNumber;
+    data['password'] = this.password;
+    data['date_of_birth'] = this.dateOfBirth;
+    data['gender'] = this.gender;
+    data['point'] = this.point;
+    data['account_number'] = this.accountNumber;
     return data;
   }
 }
