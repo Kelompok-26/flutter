@@ -18,7 +18,7 @@ class ListRekomPulsa extends StatelessWidget {
       elevation: 3,
       child: GestureDetector(
          onTap : (){
-          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen(image: img,) ), (route) => false);
+          // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen(image: img,) ), (route) => false);
         },
         child: Container(
           decoration : BoxDecoration(

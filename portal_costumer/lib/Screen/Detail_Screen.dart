@@ -4,8 +4,11 @@ import 'package:portal_costumer/Model/Detail_model.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
 class DetailScreen extends StatefulWidget {
  const DetailScreen({ Key? key,  
-  required this.image }) : super(key: key);
+  required this.image , required this.point, required this.typeProduct, required this.productName}) : super(key: key);
 final String image;
+final int point;
+final String typeProduct;
+final String productName;
   @override
   State<DetailScreen> createState() => _DetailScreenState();
 }
@@ -31,8 +34,8 @@ class _DetailScreenState extends State<DetailScreen> {
         body: Detail_model(
           detail : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
           syarat : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-          point: 14,
-          benefit: 'Pulsa 50RB',
+          point: widget.point,
+          benefit: widget.typeProduct + widget.productName,
           image : widget.image,
           tanggal: '10 Oktober 2000',
         ),

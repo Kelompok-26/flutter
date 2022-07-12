@@ -23,7 +23,7 @@ class _RekomCashOutModelState extends State<RekomCashOutModel> {
       elevation: 3,
       child: GestureDetector(
         onTap : (){
-          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => DetailScreen(image: widget.img,) ), (route) => false);
+          // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => DetailScreen(image: widget.img,) ), (route) => false);
         }, 
         child: Container(
           decoration : const BoxDecoration(

@@ -65,7 +65,7 @@ class _PointScreenState extends State<TukarPointScreen> {
              color: Colors.black,
           ),
           onPressed: (){
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen(image: widget.image,) ), (route) => false);
+              // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen(image: widget.image,) ), (route) => false);
           },
         ),
         ),

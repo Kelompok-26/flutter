@@ -7,7 +7,8 @@ Widget Emoney({
  return Card(
       elevation: 3,        
       child: GestureDetector(
-        onTap:(){ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => DetailScreen(image: image.toString()) ), (route) => false);
+        onTap:(){ 
+          // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => DetailScreen(image: image.toString()) ), (route) => false);
         },
         child: Container(    
           decoration : const BoxDecoration(

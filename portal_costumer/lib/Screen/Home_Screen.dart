@@ -287,6 +287,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       providerName :apimodel.produckmodel?.data?[index].providerName, 
                                       productName : apimodel.produckmodel?.data?[index].productName, 
                                       nominal :apimodel.produckmodel?.data?[index].nominal,
+                                      point: apimodel.produckmodel?.data?[index].point,
                                       image : 'assets/logo/pulsa.svg',
                                       context: context);
                                     })

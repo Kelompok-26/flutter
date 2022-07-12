@@ -1,5 +1,3 @@
-// ignore_for_file: file_names, prefer_void_to_null, unnecessary_question_mark
-
 class ProductModel {
   String? message;
   List<Data>? data;
@@ -11,14 +9,14 @@ class ProductModel {
     if (json['data'] != null) {
       data = <Data>[];
       json['data'].forEach((v) {
-        data!.add(Data.fromJson(v));
+        data!.add(new Data.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['message'] = message;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['message'] = this.message;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
@@ -61,16 +59,16 @@ class Data {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['type_product'] = typeProduct;
-    data['provider_name'] = providerName;
-    data['product_name'] = productName;
-    data['nominal'] = nominal;
-    data['point'] = point;
-    data['stock'] = stock;
-    data['created_at'] = createdAt;
-    data['DeletedAt'] = deletedAt;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['type_product'] = this.typeProduct;
+    data['provider_name'] = this.providerName;
+    data['product_name'] = this.productName;
+    data['nominal'] = this.nominal;
+    data['point'] = this.point;
+    data['stock'] = this.stock;
+    data['created_at'] = this.createdAt;
+    data['DeletedAt'] = this.deletedAt;
     return data;
   }
 }

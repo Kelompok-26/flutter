@@ -24,7 +24,8 @@ class _RekomendasiPaketState extends State<RekomendasiPaket> {
     return Card(
       elevation: 3,
       child: GestureDetector(
-        onTap:(){ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen(image: widget.image) ), (route) => false);
+        onTap:(){ 
+          // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen(image: widget.image) ), (route) => false);
         },
         child: Container(
           decoration : BoxDecoration(

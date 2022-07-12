@@ -1,6 +1,4 @@
 
-import 'dart:math';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:portal_costumer/Model/ModelClass/Login_model.dart';
@@ -33,7 +31,7 @@ import 'package:portal_costumer/Model/ModelClass/SignUp_model.dart';
         .add(LogInterceptor(responseBody: true, requestBody: true));
         try {
           final response = await _dio.post(
-            'http:ec2-54-160-45-255.compute-1.amazonaws.com:8080/v1/user/login',
+            'http://ec2-54-160-45-255.compute-1.amazonaws.com:8080/v1/admin/login',
             data: {
               'email': email,
               'password': password
