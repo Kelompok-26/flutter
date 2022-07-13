@@ -1,9 +1,10 @@
 // ignore_for_file: file_names, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:portal_costumer/Model/API/api_model.dart';
+import 'package:portal_costumer/Model/ListRekom_model.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
-import 'package:portal_costumer/Model/RekomCashout_model.dart';
-
+import 'package:provider/provider.dart';
 class ListRekomCashout extends StatefulWidget {
   const ListRekomCashout({ Key? key }) : super(key: key);
 
@@ -12,8 +13,20 @@ class ListRekomCashout extends StatefulWidget {
 }
 
 class _ListRekomCashoutState extends State<ListRekomCashout> {
+  APIModel? apimodel;
+  @override
+  void initState() {
+     APIModel apimodel = Provider.of<APIModel>(context, listen: false);
+     //mengambil api Product
+     apimodel.getProduckAllModel();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+   final apimodel = Provider.of<APIModel>(context);
+   final listAllProduct = apimodel.produckmodel?.data;
+   final listAllcashout= listAllProduct?.
+        where((element) => element.typeProduct == 'CashOut',).toList();
     return Scaffold(
         appBar: AppBar( 
            backgroundColor : Colors.white,
@@ -93,32 +106,18 @@ class _ListRekomCashoutState extends State<ListRekomCashout> {
           const Text('Menampilkan Rekomendasi Paket Paket'), 
           const Padding(padding: EdgeInsets.only(top : 10)),
           Expanded(
-            child: ListView(
-              scrollDirection : Axis.vertical,
-               children:  [ 
-                RekomCashOutModel(
-                                 img :'assets/logo/cashout.svg' ,
-                                 typeProduct : 'CashOut' ,
-                                 nominal :20000 , 
-                               ),
-                               const SizedBox(height: 20,),
-                RekomCashOutModel(
-                                 img :'assets/logo/cashout.svg' ,
-                                 typeProduct : 'CashOut' ,
-                                 nominal :20000 , 
-                               ),
-                                  const SizedBox(height: 20,),
-                 RekomCashOutModel(
-                                 img :'assets/logo/cashout.svg' ,
-                                 typeProduct : 'CashOut' ,
-                                 nominal :20000 , 
-                               ),
-                                  const SizedBox(height: 20,),
-              RekomCashOutModel(
-                                 img :'assets/logo/cashout.svg' ,
-                                 typeProduct : 'CashOut' ,
-                                 nominal :20000 , 
-                               ),]),
+            child:ListView.builder(
+            scrollDirection: Axis.vertical,
+            itemCount: listAllcashout?.length,
+            itemBuilder: ( (context, index) {
+            return ListRekom(
+            typeProduct : listAllcashout?[index].typeProduct,
+             productName: listAllcashout?[index].productName,
+             point: listAllcashout?[index].point,
+            img : 'assets/logo/cashout.svg',
+              context: context);
+             })
+           ),
           )
         ]) 
           

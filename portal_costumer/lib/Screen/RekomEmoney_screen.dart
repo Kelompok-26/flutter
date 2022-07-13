@@ -1,9 +1,10 @@
 // ignore_for_file: file_names, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:portal_costumer/Model/API/api_model.dart';
+import 'package:portal_costumer/Model/ListRekom_model.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
-import 'package:portal_costumer/Model/RekomEmoney_model.dart';
-
+import 'package:provider/provider.dart';
 class ListRekomEmoney extends StatefulWidget {
   const ListRekomEmoney({ Key? key }) : super(key: key);
 
@@ -12,8 +13,20 @@ class ListRekomEmoney extends StatefulWidget {
 }
 
 class _ListRekomEmoneyState extends State<ListRekomEmoney> {
+  APIModel? apimodel;
+  @override
+  void initState() {
+     APIModel apimodel = Provider.of<APIModel>(context, listen: false);
+     //mengambil api Product
+     apimodel.getProduckAllModel();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+   final apimodel = Provider.of<APIModel>(context);
+   final listAllProduct = apimodel.produckmodel?.data;
+   final listAllemoney= listAllProduct?.
+        where((element) => element.typeProduct == 'Emoney',).toList();
     return Scaffold(
         appBar: AppBar( 
            backgroundColor : Colors.white,
@@ -93,32 +106,18 @@ class _ListRekomEmoneyState extends State<ListRekomEmoney> {
           const Text('Menampilkan Rekomendasi Paket Paket'), 
           const Padding(padding: EdgeInsets.only(top : 10)),
           Expanded(
-            child: ListView(
-              scrollDirection : Axis.vertical,
-               children:  [ 
-                rekomEmoneyModel(
-                                 img :'assets/logo/emoney.svg' ,
-                                 typeProduct : 'Emoney' ,
-                                 nominal :20000 , 
-                               ),
-                               const SizedBox(height: 20,),
-                rekomEmoneyModel(
-                                 img :'assets/logo/emoney.svg' ,
-                                 typeProduct : 'Emoney' ,
-                                 nominal :20000 , 
-                               ),
-                                  const SizedBox(height: 20,),
-                 rekomEmoneyModel(
-                                 img :'assets/logo/emoney.svg' ,
-                                 typeProduct : 'Emoney' ,
-                                 nominal :20000 , 
-                               ),
-                                  const SizedBox(height: 20,),
-              rekomEmoneyModel(
-                                 img :'assets/logo/emoney.svg' ,
-                                 typeProduct : 'Emoney' ,
-                                 nominal :20000 , 
-                               ),]),
+            child:ListView.builder(
+            scrollDirection: Axis.vertical,
+            itemCount: listAllemoney?.length,
+            itemBuilder: ( (context, index) {
+            return ListRekom(
+            typeProduct : listAllemoney?[index].typeProduct,
+             productName: listAllemoney?[index].productName,
+             point: listAllemoney?[index].point,
+            img : 'assets/logo/cashout.svg',
+              context: context);
+             })
+           ),
           )
         ]) 
           

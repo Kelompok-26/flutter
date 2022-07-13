@@ -1,8 +1,10 @@
 // ignore_for_file: file_names, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:portal_costumer/Model/API/api_model.dart';
+import 'package:portal_costumer/Model/ListRekom_model.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
-import 'package:portal_costumer/Model/listRekomPaket_model.dart';
+import 'package:provider/provider.dart';
 class listRekomPaket extends StatefulWidget {
   const listRekomPaket({ Key? key }) : super(key: key);
 
@@ -11,8 +13,20 @@ class listRekomPaket extends StatefulWidget {
 }
 
 class _listRekomPaketState extends State<listRekomPaket> {
+  APIModel? apimodel;
+  @override
+  void initState() {
+     APIModel apimodel = Provider.of<APIModel>(context, listen: false);
+     //mengambil api Product
+     apimodel.getProduckAllModel();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+   final apimodel = Provider.of<APIModel>(context);
+   final listAllProduct = apimodel.produckmodel?.data;
+   final listAllpaket= listAllProduct?.
+        where((element) => element.typeProduct == 'paket',).toList();
     return Scaffold(
         appBar: AppBar( 
            backgroundColor : Colors.white,
@@ -92,32 +106,18 @@ class _listRekomPaketState extends State<listRekomPaket> {
           const Text('Menampilkan Rekomendasi Paket Paket'), 
           const Padding(padding: EdgeInsets.only(top : 10)),
           Expanded(
-            child: ListView(
-              scrollDirection : Axis.vertical,
-               children: const [ 
-                ListRekomPaket(
-                                 img :'assets/logo/paket.svg',
-                                 point : 5,
-                                 paket : 'XL 20GB' , 
-                               ),
-                               SizedBox(height: 20,),
-                ListRekomPaket(
-                                 img :'assets/logo/paket.svg' ,
-                                 point : 12 ,
-                                 paket :'Indosat 20GB' , 
-                               ),
-                                  SizedBox(height: 20,),
-                ListRekomPaket(
-                                 img :'assets/logo/paket.svg' ,
-                                 point : 12,
-                                 paket : 'Smartfren 40GB' , 
-                               ),
-                                  SizedBox(height: 20,),
-                ListRekomPaket(
-                                 img :'assets/logo/paket.svg' ,
-                                 point : 13 ,
-                                 paket : 'Telkomsel 10GB' , 
-                               )]),
+            child:ListView.builder(
+            scrollDirection: Axis.vertical,
+            itemCount: listAllpaket?.length,
+            itemBuilder: ( (context, index) {
+            return ListRekom(
+            typeProduct : listAllpaket?[index].typeProduct,
+             productName: listAllpaket?[index].productName,
+             point: listAllpaket?[index].point,
+            img : 'assets/logo/paket.svg',
+              context: context);
+             })
+           ),
           )
         ]) 
           

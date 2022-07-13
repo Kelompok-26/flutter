@@ -19,7 +19,6 @@ class _itemNavState extends State<itemNav> {
     HomeScreen(),
     HistoryScreen(),
     PointScreen(),
-    Text('redeem Screen'),
     ProfileScreen()
 
   ];
@@ -48,10 +47,6 @@ class _itemNavState extends State<itemNav> {
           BottomNavigationBarItem(
             icon: Icon(Icons.paid_outlined,),
             label: 'Poin',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.change_circle_rounded,),
-            label: 'Redeem',
           ),
             BottomNavigationBarItem(
             icon: Icon(Icons.account_circle_rounded,),

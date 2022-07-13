@@ -1,31 +1,24 @@
-// ignore_for_file: file_names, prefer_const_constructors_in_immutables, prefer_const_constructors, unnecessary_string_interpolations
-
+// ignore_for_file: file_names, prefer_const_constructors_in_immutables
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
-class ListRekomPulsa extends StatelessWidget {
-   ListRekomPulsa({ 
-    Key? key,
-    required this.img, required this.pulsa , required this.point
-  }) : super(key: key);
-  final String img;
-  final String pulsa  ;
-  final int point ; 
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
+Widget ListRekom({
+  required String? typeProduct ,required int?point, required String? img ,
+  required String? productName,
+  required BuildContext context }) {
+ return Card(
       elevation: 3,
       child: GestureDetector(
          onTap : (){
-          // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen(image: img,) ), (route) => false);
+          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen(
+            image: img.toString(),point:int.parse(point.toString()), typeProduct: typeProduct.toString(),productName: productName.toString(),) ), (route) => false);
         },
         child: Container(
           decoration : BoxDecoration(
             border: null,
             borderRadius: BorderRadius.all(Radius.circular(40.0)),
           ),
-          height: 100,
+          height: 130,
           width: 400,
            child :
              Column(
@@ -36,9 +29,10 @@ class ListRekomPulsa extends StatelessWidget {
                  (
                  height: 60, 
                  width: 400,
-                  child: SvgPicture.asset(img ,fit: BoxFit.contain,)),
+                  child: SvgPicture.asset(img.toString() ,fit: BoxFit.contain,)),
                  SizedBox(height: 2,),
-                 Text('$pulsa'),
+                Text(typeProduct.toString()),
+                 Text(productName.toString()),
                  Text('Point $point')
                ],
              ),
@@ -48,5 +42,7 @@ class ListRekomPulsa extends StatelessWidget {
         ),
       ),
     );
-  }
 }
+
+
+

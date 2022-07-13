@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_const_constructors, file_names, unnecessary_import, prefer_const_literals_to_create_immutables
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portal_costumer/Model/Emoney_model.dart';
-import 'package:portal_costumer/Model/cashOut_model.dart';
 import 'package:portal_costumer/Screen/Benefit_Screen.dart';
 import 'package:portal_costumer/Screen/FAQ_Screen.dart';
 import 'package:portal_costumer/Screen/RekomEmoney_screen.dart';
@@ -13,8 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Model/Clippath_model.dart';
 import 'package:portal_costumer/Model/PromoList_model.dart';
-import 'package:portal_costumer/Model/Pulsa_model.dart';
-import 'package:portal_costumer/Model/paketData_model.dart';
+import 'package:portal_costumer/Model/Product_model.dart';
 import 'package:portal_costumer/Screen/ListRekomPaket_Screen.dart';
 import 'package:portal_costumer/Screen/ListRekomPulsa_Screen.dart';
 class HomeScreen extends StatefulWidget {
@@ -36,6 +33,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final apimodel = Provider.of<APIModel>(context);
+   final listAllProduct = apimodel.produckmodel?.data;
+   final listAllpulsa= listAllProduct?.
+        where((element) => element.typeProduct == 'pulsa',).toList();
+  final listAllpaket= listAllProduct?.
+        where((element) => element.typeProduct == 'paket',).toList();
+   final listAllcashout= listAllProduct?.
+        where((element) => element.typeProduct == 'CashOut',).toList();
+  final listAllemoney= listAllProduct?.
+        where((element) => element.typeProduct == 'Emoney',).toList();
     return Scaffold(
       body: Stack(
         children: [
@@ -230,9 +236,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 7, 
                   color: Colors.grey[300],),
 
-
-
-
                   Expanded(
                     child: SizedBox(
                     height: 100,
@@ -280,14 +283,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Expanded(
                                   child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
-                                    itemCount: apimodel.produckmodel?.data?.length,
+                                    itemCount: listAllpulsa?.length,
                                    itemBuilder: ( (context, index) {
                                     return productall(
-                                      typeProduct : apimodel.produckmodel?.data?[index].typeProduct,
-                                      providerName :apimodel.produckmodel?.data?[index].providerName, 
-                                      productName : apimodel.produckmodel?.data?[index].productName, 
-                                      nominal :apimodel.produckmodel?.data?[index].nominal,
-                                      point: apimodel.produckmodel?.data?[index].point,
+                                      typeProduct : listAllpulsa?[index].typeProduct,
+                                      providerName :listAllpulsa?[index].providerName,
+                                      productName : listAllpulsa?[index].productName, 
+                                      nominal :listAllpulsa?[index].nominal,
+                                      point: listAllpulsa?[index].point,
                                       image : 'assets/logo/pulsa.svg',
                                       context: context);
                                     })
@@ -311,30 +314,29 @@ class _HomeScreenState extends State<HomeScreen> {
                          
                           ),
                            SizedBox(height: 20,),
-                            SingleChildScrollView(
-                              scrollDirection : Axis.horizontal,
-                              child: Row(
-                           children: [
-                               RekomendasiPaket(
-                               image :'assets/logo/paket.svg',
-                                 point : 5,
-                                 paket : 'XL 20GB' , 
-                               ),
-                               SizedBox(width: 20,),
-                                 RekomendasiPaket(
-                                    image :'assets/logo/paket.svg',
-                                 point : 12 ,
-                                 paket :'Indosat 20GB' , 
-                               ),
-                                  SizedBox(width: 20,),
-                                 RekomendasiPaket(
-                                    image :'assets/logo/paket.svg',
-                                 point : 12,
-                                 paket : 'Smartfren 40GB' , 
-                               ), 
-                               
-                              ],),
+                            SizedBox(
+                            height: 197 ,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: listAllpaket?.length,
+                                   itemBuilder: ( (context, index) {
+                                    return productall(
+                                      typeProduct : listAllpaket?[index].typeProduct,
+                                      providerName :listAllpaket?[index].providerName,
+                                      productName : listAllpaket?[index].productName, 
+                                      nominal :listAllpaket?[index].nominal,
+                                      point: listAllpaket?[index].point,
+                                      image : 'assets/logo/paket.svg',
+                                      context: context);
+                                    })
+                                                              ),
+                                ),
+                              ],
                             ),
+                          ),
                            Padding(padding: EdgeInsets.only(top: 20)),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
@@ -350,33 +352,29 @@ class _HomeScreenState extends State<HomeScreen> {
                          
                           ),
                            SizedBox(height: 20,),
-                            SingleChildScrollView(
-                              scrollDirection : Axis.horizontal,
-                              child: Row(
-                           children: [
-                               cashOut(
-                                 image :'assets/logo/cashout.svg',
-                                 typeProduct : 'Cashout',
-                                 nominal : 30000 ,
-                                 context: context, 
-                               ),
-                               SizedBox(width: 20,),
-                                   cashOut(
-                                image :'assets/logo/cashout.svg',
-                                 typeProduct : 'Cashout',
-                                 nominal : 30000 ,
-                                 context: context, 
-                               ),
-                                  SizedBox(width: 20,),
-                                   cashOut(
-                                 image :'assets/logo/cashout.svg',
-                                 typeProduct : 'Cashout',
-                                 nominal : 30000 ,
-                                 context: context, 
-                               ), 
-                               
-                              ],),
+                            SizedBox(
+                            height: 197 ,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: listAllcashout?.length,
+                                   itemBuilder: ( (context, index) {
+                                    return productall(
+                                      typeProduct : listAllcashout?[index].typeProduct,
+                                      providerName :listAllcashout?[index].providerName,
+                                      productName : listAllcashout?[index].productName, 
+                                      nominal :listAllcashout?[index].nominal,
+                                      point: listAllcashout?[index].point,
+                                      image : 'assets/logo/cashout.svg',
+                                      context: context);
+                                    })
+                                                              ),
+                                ),
+                              ],
                             ),
+                          ),
                           Padding(padding: EdgeInsets.only(top: 20)),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
@@ -392,33 +390,29 @@ class _HomeScreenState extends State<HomeScreen> {
                          
                           ),
                            SizedBox(height: 20,),
-                            SingleChildScrollView(
-                              scrollDirection : Axis.horizontal,
-                              child: Row(
-                           children: [
-                               Emoney(
-                                image :'assets/logo/emoney.svg',
-                                 typeProduct : 'Emoney',
-                                 nominal : 20000 , 
-                                 context: context, 
-                               ),
-                               SizedBox(width: 20,),
-                                 Emoney(
-                                   image :'assets/logo/emoney.svg',
-                                 typeProduct : 'Emoney',
-                                 nominal : 20000 , 
-                                 context: context, 
-                               ),
-                                  SizedBox(width: 20,),
-                                 Emoney(
-                                        image :'assets/logo/emoney.svg',
-                                 typeProduct : 'Emoney',
-                                 nominal : 20000 , 
-                                 context: context, 
-                               ), 
-                             ],),
+                            SizedBox(
+                            height: 197 ,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: listAllemoney?.length,
+                                   itemBuilder: ( (context, index) {
+                                    return productall(
+                                      typeProduct : listAllemoney?[index].typeProduct,
+                                      providerName :listAllemoney?[index].providerName,
+                                      productName : listAllcashout?[index].productName, 
+                                      nominal :listAllcashout?[index].nominal,
+                                      point: listAllcashout?[index].point,
+                                      image : 'assets/logo/emoney.svg',
+                                      context: context);
+                                    })
+                                                              ),
+                                ),
+                              ],
                             ),
-
+                          ),
                             SizedBox(
                               height: 200,
                               width: double.infinity,

@@ -1,8 +1,10 @@
 // ignore_for_file: file_names, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
-import 'package:portal_costumer/Model/listRekomPulsa_model.dart';
+import 'package:portal_costumer/Model/ListRekom_model.dart';
+import 'package:provider/provider.dart';
 class listRekom extends StatefulWidget {
   const listRekom({ Key? key }) : super(key: key);
 
@@ -11,8 +13,20 @@ class listRekom extends StatefulWidget {
 }
  
 class _listRekomState extends State<listRekom> {
+ APIModel? apimodel;
+  @override
+  void initState() {
+     APIModel apimodel = Provider.of<APIModel>(context, listen: false);
+     //mengambil api Product
+     apimodel.getProduckAllModel();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+     final apimodel = Provider.of<APIModel>(context);
+   final listAllProduct = apimodel.produckmodel?.data;
+     final listAllpulsa= listAllProduct?.
+        where((element) => element.typeProduct == 'pulsa',).toList();
     return Scaffold(
         appBar: AppBar( 
           backgroundColor : Colors.white,
@@ -89,38 +103,21 @@ class _listRekomState extends State<listRekom> {
                   height: 7, 
                   color: Colors.grey[300],),
           const Padding(padding: EdgeInsets.only(top : 10)),
-          const Text('Menampilkan Rekomendasi Paket Pulsa'), 
+          const Text('Menampilkan Rekomendasi Pulsa'), 
           const Padding(padding: EdgeInsets.only(top : 10)),
           Expanded(
-            child: ListView(
-              scrollDirection: Axis.vertical,
-              children: [
-                ListRekomPulsa(
-                 img :'assets/logo/pulsa.svg',
-                 pulsa : 'Pulsa 20RB' , 
-                 point : 12,
-                 ),
-                  const SizedBox(height: 20,),
-                ListRekomPulsa(
-                  img :'assets/logo/pulsa.svg',
-                  pulsa :'Pulsa 40RB' , 
-                  point : 15,
-                 ),
-                  const SizedBox(height: 20,),
-                 ListRekomPulsa(
-                  img :'assets/logo/pulsa.svg',
-                  pulsa :'Pulsa 40RB' , 
-                  point : 15,
-                 ),
-                  const SizedBox(height: 20,),
-                 ListRekomPulsa(
-                  img :'assets/logo/pulsa.svg',
-                  pulsa :'Pulsa 40RB' , 
-                  point : 15,
-                 ),
-                  const SizedBox(height: 20,),
-              ],
-            ),
+            child:ListView.builder(
+            scrollDirection: Axis.vertical,
+            itemCount: listAllpulsa?.length,
+            itemBuilder: ( (context, index) {
+            return ListRekom(
+            typeProduct : listAllpulsa?[index].typeProduct,
+             productName: listAllpulsa?[index].productName,
+             point: listAllpulsa?[index].point,
+            img : 'assets/logo/pulsa.svg',
+              context: context);
+             })
+           ),
           )
         ]) 
           

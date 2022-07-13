@@ -2,9 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
-import 'package:portal_costumer/Model/paketData_model.dart';
+import 'package:portal_costumer/Model/Product_model.dart';
 import 'package:portal_costumer/Screen/ListRekomPaket_Screen.dart';
 import 'package:portal_costumer/Screen/ListRekomPulsa_Screen.dart';
+import 'package:portal_costumer/Screen/RekomEmoney_screen.dart';
+import 'package:portal_costumer/Screen/RekomcashOut_screen.dart';
 import 'package:provider/provider.dart';
 class PointScreen extends StatefulWidget {
   const PointScreen({ Key? key }) : super(key: key);
@@ -24,6 +26,16 @@ class _PointScreenState extends State<PointScreen> {
   }
   @override
   Widget build(BuildContext context) {
+    final apimodel = Provider.of<APIModel>(context);
+   final listAllProduct = apimodel.produckmodel?.data;
+      final listAllpulsa= listAllProduct?.
+        where((element) => element.typeProduct == 'pulsa',).toList();
+      final listAllpaket= listAllProduct?.
+        where((element) => element.typeProduct == 'paket',).toList();
+     final listAllcashout= listAllProduct?.
+        where((element) => element.typeProduct == 'CashOut',).toList();
+    final listAllemoney= listAllProduct?.
+        where((element) => element.typeProduct == 'Emoney',).toList();
     return Column(
       children: [
         SizedBox(
@@ -248,26 +260,28 @@ class _PointScreenState extends State<PointScreen> {
                               ],
                           ),
                            const SizedBox(height: 20,),
-                            const SizedBox(
+                            SizedBox(
                             height: 197 ,
-                            // child: Row(
-                            //   children: [
-                            //     Expanded(
-                            //       child: ListView.builder(
-                            //         scrollDirection: Axis.horizontal,
-                            //         itemCount: apimodel.throwProduct,
-                            //        itemBuilder: ( (context, index) {
-                            //         return productall(
-                            //          typeProduct : apimodel.produckmodel?.typeProduct ,
-                            //           providerName :  apimodel.produckmodel?.providerName, 
-                            //           productName : apimodel.produckmodel?.productName, 
-                            //          nominal : apimodel.produckmodel?.nominal,
-                            //           context: context);
-                            //         })
-                            //                                   ),
-                            //     ),
-                            //   ],
-                            // ),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: listAllpulsa?.length,
+                                   itemBuilder: ( (context, index) {
+                                    return productall(
+                                      typeProduct : listAllpulsa?[index].typeProduct,
+                                      providerName :listAllpulsa?[index].providerName,
+                                      productName : listAllpulsa?[index].productName, 
+                                      nominal :listAllpulsa?[index].nominal,
+                                      point: listAllpulsa?[index].point,
+                                      image : 'assets/logo/pulsa.svg',
+                                      context: context);
+                                    })
+                                                              ),
+                                ),
+                              ],
+                            ),
                           ),
                             const Padding(padding: EdgeInsets.only(top: 20)),
                           Row(
@@ -298,29 +312,119 @@ class _PointScreenState extends State<PointScreen> {
                          
                           ),
                            const SizedBox(height: 20,),
-                            SingleChildScrollView(
-                              scrollDirection : Axis.horizontal,
-                              child: Row(
-                           children: [
-                             RekomendasiPaket(
-                               image :'assets/logo/paket.svg',
-                                 point : 5,
-                                 paket : 'XL 20GB' , 
-                               ),
-                               const SizedBox(width: 20,),
-                                 RekomendasiPaket(
-                                    image :'assets/logo/paket.svg',
-                                 point : 12 ,
-                                 paket :'Indosat 20GB' , 
-                               ),
-                                  const SizedBox(width: 20,),
-                                 RekomendasiPaket(
-                                    image :'assets/logo/paket.svg',
-                                 point : 12,
-                                 paket : 'Smartfren 40GB' , 
-                               ), 
-                                                             ],),
-                            )
+                            SizedBox(
+                            height: 197 ,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: listAllpaket?.length,
+                                   itemBuilder: ( (context, index) {
+                                    return productall(
+                                      typeProduct : listAllpaket?[index].typeProduct,
+                                      providerName :listAllpaket?[index].providerName,
+                                      productName : listAllpaket?[index].productName, 
+                                      nominal :listAllpaket?[index].nominal,
+                                      point: listAllpaket?[index].point,
+                                      image : 'assets/logo/paket.svg',
+                                      context: context);
+                                    })
+                                                              ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        const Padding(padding: EdgeInsets.only(top: 20)),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment : MainAxisAlignment.spaceBetween,
+                            children: [ 
+                             const Text('Rekomendasi Cash Out Untuk Anda',
+                             style: 
+                             TextStyle(
+                               inherit: false,
+                              fontSize: 15,
+                               color: Colors.black,
+                               fontWeight: FontWeight.w600
+                               ),), 
+                              GestureDetector(
+                            child: const Text('Liat Semua',
+                             style: 
+                             TextStyle(
+                              inherit: false,
+                              fontSize: 12,
+                               color: Colors.black ,
+                               fontWeight : FontWeight.w800
+                               ),),
+                              onTap: (){
+                                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>const ListRekomCashout() ), (route) => false);
+                              }, ),
+                              ],
+                          ),
+                         const SizedBox(height: 20,),
+                        SizedBox(
+                            height: 197 ,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: listAllcashout?.length,
+                                   itemBuilder: ( (context, index) {
+                                    return productall(
+                                      typeProduct : listAllcashout?[index].typeProduct,
+                                      providerName :listAllcashout?[index].providerName,
+                                      productName : listAllcashout?[index].productName, 
+                                      nominal :listAllcashout?[index].nominal,
+                                      point: listAllcashout?[index].point,
+                                      image : 'assets/logo/cashout.svg',
+                                      context: context);
+                                    })
+                                                              ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(padding: EdgeInsets.only(top: 20)),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment : MainAxisAlignment.spaceBetween,
+                            children: [ 
+                             Text('Rekomendasi E Money Untuk Anda'), 
+                              GestureDetector(
+                               child: Text('Liat Semua'),
+                              onTap: (){
+                                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>ListRekomEmoney() ), (route) => false);
+                              }, ),
+                              ],
+                         
+                          ),
+                           SizedBox(height: 20,),
+                            SizedBox(
+                            height: 197 ,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: listAllemoney?.length,
+                                   itemBuilder: ( (context, index) {
+                                    return productall(
+                                      typeProduct : listAllemoney?[index].typeProduct,
+                                      providerName :listAllemoney?[index].providerName,
+                                      productName : listAllcashout?[index].productName, 
+                                      nominal :listAllcashout?[index].nominal,
+                                      point: listAllcashout?[index].point,
+                                      image : 'assets/logo/emoney.svg',
+                                      context: context);
+                                    })
+                                                              ),
+                                ),
+                              ],
+                            ),
+                          ),
+                         
                           ],
                         )),
                       ],
