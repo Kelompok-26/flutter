@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
 import 'package:portal_costumer/Model/Product_model.dart';
+import 'package:portal_costumer/Screen/Benefit_Screen.dart';
+import 'package:portal_costumer/Screen/History_Screen.dart';
 import 'package:portal_costumer/Screen/ListRekomPaket_Screen.dart';
 import 'package:portal_costumer/Screen/ListRekomPulsa_Screen.dart';
 import 'package:portal_costumer/Screen/RekomEmoney_screen.dart';
@@ -108,17 +110,22 @@ class _PointScreenState extends State<PointScreen> {
                   Center(
                     child: Column(
                       children: [
-                        Container(
-                          height: 50,
-                          width : 150,
-                          color: Colors.grey,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Icon(Icons.menu_book_outlined),
-                              SizedBox(width: 10,),
-                              Text('Riwayat Point')
-                            ],
+                        GestureDetector(
+                          onTap : (){
+                             Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>HistoryScreen() ), (route) => false);
+                          },
+                          child: Container(
+                            height: 50,
+                            width : 150,
+                            color: Colors.grey,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                Icon(Icons.menu_book_outlined),
+                                SizedBox(width: 10,),
+                                Text('Riwayat Point')
+                              ],
+                            ),
                           ),
                         )
                       ],
@@ -139,7 +146,7 @@ class _PointScreenState extends State<PointScreen> {
            child: MaterialButton(
           padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
           onPressed: (){
-               // signIn(usernameController.text, passwordController.text);
+                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>listRekomPaket() ), (route) => false);
            },
            child: const Text('Tukar ke Paket Data', 
           textAlign: TextAlign.center,
@@ -157,7 +164,7 @@ class _PointScreenState extends State<PointScreen> {
            child: MaterialButton(
           padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
           onPressed: (){
-               // signIn(usernameController.text, passwordController.text);
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>listRekom() ), (route) => false);
            },
            child: const Text('Tukar Ke pulsa', 
           textAlign: TextAlign.center,
@@ -180,7 +187,7 @@ class _PointScreenState extends State<PointScreen> {
            child: MaterialButton(
           padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
           onPressed: (){
-               // signIn(usernameController.text, passwordController.text);
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>ListRekomCashout() ), (route) => false);
            },
            child: const Text('Tukar ke Cashout', 
           textAlign: TextAlign.center,
@@ -198,7 +205,7 @@ class _PointScreenState extends State<PointScreen> {
            child: MaterialButton(
           padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
           onPressed: (){
-               // signIn(usernameController.text, passwordController.text);
+                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>ListRekomEmoney() ), (route) => false);
            },
            child: const Text('Tukar Ke E-Money', 
           textAlign: TextAlign.center,
@@ -218,7 +225,7 @@ class _PointScreenState extends State<PointScreen> {
            child: MaterialButton(
           padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
           onPressed: (){
-               // signIn(usernameController.text, passwordController.text);
+               Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>const BenefitScreen() ), (route) => false);
            },
            child: const Text('Cek Benefit Penukaran Point', 
           textAlign: TextAlign.center,

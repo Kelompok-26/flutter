@@ -3,49 +3,43 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
-import 'package:portal_costumer/Screen/Detail_Screen.dart';
 class TukarPointScreen extends StatefulWidget {
    const TukarPointScreen({ Key? key ,
   required this.image,
+  required this.providerName,
   }) : super(key: key);
   final String image;
+  final String providerName;
   
   @override
   State<TukarPointScreen> createState() => _PointScreenState();
 }
 
 class _PointScreenState extends State<TukarPointScreen> {
-  List<String> items = ['Provider','Indosat','Telkomsel','Axis','Tree(3)'];
-  String ? selectedItem = 'Provider';
   @override
   Widget build(BuildContext context) {
     final TextEditingController nohpController  = TextEditingController();
     final PhoneNumberField = TextFormField(
       autofocus: false,
       controller: nohpController,
-      keyboardType: TextInputType.emailAddress,
+      keyboardType: TextInputType.phone,
       validator: (value){
         if(value!.isEmpty){
-          return ("Please Enter Your Email");
+          return ("Please Enter Your PhoneNumber / Nomor Rekening");
         }
-        if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
-          return ("Please Enter Valid Email");
-        }
-        return null;
       },
       onSaved: (value){
         nohpController.text=value!;
       },
       textInputAction: TextInputAction.next,
       decoration : InputDecoration(
-        prefixIcon: const Icon(Icons.phone_android),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        hintText: "Phone number",
+        hintText: "Phone number/ Nomor Rekening",
          hintStyle: const TextStyle(
                       color: Colors.black, 
                       fontSize: 15 , 
                     fontWeight: FontWeight.w400),
-        labelText: "Phone number",
+        labelText: "Phone number/ Nomor Rekening",
          labelStyle: const TextStyle(
                       color: Colors.black, 
                       fontSize: 15 , 
@@ -65,7 +59,7 @@ class _PointScreenState extends State<TukarPointScreen> {
              color: Colors.black,
           ),
           onPressed: (){
-              // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen(image: widget.image,) ), (route) => false);
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>itemNav() ), (route) => false);
           },
         ),
         ),
@@ -94,22 +88,10 @@ class _PointScreenState extends State<TukarPointScreen> {
                   SizedBox(
                     height: 100,
                     width: MediaQuery.of(context).size.width,
-                    child: DropdownButtonFormField(
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(
-                            width: 2, 
-                            color : Colors.black))),
-                            value :selectedItem,
-                            items: items
-                              .map((item) =>DropdownMenuItem<String>(
-                              value :item,
-                              child: Text(
-                                item,style: const TextStyle(fontSize: 15,fontWeight: FontWeight.w800))) )
-                                .toList(),
-                       onChanged: (item) => setState(()=>selectedItem = item as String?),
-                       ),
+                    child: Text(widget.providerName,style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w800, 
+                    ),)
                   ),
                   const SizedBox(height: 100,),
                      Container(

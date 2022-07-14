@@ -4,14 +4,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
 Widget ListRekom({
   required String? typeProduct ,required int?point, required String? img ,
-  required String? productName,
+  required String? productName, required String?  providerName,
   required BuildContext context }) {
  return Card(
       elevation: 3,
       child: GestureDetector(
          onTap : (){
           Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen(
-            image: img.toString(),point:int.parse(point.toString()), typeProduct: typeProduct.toString(),productName: productName.toString(),) ), (route) => false);
+            providerName: providerName.toString(),image: img.toString(),point:int.parse(point.toString()), typeProduct: typeProduct.toString(),productName: productName.toString(),) ), (route) => false);
         },
         child: Container(
           decoration : BoxDecoration(

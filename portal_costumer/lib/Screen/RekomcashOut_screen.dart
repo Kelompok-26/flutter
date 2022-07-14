@@ -120,6 +120,7 @@ class _ListRekomCashoutState extends State<ListRekomCashout> {
             itemCount: listAllcashout?.length,
             itemBuilder: ( (context, index) {
             return ListRekom(
+              providerName: '',
             typeProduct : listAllcashout?[index].typeProduct,
              productName: listAllcashout?[index].productName,
              point: listAllcashout?[index].point,

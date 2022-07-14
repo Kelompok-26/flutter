@@ -4,18 +4,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portal_costumer/Screen/TukarPoint_Screen.dart';
-class Detail_model extends StatelessWidget {
+class Detail_model extends StatefulWidget {
   const Detail_model({
     Key? key,
-    required this.image, required this.benefit, required this.point, required this.tanggal,required this.detail, required this.syarat,
+    required this.image, required this.benefit, required this.point, required this.providerName,required this.detail, required this.syarat,
   }) : super(key: key);
   final String image;
   final String benefit;
   final int point;
-  final String tanggal;
+  final String providerName;
   final String  detail;
   final String syarat;
 
+  @override
+  State<Detail_model> createState() => _Detail_modelState();
+}
+
+class _Detail_modelState extends State<Detail_model> {
+  
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,7 +29,7 @@ class Detail_model extends StatelessWidget {
         SizedBox(
           height: 200,
           width: 700,
-          child: SvgPicture.asset(image, fit: BoxFit.cover,),
+          child: SvgPicture.asset(widget.image, fit: BoxFit.cover,),
         ),
         Expanded(
           child: SingleChildScrollView(
@@ -38,18 +44,18 @@ class Detail_model extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Padding(padding: EdgeInsets.only(top: 25)),
-                  Text(benefit),
+                  Text(widget.benefit),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text('Point'),
-                      Text('$point Point')
+                      Text('${widget.point} Point')
                     ],),
                    Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text('Berlaku Sampai dengan'),
-                      Text(tanggal)
+                      const Text('Merupakan Product :'),
+                      Text(widget.providerName)
                     ],),
                 const Padding(padding: EdgeInsets.only(top: 10)),
                 Container(
@@ -58,10 +64,10 @@ class Detail_model extends StatelessWidget {
               ),
               const SizedBox(height: 20,),
               const Text('Detail'),
-              Text(detail),
+              Text(widget.detail),
               const SizedBox(height: 20,),
               const Text('Syarat & Ketentuan'),
-              Text(syarat)
+              Text(widget.syarat)
                 ],)
               ),
             ),
@@ -77,7 +83,7 @@ class Detail_model extends StatelessWidget {
            child: MaterialButton(
           padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
           onPressed: (){
-          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => TukarPointScreen(image: image,) ), (route) => false);
+          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => TukarPointScreen(image: widget.image, providerName: widget.providerName,) ), (route) => false);
            },
            child: const Text('Konfirmasi Tukar Point', 
           textAlign: TextAlign.center,

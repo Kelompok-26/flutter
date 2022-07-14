@@ -121,6 +121,7 @@ class _listRekomPaketState extends State<listRekomPaket> {
             itemBuilder: ( (context, index) {
             return ListRekom(
             typeProduct : listAllpaket?[index].typeProduct,
+            providerName: '',
              productName: listAllpaket?[index].productName,
              point: listAllpaket?[index].point,
             img : 'assets/logo/paket.svg',

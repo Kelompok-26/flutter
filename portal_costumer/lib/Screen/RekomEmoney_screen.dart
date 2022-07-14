@@ -120,6 +120,7 @@ class _ListRekomEmoneyState extends State<ListRekomEmoney> {
             itemCount: listAllemoney?.length,
             itemBuilder: ( (context, index) {
             return ListRekom(
+              providerName: '',
             typeProduct : listAllemoney?[index].typeProduct,
              productName: listAllemoney?[index].productName,
              point: listAllemoney?[index].point,

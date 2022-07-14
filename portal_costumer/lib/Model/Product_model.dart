@@ -8,7 +8,7 @@ Widget productall({
  return Card(
       elevation: 3,        
       child: GestureDetector(
-        onTap:(){ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => DetailScreen(image: image.toString(),point:int.parse(point.toString()), typeProduct: typeProduct.toString(),productName: productName.toString(),) ), (route) => false);
+        onTap:(){ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => DetailScreen(image: image.toString(),point:int.parse(point.toString()), typeProduct: typeProduct.toString(),productName: productName.toString(),providerName: providerName.toString(),) ), (route) => false);
         },
         child: Container(    
           decoration : const BoxDecoration(

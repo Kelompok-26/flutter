@@ -4,9 +4,11 @@ import 'package:portal_costumer/Model/Detail_model.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
 class DetailScreen extends StatefulWidget {
  const DetailScreen({ Key? key,  
-  required this.image , required this.point, required this.typeProduct, required this.productName}) : super(key: key);
+  required this.image , required this.point, required this.typeProduct,
+   required this.productName, required this.providerName}) : super(key: key);
 final String image;
 final int point;
+final String providerName;
 final String typeProduct;
 final String productName;
   @override
@@ -32,12 +34,12 @@ class _DetailScreenState extends State<DetailScreen> {
         ),
         ),
         body: Detail_model(
-          detail : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-          syarat : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
+          detail :'${widget.typeProduct} ${widget.productName} merupakan salah satu penawaran untuk kamu dapat tukarkan dengan poin yang kamu milliki. Klik konfirmasi untuk mengisi form penukaran ${widget.productName}ini.',
+          syarat : 'Pengguna C-Loyal dapat menukarkan poin maksimal 2 kali dalam 7 hari Pastikan penawaran yang kamu pilih sesuai dengan apa yang ingin kamu tukar Cek kembali detail untuk informasi yang lebih lengkap Isi form untuk melakukan penukaran karena penawaran ini akan menyesuaikan operator yang anda gunakan Jika sudah yakin, konfirmasi halaman ini untuk ke tahap selanjutnya',
           point: widget.point,
           benefit: widget.typeProduct + widget.productName,
           image : widget.image,
-          tanggal: '10 Oktober 2000',
+          providerName: widget.providerName,
         ),
       
     );
