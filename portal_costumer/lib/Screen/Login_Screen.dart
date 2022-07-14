@@ -2,10 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
+import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
 import 'package:portal_costumer/Screen/Registration_Screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 class loginScreen extends StatefulWidget {
   const loginScreen({ Key? key }) : super(key: key);
 
@@ -106,13 +108,14 @@ class _loginScreenState extends State<loginScreen> {
           final res = await apimodel.login(   
             phonenumberController.text,
             passwordController.text,
-          );
+          ); 
           ScaffoldMessenger.of(context).hideCurrentSnackBar();
           print(res);
           if(res == null){
               Fluttertoast.showToast(msg: 'Invalid Phonenumber / Password');
               return ; 
           }
+         Provider.of<editProfile>(context, listen: false).setTokenandID(res['User Id'], res['User']);
           Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => itemNav(),), (route) => false);
         }
        }

@@ -25,6 +25,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     final pointControler  = TextEditingController();
     final dateofBirdController = TextEditingController();
     final accountNumberController = TextEditingController();
+    final GenderController = TextEditingController();
   @override
   void initState() {
      APIModel apimodel = Provider.of<APIModel>(context, listen: false);
@@ -114,6 +115,33 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         )
       )
     );
+    final GenderField = TextFormField(
+      autofocus: false,
+      controller: GenderController,
+      keyboardType: TextInputType.text,
+      validator: (value){
+        if(value!.isEmpty){
+          return ("Please Enter Your Gender");
+        }
+        if(!RegExp("^(?=.{4,8})(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])").hasMatch(value)){
+          return ("Please Enter Valid Gender");
+        }
+        return null;
+      },
+      onSaved: (value){
+        usernameController.text=value!;
+      },
+      textInputAction: TextInputAction.next,
+      decoration : InputDecoration(
+        prefixIcon: const Icon(Icons.male),
+        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        hintText: "Gender",
+        labelText:"Gender",
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+        )
+      )
+    );
     final AccountNumberField = TextFormField(
       autofocus: false,
       controller: accountNumberController,
@@ -163,33 +191,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Phone Number",
         labelText:"Phone Number",
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(15),
-        )
-      )
-    );
-     final PointField = TextFormField(
-      autofocus: false,
-      controller: pointControler,
-      keyboardType: TextInputType.phone,
-      // validator: (value){
-      //   if(value!.isEmpty){
-      //     return ("Please Enter Your Point");
-      //   }
-      //   if(!RegExp("^(?:[+0]9)?[0-9]{10}").hasMatch(value)){
-      //     return ("Please Enter Valid Point");
-      //   }
-      //   return null;
-      // },
-      onSaved: (value){
-        pointControler.text=value!;
-      },
-      textInputAction: TextInputAction.next,
-      decoration : InputDecoration(
-        prefixIcon: const Icon(Icons.copyright_outlined),
-        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        hintText: "Point",
-        labelText:"Point",
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
         )
@@ -268,7 +269,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             phonenumberController.text,
             newPasswordController.text,
             dateofBirdController.text,
-             int.parse(pointControler.text) , 
+            GenderController.text,
              accountNumberController.text,
           );
           ScaffoldMessenger.of(context).hideCurrentSnackBar();
@@ -348,10 +349,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                            const SizedBox(height: 20,),
                         ConfirmPasswordField,
                            const SizedBox(height: 20,),
-                        PointField,
-                           const SizedBox(height: 20,),
                         BirthdayField,
                            const SizedBox(height: 20,),
+                           GenderField, 
+                         const SizedBox(height: 20,),
                         AccountNumberField,
                           const SizedBox(height: 20,),
                         SignUpButton,

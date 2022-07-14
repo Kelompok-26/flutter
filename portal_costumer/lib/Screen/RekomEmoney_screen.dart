@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Model/ListRekom_model.dart';
+import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
 import 'package:provider/provider.dart';
 class ListRekomEmoney extends StatefulWidget {
@@ -19,6 +20,14 @@ class _ListRekomEmoneyState extends State<ListRekomEmoney> {
      APIModel apimodel = Provider.of<APIModel>(context, listen: false);
      //mengambil api Product
      apimodel.getProduckAllModel();
+     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {   
+      APIModel apimodel = Provider.of<APIModel>(context, listen: false);
+     //mengambil api UserAccount
+    final editProfileModel =  Provider.of<editProfile>(context, listen: false);
+    final id = editProfileModel.id;
+    final token = editProfileModel.token;
+
+     apimodel.getUserAcccount(id:id , token: token );});
     super.initState();
   }
   @override
@@ -26,7 +35,7 @@ class _ListRekomEmoneyState extends State<ListRekomEmoney> {
    final apimodel = Provider.of<APIModel>(context);
    final listAllProduct = apimodel.produckmodel?.data;
    final listAllemoney= listAllProduct?.
-        where((element) => element.typeProduct == 'Emoney',).toList();
+        where((element) => element.typeProduct == 'E-Money',).toList();
     return Scaffold(
         appBar: AppBar( 
            backgroundColor : Colors.white,
@@ -61,8 +70,8 @@ class _ListRekomEmoneyState extends State<ListRekomEmoney> {
                         fontSize: 15),),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
-                      Text('300',
+                    children:  [
+                      Text('${apimodel.useraccount?.data?.point}',
                       style: TextStyle(
                         fontWeight: FontWeight.w800 , 
                         color: Colors.white , 
@@ -103,7 +112,7 @@ class _ListRekomEmoneyState extends State<ListRekomEmoney> {
                   height: 7, 
                   color: Colors.grey[300],),
           const Padding(padding: EdgeInsets.only(top : 10)),
-          const Text('Menampilkan Rekomendasi Paket Paket'), 
+          const Text('Menampilkan Rekomendasi E-Money'), 
           const Padding(padding: EdgeInsets.only(top : 10)),
           Expanded(
             child:ListView.builder(

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Model/ListRekom_model.dart';
+import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
 import 'package:provider/provider.dart';
 class ListRekomCashout extends StatefulWidget {
@@ -19,6 +20,14 @@ class _ListRekomCashoutState extends State<ListRekomCashout> {
      APIModel apimodel = Provider.of<APIModel>(context, listen: false);
      //mengambil api Product
      apimodel.getProduckAllModel();
+     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {   
+      APIModel apimodel = Provider.of<APIModel>(context, listen: false);
+     //mengambil api UserAccount
+    final editProfileModel =  Provider.of<editProfile>(context, listen: false);
+    final id = editProfileModel.id;
+    final token = editProfileModel.token;
+
+     apimodel.getUserAcccount(id:id , token: token );});
     super.initState();
   }
   @override
@@ -26,7 +35,7 @@ class _ListRekomCashoutState extends State<ListRekomCashout> {
    final apimodel = Provider.of<APIModel>(context);
    final listAllProduct = apimodel.produckmodel?.data;
    final listAllcashout= listAllProduct?.
-        where((element) => element.typeProduct == 'CashOut',).toList();
+        where((element) => element.typeProduct == 'Cashout',).toList();
     return Scaffold(
         appBar: AppBar( 
            backgroundColor : Colors.white,
@@ -61,8 +70,8 @@ class _ListRekomCashoutState extends State<ListRekomCashout> {
                         fontSize: 15),),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
-                      Text('300',
+                    children:  [
+                      Text('${apimodel.useraccount?.data?.point}',
                       style: TextStyle(
                         fontWeight: FontWeight.w800 , 
                         color: Colors.white , 
@@ -103,7 +112,7 @@ class _ListRekomCashoutState extends State<ListRekomCashout> {
                   height: 7, 
                   color: Colors.grey[300],),
           const Padding(padding: EdgeInsets.only(top : 10)),
-          const Text('Menampilkan Rekomendasi Paket Paket'), 
+          const Text('Menampilkan Rekomendasi Cashout'), 
           const Padding(padding: EdgeInsets.only(top : 10)),
           Expanded(
             child:ListView.builder(

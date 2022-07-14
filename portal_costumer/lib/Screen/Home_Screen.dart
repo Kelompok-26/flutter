@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, file_names, unnecessary_import, prefer_const_literals_to_create_immutables
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
 import 'package:portal_costumer/Screen/Benefit_Screen.dart';
 import 'package:portal_costumer/Screen/FAQ_Screen.dart';
 import 'package:portal_costumer/Screen/RekomEmoney_screen.dart';
@@ -28,6 +29,14 @@ class _HomeScreenState extends State<HomeScreen> {
      APIModel apimodel = Provider.of<APIModel>(context, listen: false);
      //mengambil api Product
      apimodel.getProduckAllModel();
+     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {   
+      APIModel apimodel = Provider.of<APIModel>(context, listen: false);
+     //mengambil api UserAccount
+    final editProfileModel =  Provider.of<editProfile>(context, listen: false);
+    final id = editProfileModel.id;
+    final token = editProfileModel.token;
+
+     apimodel.getUserAcccount(id:id , token: token );});
     super.initState();
   }
   @override
@@ -35,13 +44,13 @@ class _HomeScreenState extends State<HomeScreen> {
     final apimodel = Provider.of<APIModel>(context);
    final listAllProduct = apimodel.produckmodel?.data;
    final listAllpulsa= listAllProduct?.
-        where((element) => element.typeProduct == 'pulsa',).toList();
+        where((element) => element.typeProduct == 'Pulsa',).toList();
   final listAllpaket= listAllProduct?.
-        where((element) => element.typeProduct == 'paket',).toList();
+        where((element) => element.typeProduct == 'Paket Data',).toList();
    final listAllcashout= listAllProduct?.
-        where((element) => element.typeProduct == 'CashOut',).toList();
+        where((element) => element.typeProduct == 'Cashout',).toList();
   final listAllemoney= listAllProduct?.
-        where((element) => element.typeProduct == 'Emoney',).toList();
+        where((element) => element.typeProduct == 'E-Money',).toList();
     return Scaffold(
       body: Stack(
         children: [
@@ -64,13 +73,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(width: 5,),
                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                     children: const [
+                     children:  [
                    SizedBox(height: 20,),
                   Text('Selamat datang', style: TextStyle(
                     fontSize: 20, 
                     fontWeight: FontWeight.w100,
                     color: Colors.white),),
-                   Text('Fradricast', style: TextStyle(
+                   Text('${apimodel.useraccount?.data?.name}', style: TextStyle(
                     fontSize: 15, 
                     fontWeight: FontWeight.w500, 
                     color: Colors.white)),
@@ -134,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         TextStyle(
                                           fontSize: 12, 
                                           fontWeight: FontWeight.bold),),
-                                        Text('200', style: 
+                                        Text('${apimodel.useraccount?.data?.point}', style: 
                                         TextStyle(
                                           fontSize: 12, 
                                           fontWeight: FontWeight.w900),),

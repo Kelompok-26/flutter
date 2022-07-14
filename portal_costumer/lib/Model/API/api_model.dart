@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:portal_costumer/Model/ModelClass/Login_model.dart';
 import 'package:portal_costumer/Model/ModelClass/Produck_model.dart';
 import 'package:portal_costumer/Model/ModelClass/SignUp_model.dart';
+import 'package:portal_costumer/Model/ModelClass/UserAccount_model.dart';
   class  APIModel extends ChangeNotifier{
    //view Model Product
    ProductModel? produckmodel;
@@ -27,11 +28,11 @@ import 'package:portal_costumer/Model/ModelClass/SignUp_model.dart';
    loginModel? loginmodel;
    Future<dynamic> login(String? email, String? password) async {
     final _dio = Dio();
-      _dio.interceptors
-        .add(LogInterceptor(responseBody: true, requestBody: true));
+      // _dio.interceptors
+      //   .add(LogInterceptor(responseBody: true, requestBody: true));
         try {
           final response = await _dio.post(
-            'http://ec2-54-160-45-255.compute-1.amazonaws.com:8080/v1/admin/login',
+            'http://ec2-54-160-45-255.compute-1.amazonaws.com:8080/v1/user/login',
             data: {
               'email': email,
               'password': password
@@ -48,13 +49,17 @@ import 'package:portal_costumer/Model/ModelClass/SignUp_model.dart';
           return null;
         }
       }
-      
+   
+   //get All User
+   
+
 // view model SignUp
  signUpModel? signupmodel;
-   Future<dynamic> SignUp(String? name, String? email, String? phoneNumber, String? password, String? dateOfBirth, int? point , String? accountNumber) async {
+   Future<dynamic> SignUp(String? name, String? email, String? phoneNumber, String? password, String? dateOfBirth,
+   String? gender, String? accountNumber) async {
     final _dio = Dio();
-      _dio.interceptors
-        .add(LogInterceptor(responseBody: true, requestBody: true));
+      // _dio.interceptors
+      //   .add(LogInterceptor(responseBody: true, requestBody: true));
         try {
 
           final response = await _dio.post(
@@ -65,7 +70,7 @@ import 'package:portal_costumer/Model/ModelClass/SignUp_model.dart';
               'phone_number' : phoneNumber, 
               'password' : password, 
               'date_of_birth' : dateOfBirth, 
-              'point' : point, 
+               'gender' : gender,
               'account_number' : accountNumber,
            },
           );
@@ -77,12 +82,41 @@ import 'package:portal_costumer/Model/ModelClass/SignUp_model.dart';
             print('data : $signupmodel');
           return response.data;
         } on DioError catch (e){
-          print(e.response);
-          print(e.message);
-          print('data : $dateOfBirth');
+          // print(e.response);
+          // print(e.message);
+          // print('data : $dateOfBirth');
+          return null;
          
         }
       }
-      
+
+//view model User Acount
+  userAccount? useraccount;
+   Future<void> getUserAcccount({required int id, required String token} ) async {
+    var _dio = Dio();  
+    // _dio.interceptors
+    //     .add(LogInterceptor(responseBody: true, requestBody: true));
+    final response = await _dio.get('http://ec2-54-160-45-255.compute-1.amazonaws.com:8080/v1/users/$id', 
+    options : Options( 
+      headers: {
+        'Authorization' : 'Bearer $token'
+      }
+    ));
+      final user = userAccount.fromJson(response.data);
+   useraccount = user;
+     
+    //  print('data : $useraccount');
+     notifyListeners();
+  }
+
+  Future<List<usermodel>>getAllUser()async {
+    final dio = Dio();
+    final response = await dio.get('http://ec2-54-160-45-255.compute-1.amazonaws.com:8080/v1/users');
+   final data = (response.data as List).map((e) => usermodel.fromJson(e)).toList();
+    return data;
+}
+
+
+
  
 }

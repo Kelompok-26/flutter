@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
 import 'package:portal_costumer/Screen/Home_Screen.dart';
 import 'package:portal_costumer/Screen/Login_Screen.dart';
@@ -9,6 +10,7 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
+    ChangeNotifierProvider(create :(_)=> editProfile() ),
     ChangeNotifierProvider(create: (_) => api_store.APIModel(),),
   ],
    child: const MyApp(),
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
 
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: itemNav(),
+      home: loginScreen(),
     );
   }
 } 

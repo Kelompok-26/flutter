@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
+import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
 import 'package:portal_costumer/Model/Product_model.dart';
 import 'package:portal_costumer/Screen/ListRekomPaket_Screen.dart';
 import 'package:portal_costumer/Screen/ListRekomPulsa_Screen.dart';
@@ -22,20 +23,29 @@ class _PointScreenState extends State<PointScreen> {
      APIModel apimodel = Provider.of<APIModel>(context, listen: false);
      //mengambil api Product
      apimodel.getProduckAllModel();
+      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {   
+      APIModel apimodel = Provider.of<APIModel>(context, listen: false);
+     //mengambil api UserAccount
+    final editProfileModel =  Provider.of<editProfile>(context, listen: false);
+    final id = editProfileModel.id;
+    final token = editProfileModel.token;
+
+     apimodel.getUserAcccount(id:id , token: token );});
+    super.initState();
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
     final apimodel = Provider.of<APIModel>(context);
    final listAllProduct = apimodel.produckmodel?.data;
-      final listAllpulsa= listAllProduct?.
-        where((element) => element.typeProduct == 'pulsa',).toList();
-      final listAllpaket= listAllProduct?.
-        where((element) => element.typeProduct == 'paket',).toList();
-     final listAllcashout= listAllProduct?.
-        where((element) => element.typeProduct == 'CashOut',).toList();
-    final listAllemoney= listAllProduct?.
-        where((element) => element.typeProduct == 'Emoney',).toList();
+     final listAllpulsa= listAllProduct?.
+        where((element) => element.typeProduct == 'Pulsa',).toList();
+  final listAllpaket= listAllProduct?.
+        where((element) => element.typeProduct == 'Paket Data',).toList();
+   final listAllcashout= listAllProduct?.
+        where((element) => element.typeProduct == 'Cashout',).toList();
+  final listAllemoney= listAllProduct?.
+        where((element) => element.typeProduct == 'E-Money',).toList();
     return Column(
       children: [
         SizedBox(
@@ -52,9 +62,9 @@ class _PointScreenState extends State<PointScreen> {
                                        radius : 30.0,),
                   const SizedBox(width : 10),
                   Column(
-                    children: const [
+                    children:  [
                        SizedBox(height: 15,),
-                      Text('Halo , Indah Cahya',style: TextStyle(
+                      Text('Halo ,${apimodel.useraccount?.data?.name}',style: TextStyle(
                         fontSize: 20, 
                         fontWeight: FontWeight.w800),),
                     ],
@@ -80,8 +90,8 @@ class _PointScreenState extends State<PointScreen> {
                         fontSize: 15),),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
-                      Text('300',
+                    children:  [
+                      Text('${apimodel.useraccount?.data?.point}',
                       style: TextStyle(
                         fontWeight: FontWeight.w800 , 
                         color: Colors.white , 

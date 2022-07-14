@@ -1,20 +1,40 @@
 // ignore_for_file: file_names, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:portal_costumer/Model/API/api_model.dart';
+import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
 import 'package:portal_costumer/Screen/FAQ_Screen.dart';
 import 'package:portal_costumer/Screen/KebijakanPrivasi_Screen.dart';
+import 'package:portal_costumer/Screen/Login_Screen.dart';
 import 'package:portal_costumer/Screen/SyaratdanKetentuan_Screen.dart';
 import 'package:portal_costumer/Screen/editProfile.dart';
+import 'package:provider/provider.dart';
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({ Key? key }) : super(key: key);
+  const ProfileScreen({ Key? key}) : super(key: key);
+  
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+   APIModel? apimodel;
+   @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {   
+      APIModel apimodel = Provider.of<APIModel>(context, listen: false);
+     //mengambil api UserAccount
+    final editProfileModel =  Provider.of<editProfile>(context, listen: false);
+    final id = editProfileModel.id;
+    final token = editProfileModel.token;
+
+     apimodel.getUserAcccount(id:id , token: token );});
+   
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+     final apimodel = Provider.of<APIModel>(context);
     return Column( 
       children: [
         Container(
@@ -30,11 +50,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                      const SizedBox(height: 55,),
-                      const Text('Indah Cahya', style: TextStyle(
+                       Text('${apimodel.useraccount?.data?.name}', style: TextStyle(
                     fontSize: 15, 
                     fontWeight: FontWeight.w500, 
                     color: Colors.white)),
-                      const Text('081231414421', style: TextStyle(
+                       Text('${apimodel.useraccount?.data?.phoneNumber}', style: TextStyle(
                     fontSize: 15, 
                     fontWeight: FontWeight.w500, 
                     color: Colors.white))
@@ -186,20 +206,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 elevation: 10,
                 child: SizedBox(
                    height: 50,
-                  child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          const Icon(Icons.logout_outlined,size: 24, color: Colors.red,),
-                          const Text('Keluar',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.red
+                  child: GestureDetector(
+                    onTap: (){
+                       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>const loginScreen() ), (route) => false);
+                    },
+                    child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            const Icon(Icons.logout_outlined,size: 24, color: Colors.red,),
+                            const Text('Keluar',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.red
+                              ),
                             ),
-                          ),
-                             SizedBox(width: MediaQuery.of(context).size.width * 0.4,),
-                          const Icon(Icons.arrow_right_sharp,size: 40, color: Colors.red,),
-                        ],
-                      ),
+                               SizedBox(width: MediaQuery.of(context).size.width * 0.4,),
+                            const Icon(Icons.arrow_right_sharp,size: 40, color: Colors.red,),
+                          ],
+                        ),
+                  ),
                 ),
               )
           
