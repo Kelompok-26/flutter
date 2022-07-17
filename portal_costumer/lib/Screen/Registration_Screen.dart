@@ -15,6 +15,7 @@ class RegistrationScreen extends StatefulWidget {
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
     APIModel? apimodel;
+    bool _showPassword = true;
       
    final _formkey = GlobalKey<FormState>();
     final usernameController  = TextEditingController();
@@ -108,7 +109,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       decoration : InputDecoration(
         prefixIcon: const Icon(Icons.card_giftcard_outlined),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        hintText: "Tanggal Lahir",
+        hintText: "yyyy-mm-dd",
         labelText:"Tanggal Lahir",
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
@@ -135,7 +136,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       decoration : InputDecoration(
         prefixIcon: const Icon(Icons.male),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-        hintText: "Gender",
+        hintText: "Male/Female",
         labelText:"Gender",
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
@@ -199,14 +200,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       final newPasswordField = TextFormField(
       autofocus: false,
       controller: newPasswordController,
-      obscureText: true,
+      obscureText: _showPassword,
       validator: (value){
-        RegExp regex = RegExp(r'^.{5,}$');
+        RegExp regex = RegExp(r'^.{10,}$');
         if(value!.isEmpty){
           return ("Please Is Required for Loggin");
         }
         if(!regex.hasMatch(value)){
-          return ("Password not Valid(Min. 5 Character)");
+          return ("Password not Valid(Min. 10 Character)");
         }
         return null;
       },
@@ -215,6 +216,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       },
        textInputAction: TextInputAction.next,
       decoration : InputDecoration(
+         suffixIcon: IconButton(icon: _showPassword 
+                    ? Icon(Icons.visibility_off): Icon(Icons.visibility), onPressed: (){
+                      _showPassword = !_showPassword;
+                      setState(() {
+                      });
+                    },),
         prefixIcon: const Icon(Icons.vpn_key),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Password",
@@ -227,7 +234,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       final ConfirmPasswordField = TextFormField(
       autofocus: false,
       controller: confirmPasswordController,
-      obscureText: true,
+      obscureText: _showPassword,
       validator: (value){
         if(confirmPasswordController.text != newPasswordController.text){
             return "Password don't Match";
@@ -239,6 +246,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       },
        textInputAction: TextInputAction.done,
       decoration : InputDecoration(
+         suffixIcon: IconButton(icon: _showPassword 
+                    ? Icon(Icons.visibility_off): Icon(Icons.visibility), onPressed: (){
+                      _showPassword = !_showPassword;
+                      setState(() {
+                      });
+                    },),
         prefixIcon: const Icon(Icons.vpn_key),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Confirm Password",

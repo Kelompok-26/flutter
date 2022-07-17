@@ -68,8 +68,11 @@ class _HomeScreenState extends State<HomeScreen> {
                    mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Padding(padding: EdgeInsets.all(8.0)),
-                  CircleAvatar( backgroundImage: AssetImage('assets/logo/logo.jpg'),
-                                   radius : 30.0,),
+                  SizedBox(
+                    height: 50, 
+                    width: 50,
+                    child:SvgPicture.asset('assets/logo/Account circle.svg' , fit: BoxFit.cover,),
+                  ),
                   SizedBox(width: 5,),
                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,8 +93,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: (){
                            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>FaqScreen() ), (route) => false);
                         },
-                     child: CircleAvatar( backgroundImage: AssetImage('assets/logo/question.png'),
-                                     radius : 15.0,),
+                     child: SizedBox(
+                      height: 30,
+                      width : 30 ,
+                      child : SvgPicture.asset('assets/logo/question.svg', fit: BoxFit.cover,)
+                     )
                    ),
                    ],
                  ),
@@ -295,6 +301,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     itemCount: listAllpulsa?.length,
                                    itemBuilder: ( (context, index) {
                                     return productall(
+                                      id : listAllpulsa?[index].id,
                                       typeProduct : listAllpulsa?[index].typeProduct,
                                       providerName :listAllpulsa?[index].providerName,
                                       productName : listAllpulsa?[index].productName, 
@@ -333,6 +340,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     itemCount: listAllpaket?.length,
                                    itemBuilder: ( (context, index) {
                                     return productall(
+                                      id : listAllpaket?[index].id,
                                       typeProduct : listAllpaket?[index].typeProduct,
                                       providerName :listAllpaket?[index].providerName,
                                       productName : listAllpaket?[index].productName, 
@@ -371,6 +379,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     itemCount: listAllcashout?.length,
                                    itemBuilder: ( (context, index) {
                                     return productall(
+                                      id:  listAllcashout?[index].id,
                                       typeProduct : listAllcashout?[index].typeProduct,
                                       providerName :listAllcashout?[index].providerName,
                                       productName : listAllcashout?[index].productName, 
@@ -409,6 +418,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     itemCount: listAllemoney?.length,
                                    itemBuilder: ( (context, index) {
                                     return productall(
+                                      id :listAllemoney?[index].id,
                                       typeProduct : listAllemoney?[index].typeProduct,
                                       providerName :listAllemoney?[index].providerName,
                                       productName : listAllcashout?[index].productName, 

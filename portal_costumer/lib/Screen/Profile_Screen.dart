@@ -1,9 +1,11 @@
 // ignore_for_file: file_names, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
 import 'package:portal_costumer/Screen/FAQ_Screen.dart';
+import 'package:portal_costumer/Screen/History_Screen.dart';
 import 'package:portal_costumer/Screen/KebijakanPrivasi_Screen.dart';
 import 'package:portal_costumer/Screen/Login_Screen.dart';
 import 'package:portal_costumer/Screen/SyaratdanKetentuan_Screen.dart';
@@ -41,10 +43,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
            height : 150,
            color: const Color.fromARGB(255, 54, 36, 255),
            child :  Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const CircleAvatar( backgroundImage: AssetImage('assets/logo/logo.jpg'),
-                                   radius : 30.0,),
+                SizedBox(
+                    height: 50, 
+                    width: 50,
+                    child:SvgPicture.asset('assets/logo/Account circle.svg' , fit: BoxFit.cover,),
+                  ),
+                  SizedBox(width: 15),
                    Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,9 +66,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     color: Colors.white))
                     ],
                    ),
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.28,),
-                   const CircleAvatar( backgroundImage: AssetImage('assets/logo/edit.png'),
-                                   radius : 15.0,),
                    
                 ],
               ),
@@ -106,19 +109,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ),
                        const Padding(padding: EdgeInsets.only(top: 10)),
-                         Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          const Icon(Icons.notifications, size: 24,),
-                          const Text('Notifikasi',
-                            style: TextStyle(
-                              fontSize: 15,
+                         GestureDetector(
+                          onTap: (){
+                                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>HistoryScreen() ), (route) => false);
+                          },
+                           child: Row(
+                                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                 children: [
+                            const Icon(Icons.history, size: 24,),
+                            const Text('Riwayat',
+                              style: TextStyle(
+                                fontSize: 15,
+                              ),
                             ),
-                          ),
-                             SizedBox(width: MediaQuery.of(context).size.width * 0.44,),
-                          const Icon(Icons.arrow_right_sharp,size: 40),
-                        ],
-                      )
+                               SizedBox(width: MediaQuery.of(context).size.width * 0.44,),
+                            const Icon(Icons.arrow_right_sharp,size: 40),
+                                                 ],
+                                               ),
+                         )
                     ],
                   ),
                 ),

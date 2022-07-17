@@ -17,6 +17,7 @@ class loginScreen extends StatefulWidget {
 
 class _loginScreenState extends State<loginScreen> {
  APIModel? apimodel;
+ bool _showPassword =true;
  final _formkey = GlobalKey<FormState>();
   final  phonenumberController = TextEditingController();
   final  passwordController = TextEditingController();
@@ -59,7 +60,7 @@ class _loginScreenState extends State<loginScreen> {
    final PasswordField = TextFormField(
       autofocus: false,
       controller: passwordController,
-      obscureText: true,
+      obscureText: _showPassword,
       validator: (value){
         RegExp regex = RegExp(r'^.{5,}$');
         if(value!.isEmpty){
@@ -75,6 +76,12 @@ class _loginScreenState extends State<loginScreen> {
       },
        textInputAction: TextInputAction.next,
       decoration : InputDecoration(
+        suffixIcon: IconButton(icon: _showPassword 
+                    ? Icon(Icons.visibility_off): Icon(Icons.visibility), onPressed: (){
+                      _showPassword = !_showPassword;
+                      setState(() {
+                      });
+                    },),
         prefixIcon: const Icon(Icons.vpn_key),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Password",
@@ -99,6 +106,7 @@ class _loginScreenState extends State<loginScreen> {
         minWidth: MediaQuery.of(context).size.width,
         onPressed: () async {
            if (_formkey.currentState!.validate()) {
+
           //show snackbar to indicate loading
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: const Text('Loging'),
@@ -109,12 +117,16 @@ class _loginScreenState extends State<loginScreen> {
             phonenumberController.text,
             passwordController.text,
           ); 
+        
           ScaffoldMessenger.of(context).hideCurrentSnackBar();
           print(res);
           if(res == null){
               Fluttertoast.showToast(msg: 'Invalid Phonenumber / Password');
               return ; 
           }
+          // var sp = await SharedPreferences.getInstance();
+          // sp.setString('token', apimodel.loginmodel!.user.toString());
+
          Provider.of<editProfile>(context, listen: false).setTokenandID(res['User Id'], res['User']);
           Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => itemNav(),), (route) => false);
         }

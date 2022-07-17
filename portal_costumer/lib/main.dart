@@ -3,6 +3,7 @@ import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
 import 'package:portal_costumer/Screen/Home_Screen.dart';
 import 'package:portal_costumer/Screen/Login_Screen.dart';
+import 'package:portal_costumer/Screen/splashScreen.dart';
 import 'package:provider/provider.dart';
 import './Model/API/api_model.dart' as api_store;
 
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
 
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: loginScreen(),
+      home: SplashScreen(),
     );
   }
 } 

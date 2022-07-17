@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
 import 'package:portal_costumer/Model/Product_model.dart';
@@ -59,9 +60,11 @@ class _PointScreenState extends State<PointScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                children:[
                  const SizedBox(width: 15,),
-                  const CircleAvatar(
-                    backgroundImage: AssetImage('assets/logo/logo.jpg'),
-                                       radius : 30.0,),
+                      SizedBox(
+                    height: 50, 
+                    width: 50,
+                    child:SvgPicture.asset('assets/logo/Account circle.svg' , fit: BoxFit.cover,),
+                  ),
                   const SizedBox(width : 10),
                   Column(
                     children:  [
@@ -136,88 +139,6 @@ class _PointScreenState extends State<PointScreen> {
               ),
              ),
             const SizedBox(height: 10,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Material(
-           borderRadius: BorderRadius.circular(10),
-           elevation: 5,
-           color: const Color.fromARGB(255, 158, 188, 250),
-           child: MaterialButton(
-          padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
-          onPressed: (){
-                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>listRekomPaket() ), (route) => false);
-           },
-           child: const Text('Tukar ke Paket Data', 
-          textAlign: TextAlign.center,
-          style: TextStyle(
-          fontSize: 15,
-          color: Colors.black,
-          fontWeight: FontWeight.bold),),  
-      ),
-   ),
-        const SizedBox(width: 10),
-         Material(
-           elevation: 5,
-           color: const Color.fromARGB(255, 158, 188, 250),
-           borderRadius:  BorderRadius.circular(10),
-           child: MaterialButton(
-          padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
-          onPressed: (){
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>listRekom() ), (route) => false);
-           },
-           child: const Text('Tukar Ke pulsa', 
-          textAlign: TextAlign.center,
-          style: TextStyle(
-          fontSize: 15,
-          color: Colors.black,
-          fontWeight: FontWeight.bold),),  
-      ),
-   )
-              ],
-            ),
-          const SizedBox(height: 10),
-         Row(
-             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Material(
-           elevation: 5,
-           borderRadius: BorderRadius.circular(10),
-           color: const Color.fromARGB(255, 158, 188, 250),
-           child: MaterialButton(
-          padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
-          onPressed: (){
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>ListRekomCashout() ), (route) => false);
-           },
-           child: const Text('Tukar ke Cashout', 
-          textAlign: TextAlign.center,
-          style: TextStyle(
-          fontSize: 15,
-          color: Colors.black,
-          fontWeight: FontWeight.bold),),  
-      ),
-   ),
-       const SizedBox(width: 10),
-         Material(
-           elevation: 5,
-          borderRadius: BorderRadius.circular(10),
-           color: const Color.fromARGB(255, 158, 188, 250),
-           child: MaterialButton(
-          padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
-          onPressed: (){
-                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>ListRekomEmoney() ), (route) => false);
-           },
-           child: const Text('Tukar Ke E-Money', 
-          textAlign: TextAlign.center,
-          style: TextStyle(
-          fontSize: 15,
-          color: Colors.black,
-          fontWeight: FontWeight.bold),),  
-      ),
-   ),
-              ],
-            ),
-      const SizedBox(height : 10),
       Material(
            elevation: 5,
           borderRadius: BorderRadius.circular(10),
@@ -287,6 +208,7 @@ class _PointScreenState extends State<PointScreen> {
                                     itemCount: listAllpulsa?.length,
                                    itemBuilder: ( (context, index) {
                                     return productall(
+                                      id : listAllpulsa?[index].id,
                                       typeProduct : listAllpulsa?[index].typeProduct,
                                       providerName :listAllpulsa?[index].providerName,
                                       productName : listAllpulsa?[index].productName, 
@@ -339,6 +261,7 @@ class _PointScreenState extends State<PointScreen> {
                                     itemCount: listAllpaket?.length,
                                    itemBuilder: ( (context, index) {
                                     return productall(
+                                      id :  listAllpaket?[index].id,
                                       typeProduct : listAllpaket?[index].typeProduct,
                                       providerName :listAllpaket?[index].providerName,
                                       productName : listAllpaket?[index].productName, 
@@ -390,6 +313,7 @@ class _PointScreenState extends State<PointScreen> {
                                     itemCount: listAllcashout?.length,
                                    itemBuilder: ( (context, index) {
                                     return productall(
+                                      id: listAllcashout?[index].id,
                                       typeProduct : listAllcashout?[index].typeProduct,
                                       providerName :listAllcashout?[index].providerName,
                                       productName : listAllcashout?[index].productName, 
@@ -428,6 +352,7 @@ class _PointScreenState extends State<PointScreen> {
                                     itemCount: listAllemoney?.length,
                                    itemBuilder: ( (context, index) {
                                     return productall(
+                                      id: listAllemoney?[index].id,
                                       typeProduct : listAllemoney?[index].typeProduct,
                                       providerName :listAllemoney?[index].providerName,
                                       productName : listAllcashout?[index].productName, 

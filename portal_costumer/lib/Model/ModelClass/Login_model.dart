@@ -1,20 +1,21 @@
-// ignore_for_file: file_names, camel_case_types, prefer_collection_literals
-
 class loginModel {
-  String? email;
-  String? password;
+  String? user;
+  int? userId;
+  String? message;
 
-  loginModel({this.email, this.password});
+  loginModel({this.user, this.userId, this.message});
 
   loginModel.fromJson(Map<String, dynamic> json) {
-    email = json['email'];
-    password = json['password'];
+    user = json['User'];
+    userId = json['User Id'];
+    message = json['message'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['email'] = email;
-    data['password'] = password;
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['User'] = this.user;
+    data['User Id'] = this.userId;
+    data['message'] = this.message;
     return data;
   }
 }

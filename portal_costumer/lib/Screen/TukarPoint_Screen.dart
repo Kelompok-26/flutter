@@ -2,28 +2,41 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
+import 'package:provider/provider.dart';
 class TukarPointScreen extends StatefulWidget {
    const TukarPointScreen({ Key? key ,
   required this.image,
   required this.providerName,
+  required this.id,
   }) : super(key: key);
   final String image;
   final String providerName;
+  final int id;
   
   @override
   State<TukarPointScreen> createState() => _PointScreenState();
 }
 
+
 class _PointScreenState extends State<TukarPointScreen> {
-  @override
-  Widget build(BuildContext context) {
+   APIModel? apimodel;
+ final _formkey = GlobalKey<FormState>();
     final TextEditingController nohpController  = TextEditingController();
+   void initState() {
+     APIModel apimodel = Provider.of<APIModel>(context, listen: false);
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) { 
+     final apimodel = Provider.of<APIModel>(context);
     final PhoneNumberField = TextFormField(
       autofocus: false,
       controller: nohpController,
       keyboardType: TextInputType.phone,
-      validator: (value){
+      validator: (value){ 
         if(value!.isEmpty){
           return ("Please Enter Your PhoneNumber / Nomor Rekening");
         }
@@ -104,47 +117,28 @@ class _PointScreenState extends State<TukarPointScreen> {
                        child: MaterialButton(
                       padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
                       onPressed: (){
-                      showModalBottomSheet(context: context, builder: (BuildContext context){
-                         return SizedBox(
-                          height: double.infinity,
-                          width: double.infinity,
-                          child : Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children : [
-                              const Padding(padding: EdgeInsets.only(top: 10)),
-                              SizedBox(
-                                height: 200,
-                                width : 200,
-                                child: SvgPicture.asset('assets/logo/notifberhasil.svg' ,
-                                fit :BoxFit.contain,)),
-                               const Padding(padding: EdgeInsets.only(top: 10)),
-                               const Text('Selamat !!!'),
-                               const Text('Permintaan untuk Penukaran '),
-                               const Text('Berhasil Dilakukan'),
-
-                               const Padding(padding: EdgeInsets.only(top : 30)),
-                               Material(
-                                elevation: 5,
-                                color: Colors.blue,
-                                child: MaterialButton(
-                                padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
-                                onPressed: (){
-                                 Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>itemNav() ), (route) => false);
-              },
-                               child: const Text('Tutup', 
-                               textAlign: TextAlign.center,
-                               style: TextStyle(
-                               fontSize: 15,
-                               color: Colors.white,
-                               fontWeight: FontWeight.w800),),  
-               ),
-                )
-                            ]
-                          ),           
-                         );
-                      });
-                       },
+                        if (_formkey.currentState!.validate()) {
+                            //show snackbar to indicate loading
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: const Text('Transaksi'),
+                          backgroundColor: Colors.green.shade300,
+                        ));
+                      //get response from ApiClient
+                     final res =  apimodel.TukarPointKeProduct(   
+                        id : apimodel.loginmodel!.userId!,
+                        token: apimodel.loginmodel!.user.toString(),
+                        idProduct: widget.id, 
+                        number: nohpController.text,
+                             ); 
+                ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                    print(res);
+                  if(res == null){
+                 Fluttertoast.showToast(msg: 'Transaksi Gagal');
+                    return ; 
+                }
+                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => itemNav(),), (route) => false);
+                    }
+                 },       
                        child: const Text('Submit', 
                       textAlign: TextAlign.center,
                       style: TextStyle(

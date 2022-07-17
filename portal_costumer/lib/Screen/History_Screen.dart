@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/History_model.dart';
-
+  
 class HistoryScreen extends StatefulWidget {
   const HistoryScreen({ Key? key }) : super(key: key);
 
@@ -14,9 +14,6 @@ class _HistoryScreenState extends State<HistoryScreen> {
   List<Tab> myTab = [
     const Tab(
       text: 'Transaksi',
-    ),
-    const Tab(
-      text: 'Poin',
     ),
   ];
 

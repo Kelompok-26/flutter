@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:portal_costumer/Model/ModelClass/Login_model.dart';
 import 'package:portal_costumer/Model/ModelClass/Produck_model.dart';
 import 'package:portal_costumer/Model/ModelClass/SignUp_model.dart';
+import 'package:portal_costumer/Model/ModelClass/Transaction_model.dart';
 import 'package:portal_costumer/Model/ModelClass/UserAccount_model.dart';
   class  APIModel extends ChangeNotifier{
    //view Model Product
@@ -40,8 +41,8 @@ import 'package:portal_costumer/Model/ModelClass/UserAccount_model.dart';
           );
 
           final login = loginModel.fromJson(response.data);
-
           loginmodel = login;
+          print(login.user);
             // ignore: avoid_print
             print('data : $loginmodel');
           return response.data;
@@ -108,14 +109,35 @@ import 'package:portal_costumer/Model/ModelClass/UserAccount_model.dart';
     //  print('data : $useraccount');
      notifyListeners();
   }
-
+  //view model Get All User
   Future<List<usermodel>>getAllUser()async {
     final dio = Dio();
     final response = await dio.get('http://ec2-54-160-45-255.compute-1.amazonaws.com:8080/v1/users');
    final data = (response.data as List).map((e) => usermodel.fromJson(e)).toList();
     return data;
 }
-
+//view model Transaction User
+  transactionUser? TransactionUser; 
+   Future<void> TukarPointKeProduct({required int id, required String token ,required String number,required int idProduct} ) async {
+    var _dio = Dio();  
+    _dio.interceptors
+        .add(LogInterceptor(responseBody: true, requestBody: true));
+    final response = await _dio.post('ec2-54-160-45-255.compute-1.amazonaws.com:8080/v1/user/$id/transaction', 
+      data: {
+          "number" : number, 
+          "product_id" : idProduct
+      },
+    options : Options( 
+      headers: {
+        'Authorization' : 'Bearer $token'
+      }
+    ));
+      final transaction = transactionUser.fromJson(response.data);
+   TransactionUser = transaction;
+     
+     print('data : $TransactionUser');
+     notifyListeners();
+  }
 
 
  

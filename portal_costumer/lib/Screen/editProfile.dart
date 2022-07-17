@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, prefer_const_constructors_in_immutables, prefer_const_constructors, duplicate_ignore, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
 import 'package:portal_costumer/Model/Navbar_model.dart';
@@ -62,8 +63,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               crossAxisAlignment : CrossAxisAlignment.center,
               children:  [
                 Padding(padding: EdgeInsets.only(top: 5)),
-               CircleAvatar( backgroundImage: AssetImage('assets/logo/logo.jpg'),
-                                   radius : 30.0,),
+                 SizedBox(
+                    height: 50, 
+                    width: 50,
+                    child:SvgPicture.asset('assets/logo/Account circle.svg' , fit: BoxFit.cover,),
+                  ),
                Padding(padding: EdgeInsets.only(top: 5)),
                Text('${apimodel.useraccount?.data?.name}'
                ,style: TextStyle( 
@@ -338,7 +342,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                    onPressed: (){
                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>itemNav() ), (route) => false);
                 },
-                child: const Text('Simpan', 
+                child: const Text('Oke', 
                    textAlign: TextAlign.center,
                    style: TextStyle(
                    fontSize: 15,

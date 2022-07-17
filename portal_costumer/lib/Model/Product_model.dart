@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
 Widget productall({
-  required String? typeProduct ,required String? providerName,required String? productName,required int? nominal, 
+  required  int? id ,required String? typeProduct ,required String? providerName,required String? productName,required int? nominal, 
   required int?point, required String? image ,required BuildContext context }) {
  return Card(
       elevation: 3,        
       child: GestureDetector(
-        onTap:(){ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => DetailScreen(image: image.toString(),point:int.parse(point.toString()), typeProduct: typeProduct.toString(),productName: productName.toString(),providerName: providerName.toString(),) ), (route) => false);
+        onTap:(){ Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => DetailScreen(
+          id: int.parse(id.toString()),
+          image: image.toString(),point:int.parse(point.toString()), typeProduct: typeProduct.toString(),productName: productName.toString(),providerName: providerName.toString(),) ), (route) => false);
         },
         child: Container(    
           decoration : const BoxDecoration(

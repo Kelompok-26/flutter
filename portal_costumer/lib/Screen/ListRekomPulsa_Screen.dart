@@ -120,6 +120,7 @@ class _listRekomState extends State<listRekom> {
             itemCount: listAllpulsa?.length,
             itemBuilder: ( (context, index) {
             return ListRekom(
+               id : listAllpulsa?[index].id,
               providerName: '',
             typeProduct : listAllpulsa?[index].typeProduct,
              productName: listAllpulsa?[index].productName,

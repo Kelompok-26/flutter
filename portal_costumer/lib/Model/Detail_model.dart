@@ -7,8 +7,10 @@ import 'package:portal_costumer/Screen/TukarPoint_Screen.dart';
 class Detail_model extends StatefulWidget {
   const Detail_model({
     Key? key,
+    required this.id,
     required this.image, required this.benefit, required this.point, required this.providerName,required this.detail, required this.syarat,
   }) : super(key: key);
+  final int id;
   final String image;
   final String benefit;
   final int point;
@@ -83,7 +85,9 @@ class _Detail_modelState extends State<Detail_model> {
            child: MaterialButton(
           padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
           onPressed: (){
-          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => TukarPointScreen(image: widget.image, providerName: widget.providerName,) ), (route) => false);
+          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => TukarPointScreen(
+            id : widget.id,
+            image: widget.image, providerName: widget.providerName,) ), (route) => false);
            },
            child: const Text('Konfirmasi Tukar Point', 
           textAlign: TextAlign.center,

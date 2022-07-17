@@ -4,7 +4,7 @@ class ChartModel{
   final String date;
   final String message;
   final String cash;
-
+ 
   ChartModel({required this.date, required this.message, required this.cash});
 
 }

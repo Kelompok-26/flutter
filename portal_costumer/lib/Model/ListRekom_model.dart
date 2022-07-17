@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
 Widget ListRekom({
+  required int? id,
   required String? typeProduct ,required int?point, required String? img ,
   required String? productName, required String?  providerName,
   required BuildContext context }) {
@@ -11,6 +12,7 @@ Widget ListRekom({
       child: GestureDetector(
          onTap : (){
           Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) =>DetailScreen(
+            id: int.parse(id.toString()),
             providerName: providerName.toString(),image: img.toString(),point:int.parse(point.toString()), typeProduct: typeProduct.toString(),productName: productName.toString(),) ), (route) => false);
         },
         child: Container(
