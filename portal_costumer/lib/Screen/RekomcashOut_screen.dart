@@ -120,14 +120,13 @@ class _ListRekomCashoutState extends State<ListRekomCashout> {
             itemCount: listAllcashout?.length,
             itemBuilder: ( (context, index) {
             return ListRekom(
-              id:  listAllcashout?[index].id,
-              providerName: '',
-            typeProduct : listAllcashout?[index].typeProduct,
-             productName: listAllcashout?[index].productName,
-             point: listAllcashout?[index].point,
-            img : 'assets/logo/cashout.svg',
-              context: context);
-             })
+                id:  listAllcashout![index].id!,
+                typeProduct : listAllcashout[index].typeProduct.toString(),
+                providerName :listAllcashout[index].providerName.toString(),
+                productName : listAllcashout[index].productName.toString(), 
+                 point: listAllcashout[index].point!,
+                 img : 'assets/logo/cashout.svg',
+                 context: context);          })
            ),
           )
         ]) 

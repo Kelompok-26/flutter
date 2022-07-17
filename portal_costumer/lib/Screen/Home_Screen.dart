@@ -25,10 +25,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
     APIModel? apimodel;
   @override
-  void initState() {
+  void initState(){
      APIModel apimodel = Provider.of<APIModel>(context, listen: false);
      //mengambil api Product
-     apimodel.getProduckAllModel();
      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {   
       APIModel apimodel = Provider.of<APIModel>(context, listen: false);
      //mengambil api UserAccount
@@ -180,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         Column(
                                          mainAxisAlignment : MainAxisAlignment.center,
                                          crossAxisAlignment :CrossAxisAlignment.center,
-                                        children: const [
+                                        children:  [
                                           Text('Cari Tahu' ,style: 
                                           TextStyle(
                                             fontSize: 12, 
@@ -290,7 +289,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 },),
                               ],
                           ),
-                           SizedBox(height: 20,),
+                          //  SizedBox(height: 20,),
                           SizedBox(
                             height: 197 ,
                             child: Row(
@@ -299,14 +298,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
                                     itemCount: listAllpulsa?.length,
-                                   itemBuilder: ( (context, index) {
+                                   itemBuilder: (
+                                     (context, index) {
+
                                     return productall(
-                                      id : listAllpulsa?[index].id,
-                                      typeProduct : listAllpulsa?[index].typeProduct,
-                                      providerName :listAllpulsa?[index].providerName,
-                                      productName : listAllpulsa?[index].productName, 
-                                      nominal :listAllpulsa?[index].nominal,
-                                      point: listAllpulsa?[index].point,
+                                      id : listAllpulsa![index].id!,
+                                      typeProduct : listAllpulsa[index].typeProduct.toString(),
+                                      providerName :listAllpulsa[index].providerName.toString(),
+                                      productName : listAllpulsa[index].productName.toString(), 
+                                      nominal :listAllpulsa[index].nominal!,
+                                      point: listAllpulsa[index].point!,
                                       image : 'assets/logo/pulsa.svg',
                                       context: context);
                                     })
@@ -340,12 +341,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                     itemCount: listAllpaket?.length,
                                    itemBuilder: ( (context, index) {
                                     return productall(
-                                      id : listAllpaket?[index].id,
-                                      typeProduct : listAllpaket?[index].typeProduct,
-                                      providerName :listAllpaket?[index].providerName,
-                                      productName : listAllpaket?[index].productName, 
-                                      nominal :listAllpaket?[index].nominal,
-                                      point: listAllpaket?[index].point,
+                                      id : listAllpaket![index].id!,
+                                      typeProduct : listAllpaket[index].typeProduct.toString(),
+                                      providerName :listAllpaket[index].providerName.toString(),
+                                      productName : listAllpaket[index].productName.toString(),
+                                      nominal :listAllpaket[index].nominal!,
+                                      point: listAllpaket[index].point!,
                                       image : 'assets/logo/paket.svg',
                                       context: context);
                                     })
@@ -379,12 +380,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                     itemCount: listAllcashout?.length,
                                    itemBuilder: ( (context, index) {
                                     return productall(
-                                      id:  listAllcashout?[index].id,
-                                      typeProduct : listAllcashout?[index].typeProduct,
-                                      providerName :listAllcashout?[index].providerName,
-                                      productName : listAllcashout?[index].productName, 
-                                      nominal :listAllcashout?[index].nominal,
-                                      point: listAllcashout?[index].point,
+                                      id:  listAllcashout![index].id!,
+                                      typeProduct : listAllcashout[index].typeProduct.toString(),
+                                      providerName :listAllcashout[index].providerName.toString(),
+                                      productName : listAllcashout[index].productName.toString(), 
+                                      nominal :listAllcashout[index].nominal!,
+                                      point: listAllcashout[index].point!,
                                       image : 'assets/logo/cashout.svg',
                                       context: context);
                                     })
@@ -418,12 +419,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                     itemCount: listAllemoney?.length,
                                    itemBuilder: ( (context, index) {
                                     return productall(
-                                      id :listAllemoney?[index].id,
-                                      typeProduct : listAllemoney?[index].typeProduct,
-                                      providerName :listAllemoney?[index].providerName,
-                                      productName : listAllcashout?[index].productName, 
-                                      nominal :listAllcashout?[index].nominal,
-                                      point: listAllcashout?[index].point,
+                                      id :listAllemoney![index].id!,
+                                      typeProduct : listAllemoney[index].typeProduct.toString(),
+                                      providerName :listAllemoney[index].providerName.toString(),
+                                      productName : listAllemoney[index].productName.toString(), 
+                                      nominal :listAllemoney[index].nominal!,
+                                      point: listAllemoney[index].point!,
                                       image : 'assets/logo/emoney.svg',
                                       context: context);
                                     })

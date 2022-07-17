@@ -6,6 +6,7 @@ import 'package:portal_costumer/Model/ModelClass/Produck_model.dart';
 import 'package:portal_costumer/Model/ModelClass/SignUp_model.dart';
 import 'package:portal_costumer/Model/ModelClass/Transaction_model.dart';
 import 'package:portal_costumer/Model/ModelClass/UserAccount_model.dart';
+import 'package:portal_costumer/Model/ModelClass/history_model.dart';
   class  APIModel extends ChangeNotifier{
    //view Model Product
    ProductModel? produckmodel;
@@ -17,7 +18,7 @@ import 'package:portal_costumer/Model/ModelClass/UserAccount_model.dart';
     final response = await _dio.get('http://ec2-54-160-45-255.compute-1.amazonaws.com:8080/v1/products');
       final product = ProductModel.fromJson(response.data);
    produckmodel = product;
-    //  print('data : $produckmodel');
+    //  print('data :${response.data}');
      notifyListeners();
   }
   get throwProduct{
@@ -118,11 +119,11 @@ import 'package:portal_costumer/Model/ModelClass/UserAccount_model.dart';
 }
 //view model Transaction User
   transactionUser? TransactionUser; 
-   Future<void> TukarPointKeProduct({required int id, required String token ,required String number,required int idProduct} ) async {
+   Future<dynamic> TukarPointKeProduct({required int? id, required String? token ,required String? number,required int? idProduct} ) async {
     var _dio = Dio();  
-    _dio.interceptors
-        .add(LogInterceptor(responseBody: true, requestBody: true));
-    final response = await _dio.post('ec2-54-160-45-255.compute-1.amazonaws.com:8080/v1/user/$id/transaction', 
+    // _dio.interceptors
+    //     .add(LogInterceptor(responseBody: true, requestBody: true));
+    final response = await _dio.post('http://ec2-54-160-45-255.compute-1.amazonaws.com:8080/v1/user/$id/transaction', 
       data: {
           "number" : number, 
           "product_id" : idProduct
@@ -135,10 +136,28 @@ import 'package:portal_costumer/Model/ModelClass/UserAccount_model.dart';
       final transaction = transactionUser.fromJson(response.data);
    TransactionUser = transaction;
      
-     print('data : $TransactionUser');
+    //  print('data : ${respone.data}');
      notifyListeners();
   }
-
+//view model History 
+   historyModel? HistoryModel; 
+   Future<dynamic> getHistory({required int? id, required String? token} ) async {
+    var _dio = Dio();  
+    _dio.interceptors
+        .add(LogInterceptor(responseBody: true, requestBody: true));
+    final response = await _dio.get('http://ec2-54-160-45-255.compute-1.amazonaws.com:8080/v1/user/$id/transactions', 
+    options : Options( 
+      headers: {
+        'Authorization' : 'Bearer $token'
+      }
+      
+    ));
+    
+      final history = historyModel.fromJson(response.data);
+   HistoryModel = history;
+      print('data : ${response.data}');
+     notifyListeners();
+  }
 
  
 }

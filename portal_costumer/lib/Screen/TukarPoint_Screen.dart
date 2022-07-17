@@ -23,7 +23,6 @@ class TukarPointScreen extends StatefulWidget {
 
 class _PointScreenState extends State<TukarPointScreen> {
    APIModel? apimodel;
- final _formkey = GlobalKey<FormState>();
     final TextEditingController nohpController  = TextEditingController();
    void initState() {
      APIModel apimodel = Provider.of<APIModel>(context, listen: false);
@@ -116,8 +115,7 @@ class _PointScreenState extends State<TukarPointScreen> {
                        color: const Color.fromARGB(255, 144, 181, 255),
                        child: MaterialButton(
                       padding:const EdgeInsets.fromLTRB(20, 15, 20, 15) ,
-                      onPressed: (){
-                        if (_formkey.currentState!.validate()) {
+                      onPressed: () {
                             //show snackbar to indicate loading
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: const Text('Transaksi'),
@@ -130,14 +128,13 @@ class _PointScreenState extends State<TukarPointScreen> {
                         idProduct: widget.id, 
                         number: nohpController.text,
                              ); 
+                    
                 ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                    print(res);
                   if(res == null){
                  Fluttertoast.showToast(msg: 'Transaksi Gagal');
                     return ; 
                 }
                 Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => itemNav(),), (route) => false);
-                    }
                  },       
                        child: const Text('Submit', 
                       textAlign: TextAlign.center,

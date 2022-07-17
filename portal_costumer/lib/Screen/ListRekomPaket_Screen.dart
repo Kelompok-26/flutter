@@ -120,13 +120,13 @@ class _listRekomPaketState extends State<listRekomPaket> {
             itemCount: listAllpaket?.length,
             itemBuilder: ( (context, index) {
             return ListRekom(
-              id: listAllpaket?[index].id,
-            typeProduct : listAllpaket?[index].typeProduct,
-            providerName: '',
-             productName: listAllpaket?[index].productName,
-             point: listAllpaket?[index].point,
+            id : listAllpaket![index].id!,
+            typeProduct : listAllpaket[index].typeProduct.toString(),
+            providerName :listAllpaket[index].providerName.toString(),
+            productName : listAllpaket[index].productName.toString(),
+            point: listAllpaket[index].point!,
             img : 'assets/logo/paket.svg',
-              context: context);
+            context: context);
              })
            ),
           )

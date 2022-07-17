@@ -126,7 +126,7 @@ class _loginScreenState extends State<loginScreen> {
           }
           // var sp = await SharedPreferences.getInstance();
           // sp.setString('token', apimodel.loginmodel!.user.toString());
-
+          await apimodel.getProduckAllModel();
          Provider.of<editProfile>(context, listen: false).setTokenandID(res['User Id'], res['User']);
           Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => itemNav(),), (route) => false);
         }

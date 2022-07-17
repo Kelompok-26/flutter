@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portal_costumer/Screen/Detail_Screen.dart';
 Widget productall({
-  required  int? id ,required String? typeProduct ,required String? providerName,required String? productName,required int? nominal, 
+  required  int id ,required String typeProduct ,required String providerName,required String productName,required int nominal, 
   required int?point, required String? image ,required BuildContext context }) {
  return Card(
       elevation: 3,        

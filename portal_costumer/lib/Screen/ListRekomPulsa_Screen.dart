@@ -120,13 +120,13 @@ class _listRekomState extends State<listRekom> {
             itemCount: listAllpulsa?.length,
             itemBuilder: ( (context, index) {
             return ListRekom(
-               id : listAllpulsa?[index].id,
-              providerName: '',
-            typeProduct : listAllpulsa?[index].typeProduct,
-             productName: listAllpulsa?[index].productName,
-             point: listAllpulsa?[index].point,
-            img : 'assets/logo/pulsa.svg',
-              context: context);
+              id : listAllpulsa![index].id!,
+              typeProduct : listAllpulsa[index].typeProduct.toString(),
+              providerName :listAllpulsa[index].providerName.toString(),
+               productName : listAllpulsa[index].productName.toString(), 
+               point: listAllpulsa[index].point!,
+               img : 'assets/logo/pulsa.svg',
+               context: context);
              })
            ),
           )
