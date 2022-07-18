@@ -31,7 +31,7 @@ class BenefitScreen extends StatelessWidget {
             SizedBox(
             width : double.infinity, 
             height : 80,
-            child: SvgPicture.asset('assets/logo/taginformasi.svg'),
+            child: SvgPicture.asset('assets/logo/tagInformasi.svg'),
           ),
             Container(
             height: 7,
