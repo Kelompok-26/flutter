@@ -7,12 +7,13 @@ import 'package:portal_costumer/Screen/Point_Screen.dart';
 import 'package:portal_costumer/Screen/Profile_Screen.dart';
 class itemNav extends StatefulWidget {
    itemNav({
-    Key? key,
+    Key? key
   }) : super(key: key);
 
   @override
   State<itemNav> createState() => _itemNavState();
 }
+
 class _itemNavState extends State<itemNav> {
   int _selectedIndex = 0;
   static const List page = [

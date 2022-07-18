@@ -60,8 +60,8 @@ import 'package:portal_costumer/Model/ModelClass/history_model.dart';
    Future<dynamic> SignUp(String? name, String? email, String? phoneNumber, String? password, String? dateOfBirth,
    String? gender, String? accountNumber) async {
     final _dio = Dio();
-      // _dio.interceptors
-      //   .add(LogInterceptor(responseBody: true, requestBody: true));
+      _dio.interceptors
+        .add(LogInterceptor(responseBody: true, requestBody: true));
         try {
 
           final response = await _dio.post(
@@ -143,8 +143,8 @@ import 'package:portal_costumer/Model/ModelClass/history_model.dart';
    historyModel? HistoryModel; 
    Future<dynamic> getHistory({required int? id, required String? token} ) async {
     var _dio = Dio();  
-    _dio.interceptors
-        .add(LogInterceptor(responseBody: true, requestBody: true));
+    // _dio.interceptors
+    //     .add(LogInterceptor(responseBody: true, requestBody: true));
     final response = await _dio.get('http://ec2-54-160-45-255.compute-1.amazonaws.com:8080/v1/user/$id/transactions', 
     options : Options( 
       headers: {
@@ -155,7 +155,7 @@ import 'package:portal_costumer/Model/ModelClass/history_model.dart';
     
       final history = historyModel.fromJson(response.data);
    HistoryModel = history;
-      print('data : ${response.data}');
+      // print('data : ${response.data}');
      notifyListeners();
   }
 
