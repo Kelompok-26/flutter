@@ -7,10 +7,11 @@ import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
 import 'package:portal_costumer/Model/Product_model.dart';
 import 'package:portal_costumer/Screen/Benefit_Screen.dart';
 import 'package:portal_costumer/Screen/History_Screen.dart';
-import 'package:portal_costumer/Screen/ListRekomPaket_Screen.dart';
-import 'package:portal_costumer/Screen/ListRekomPulsa_Screen.dart';
-import 'package:portal_costumer/Screen/RekomEmoney_screen.dart';
-import 'package:portal_costumer/Screen/RekomcashOut_screen.dart';
+import 'package:portal_costumer/Screen/Rekomendasi/ListPaketScreen.dart';
+import 'package:portal_costumer/Screen/Rekomendasi/ListPulsaScreen.dart';
+import 'package:portal_costumer/Screen/Rekomendasi/EmoneyScreen.dart';
+import 'package:portal_costumer/Screen/Rekomendasi/CashoutScreen.dart';
+
 import 'package:provider/provider.dart';
 class PointScreen extends StatefulWidget {
   const PointScreen({ Key? key }) : super(key: key);

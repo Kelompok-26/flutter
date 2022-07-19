@@ -3,7 +3,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portal_costumer/Screen/TukarPoint_Screen.dart';
+import 'package:portal_costumer/Screen/Poin/TukarPoinScreen.dart';
+
 class Detail_model extends StatefulWidget {
   const Detail_model({
     Key? key,

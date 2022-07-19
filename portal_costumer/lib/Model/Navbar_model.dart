@@ -3,8 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Screen/History_Screen.dart';
 import 'package:portal_costumer/Screen/Home_Screen.dart';
-import 'package:portal_costumer/Screen/Point_Screen.dart';
-import 'package:portal_costumer/Screen/Profile_Screen.dart';
+import 'package:portal_costumer/Screen/Poin/PointScreen.dart';
+import 'package:portal_costumer/Screen/Profil/ProfileScreen.dart';
+
 class itemNav extends StatefulWidget {
    itemNav({
     Key? key
