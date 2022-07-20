@@ -1,8 +1,8 @@
 // ignore_for_file: file_names, camel_case_types, prefer_const_constructors_in_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:portal_costumer/Screen/History_Screen.dart';
-import 'package:portal_costumer/Screen/Home_Screen.dart';
+import 'package:portal_costumer/Screen/Profil/History_Screen.dart';
+import 'package:portal_costumer/Screen/HomePage/Home_Screen.dart';
 import 'package:portal_costumer/Screen/Poin/PointScreen.dart';
 import 'package:portal_costumer/Screen/Profil/ProfileScreen.dart';
 

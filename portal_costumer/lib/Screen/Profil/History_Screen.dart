@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
-import 'package:portal_costumer/Model/Navbar_model.dart';
+import 'package:portal_costumer/Model/Widget/Navbar_model.dart';
 import 'package:provider/provider.dart';
 
 class HistoryScreen extends StatefulWidget {

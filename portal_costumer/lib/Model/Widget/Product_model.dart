@@ -1,7 +1,7 @@
 // ignore_for_file: file_names, prefer_const_constructors_in_immutables
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portal_costumer/Screen/Detail_Screen.dart';
+import 'package:portal_costumer/Screen/Rekomendasi/Detail_Screen.dart';
 Widget productall({
   required  int id ,required String typeProduct ,required String providerName,required String productName,required int nominal, 
   required int?point, required String? image ,required BuildContext context }) {
@@ -29,9 +29,9 @@ Widget productall({
                   crossAxisAlignment :CrossAxisAlignment.center,
                    children: [ 
                      SizedBox(
-                       height: 50,
+                       height: 85,
                        width: 150,
-                       child: SvgPicture.asset(image.toString(), fit: BoxFit.contain,)),
+                       child: SvgPicture.asset(image.toString(), fit: BoxFit.fitWidth,),),
                       const SizedBox(height: 4,)
                    ],
                  ),

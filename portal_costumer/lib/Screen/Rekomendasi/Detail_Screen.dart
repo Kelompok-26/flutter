@@ -1,7 +1,7 @@
 // ignore_for_file: file_names, prefer_const_constructors, duplicate_ignore
 import 'package:flutter/material.dart';
-import 'package:portal_costumer/Model/Detail_model.dart';
-import 'package:portal_costumer/Model/Navbar_model.dart';
+import 'package:portal_costumer/Model/Widget/Detail_model.dart';
+import 'package:portal_costumer/Model/Widget/Navbar_model.dart';
 class DetailScreen extends StatefulWidget {
  const DetailScreen({ Key? key,  
   required this.id ,required this.image , required this.point, required this.typeProduct,

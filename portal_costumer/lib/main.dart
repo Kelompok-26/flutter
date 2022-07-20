@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
-import 'package:portal_costumer/Model/Navbar_model.dart';
+import 'package:portal_costumer/Model/Widget/Navbar_model.dart';
 import 'package:portal_costumer/Screen/Authentication/LoginScreen.dart';
-import 'package:portal_costumer/Screen/History_Screen.dart';
-import 'package:portal_costumer/Screen/Home_Screen.dart';
+import 'package:portal_costumer/Screen/Profil/History_Screen.dart';
+import 'package:portal_costumer/Screen/HomePage/Home_Screen.dart';
 import 'package:portal_costumer/Screen/Poin/PointScreen.dart';
-
 import 'package:portal_costumer/Screen/SplashScreen/SplashScreen.dart';
 import 'package:provider/provider.dart';
 import './Model/API/api_model.dart' as api_store;
@@ -31,7 +30,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: itemNav(),
+      home: SplashScreen(),
     );
   }
 }

@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:portal_costumer/Model/Navbar_model.dart';
+import 'package:portal_costumer/Model/Widget/Navbar_model.dart';
 class KebijakanPrivasiScreen extends StatelessWidget {
   const KebijakanPrivasiScreen({Key? key}) : super(key: key);
 

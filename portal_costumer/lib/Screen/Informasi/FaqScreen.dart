@@ -1,7 +1,7 @@
 // ignore_for_file: unnecessary_const, file_names, prefer_const_literals_to_create_immutables, duplicate_ignore
 
 import 'package:flutter/material.dart';
-import 'package:portal_costumer/Model/Navbar_model.dart';
+import 'package:portal_costumer/Model/Widget/Navbar_model.dart';
 
 class FaqScreen extends StatelessWidget {
   const FaqScreen({Key? key}) : super(key: key);

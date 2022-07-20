@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
-import 'package:portal_costumer/Model/Navbar_model.dart';
+import 'package:portal_costumer/Model/Widget/Navbar_model.dart';
 import 'package:portal_costumer/Screen/Authentication/RegistrationScreen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -33,30 +33,39 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final apimodel = Provider.of<APIModel>(context);
     final EmailField = TextFormField(
-        autofocus: false,
-        controller: phonenumberController,
-        keyboardType: TextInputType.emailAddress,
-        // validator: (value){
-        //   if(value!.isEmpty){
-        //     return ("Please Enter Your Email");
-        //   }
-        //   if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
-        //     return ("Please Enter Valid Email");
-        //   }
-        //   return null;
-        // },
-        onSaved: (value) {
-          phonenumberController.text = value!;
-        },
-        textInputAction: TextInputAction.next,
-        decoration: InputDecoration(
-            prefixIcon: const Icon(Icons.mail_outline),
-            contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-            hintText: "Email",
-            labelText: "Email",
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
-            )));
+      autofocus: false,
+      controller: phonenumberController,
+      keyboardType: TextInputType.emailAddress,
+      // validator: (value){
+      //   if(value!.isEmpty){
+      //     return ("Please Enter Your Email");
+      //   }
+      //   if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
+      //     return ("Please Enter Valid Email");
+      //   }
+      //   return null;
+      // },
+      onSaved: (value) {
+        phonenumberController.text = value!;
+      },
+      textInputAction: TextInputAction.next,
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: Colors.grey[300],
+        prefixIcon: const Icon(Icons.mail_outline),
+        contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
+        hintText: "Email",
+        labelText: "Email",
+        labelStyle: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+          color: Colors.black,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+      ),
+    );
     final PasswordField = TextFormField(
       autofocus: false,
       controller: passwordController,
@@ -76,6 +85,8 @@ class _LoginScreenState extends State<LoginScreen> {
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.grey[300],
           suffixIcon: IconButton(
             icon: _showPassword
                 ? Icon(Icons.visibility_off)
@@ -89,6 +100,11 @@ class _LoginScreenState extends State<LoginScreen> {
           contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Password",
           labelText: "Password",
+          labelStyle: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+            color: Colors.black,
+          ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           )),
@@ -151,7 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 'assets/logo/cuate.svg',
                 fit: BoxFit.cover,
               )),
-          const Padding(padding: EdgeInsets.only(top: 10.0)),
+          const Padding(padding: EdgeInsets.only(top: 15.0)),
           Expanded(
             child: Container(
               decoration: const BoxDecoration(

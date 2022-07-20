@@ -59,18 +59,19 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         filled: true,
         fillColor: Colors.grey[300],
         prefixIcon: const Icon(
-          Icons.mail_outline, color: Colors.orange,
+          Icons.mail_outline,
+          // color: Colors.orange,gfh
         ),
         contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
         hintText: "Email",
         labelText: "Email",
         labelStyle: TextStyle(
-          fontSize: 15,
-          fontWeight: FontWeight.w800,
-          color: Colors.orange,
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+          color: Colors.black,
         ),
         border: OutlineInputBorder(
-          borderSide:  BorderSide(color: Colors.orange, width: 3.5),
+          borderSide: BorderSide(color: Colors.orange, width: 3.5),
           borderRadius: BorderRadius.circular(15),
         ),
       ),
@@ -95,15 +96,22 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.grey[300],
             prefixIcon: const Icon(
               Icons.people,
             ),
             contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
             hintText: "Username",
             labelText: "Username",
+            labelStyle: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+              color: Colors.black,
+            ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-            )));
+            ),),);
     final BirthdayField = TextFormField(
         autofocus: false,
         controller: dateofBirdController,
@@ -122,12 +130,19 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.grey[300],
             prefixIcon: const Icon(
               Icons.card_giftcard_outlined,
             ),
             contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
             hintText: "yyyy-mm-dd",
             labelText: "Tanggal Lahir",
+            labelStyle: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w400,
+              color: Colors.black,
+            ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
             )));
@@ -151,15 +166,22 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.grey[300],
             prefixIcon: const Icon(
               Icons.male,
             ),
             contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
             hintText: "Male/Female",
             labelText: "Gender",
+            labelStyle: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+              color: Colors.black,
+            ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-            )));
+            ),),);
     final AccountNumberField = TextFormField(
         autofocus: false,
         controller: accountNumberController,
@@ -178,15 +200,22 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.grey[300],
             prefixIcon: const Icon(
               Icons.account_balance_wallet_rounded,
             ),
             contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
             hintText: "accountNumber",
             labelText: "accountNumber",
+            labelStyle: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+              color: Colors.black,
+            ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-            )));
+            ),),);
     final PhonenumberField = TextFormField(
         autofocus: false,
         controller: phonenumberController,
@@ -207,15 +236,22 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         },
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.grey[300],
             prefixIcon: const Icon(
               Icons.phone,
             ),
             contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
             hintText: "Phone Number",
             labelText: "Phone Number",
+            labelStyle: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+              color: Colors.black,
+            ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-            )));
+            ),),);
     final newPasswordField = TextFormField(
       autofocus: false,
       controller: newPasswordController,
@@ -235,6 +271,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       },
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.grey[300],
           suffixIcon: IconButton(
             icon: _showPassword
                 ? Icon(Icons.visibility_off)
@@ -252,6 +290,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Password",
           labelText: "Password",
+          labelStyle: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+            color: Colors.black,
+          ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           )),
@@ -271,6 +314,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       },
       textInputAction: TextInputAction.done,
       decoration: InputDecoration(
+          filled: true,
+          fillColor: Colors.grey[300],
           suffixIcon: IconButton(
             icon: _showPassword
                 ? Icon(Icons.visibility_off)
@@ -288,6 +333,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           contentPadding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
           hintText: "Confirm Password",
           labelText: "Confirm Password",
+          labelStyle: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+            color: Colors.black,
+          ),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
           )),

@@ -6,7 +6,7 @@ import 'package:portal_costumer/Model/API/api_model.dart';
 import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
 import 'package:portal_costumer/Screen/Authentication/LoginScreen.dart';
 
-import 'package:portal_costumer/Screen/History_Screen.dart';
+import 'package:portal_costumer/Screen/Profil/History_Screen.dart';
 import 'package:portal_costumer/Screen/Informasi/FaqScreen.dart';
 import 'package:portal_costumer/Screen/Informasi/KebijakanPrivasiScreen.dart';
 import 'package:portal_costumer/Screen/Informasi/Syarat&KetentuanScreen.dart';

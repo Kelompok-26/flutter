@@ -2,7 +2,7 @@
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
-import 'package:portal_costumer/Screen/Benefit_Screen.dart';
+import 'package:portal_costumer/Screen/Informasi/Benefit_Screen.dart';
 import 'package:portal_costumer/Screen/Informasi/FaqScreen.dart';
 import 'package:portal_costumer/Screen/Informasi/InformasiScreen.dart';
 import 'package:portal_costumer/Screen/Rekomendasi/ListPaketScreen.dart';
@@ -13,9 +13,9 @@ import 'package:portal_costumer/Screen/Rekomendasi/CashoutScreen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
-import 'package:portal_costumer/Model/Clippath_model.dart';
-import 'package:portal_costumer/Model/PromoList_model.dart';
-import 'package:portal_costumer/Model/Product_model.dart';
+import 'package:portal_costumer/Model/Widget/Clippath_model.dart';
+import 'package:portal_costumer/Model/Widget/PromoList_model.dart';
+import 'package:portal_costumer/Model/Widget/Product_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

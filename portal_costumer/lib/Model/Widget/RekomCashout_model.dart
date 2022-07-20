@@ -1,10 +1,10 @@
-// ignore_for_file: file_names, unnecessary_const, camel_case_types, prefer_const_constructors_in_immutables, sized_box_for_whitespace
+// ignore_for_file: file_names, unnecessary_const, prefer_const_constructors_in_immutables
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portal_costumer/Screen/Detail_Screen.dart';
-class rekomEmoneyModel extends StatefulWidget {
-    rekomEmoneyModel({ 
+import 'package:portal_costumer/Screen/Rekomendasi/Detail_Screen.dart';
+class RekomCashOutModel extends StatefulWidget {
+    RekomCashOutModel({ 
     Key? key,
     required this.img, required this.typeProduct , required this.nominal
   }) : super(key: key);
@@ -13,10 +13,10 @@ class rekomEmoneyModel extends StatefulWidget {
   final int nominal ; 
 
   @override
-  State<rekomEmoneyModel> createState() => _rekomEmoneyModelState();
+  State<RekomCashOutModel> createState() => _RekomCashOutModelState();
 }
 
-class _rekomEmoneyModelState extends State<rekomEmoneyModel> {
+class _RekomCashOutModelState extends State<RekomCashOutModel> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -37,7 +37,7 @@ class _rekomEmoneyModelState extends State<rekomEmoneyModel> {
                  mainAxisAlignment : MainAxisAlignment.start,
                   crossAxisAlignment :CrossAxisAlignment.start,
                children: [
-                 Container
+                 SizedBox
                  (
                  height: 60, 
                  width: double.infinity,

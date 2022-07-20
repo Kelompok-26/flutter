@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
-import 'package:portal_costumer/Model/Navbar_model.dart';
+import 'package:portal_costumer/Model/Widget/Navbar_model.dart';
 import 'package:provider/provider.dart';
 class TukarPointScreen extends StatefulWidget {
    const TukarPointScreen({ Key? key ,
@@ -36,9 +36,15 @@ class _PointScreenState extends State<TukarPointScreen> {
       controller: nohpController,
       keyboardType: TextInputType.phone,
       validator: (value){ 
-        if(value!.isEmpty){
-          return ("Please Enter Your PhoneNumber / Nomor Rekening");
-        }
+        if (value!.isEmpty) {
+            return ("Please Enter Valid Nomor Rekening/Phone Number");
+          }
+          if (!RegExp(
+            "^(?:[+0]9)?[0-9]{10}",
+          ).hasMatch(value)) {
+            return ("Please Enter Valid Nomor Rekening/Phone Number");
+          }
+          return null;
       },
       onSaved: (value){
         nohpController.text=value!;

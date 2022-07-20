@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
-import 'package:portal_costumer/Model/ListRekom_model.dart';
+import 'package:portal_costumer/Model/Widget/ListRekom_model.dart';
 import 'package:portal_costumer/Model/ModelClass/editProfile_view_model.dart';
-import 'package:portal_costumer/Model/Navbar_model.dart';
+import 'package:portal_costumer/Model/Widget/Navbar_model.dart';
 import 'package:provider/provider.dart';
 class ListRekomCashout extends StatefulWidget {
   const ListRekomCashout({ Key? key }) : super(key: key);
@@ -53,61 +53,63 @@ class _ListRekomCashoutState extends State<ListRekomCashout> {
         body: Column(
            children :[
             const Padding(padding: EdgeInsets.only(top : 10)),
-             Card(
-              elevation: 10,
-               child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-                    height: 120,
-                    width: 400,
-                    color: Colors.blue,
-               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text('Point Anda Saat ini',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w200 , 
-                        color: Colors.white , 
-                        fontSize: 15),),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children:  [
-                      Text('${apimodel.useraccount?.data?.point}',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w800 , 
-                        color: Colors.white , 
-                        fontSize: 15),),
-                        SizedBox(width: 5,),
-                      Text('Point',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w800 , 
-                        color: Colors.white , 
-                        fontSize: 15),)
-
-                  ],),
-                  const SizedBox(height: 5,),
-                  Center(
-                    child: Column(
-                      children: [
-                        Container(
-                          height: 50,
-                          width : 150,
-                          color: Colors.grey,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Icon(Icons.menu_book_outlined),
-                              SizedBox(width: 10,),
-                              Text('Riwayat Point')
+             Container(
+                height: 100,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  color: Color(0xFFF6F5F5),
+                  elevation: 1,
+                  child: Row(
+                    children: [
+                      SizedBox(width: 20,),
+                      const Icon(
+                        Icons.point_of_sale, size: 35,
+                      ),
+                      SizedBox(width: 10,),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'Point Anda Saat ini',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w300,
+                              color: Color(0xFF00334E),
+                              fontSize: 15,
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                '${apimodel.useraccount?.data?.point}',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF00334E),
+                                    fontSize: 15),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'Poin',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xFF00334E),
+                                    fontSize: 15),
+                              ),
                             ],
                           ),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-               ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                    ],
+                  ),
+                ),
               ),
-             ),
            Container(
                   height: 7, 
                   color: Colors.grey[300],),
