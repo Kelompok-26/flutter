@@ -102,15 +102,18 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(
                             'Selamat datang',
                             style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w100,
-                                color: Colors.white,),
+                              fontSize: 20,
+                              fontWeight: FontWeight.w100,
+                              color: Colors.white,
+                            ),
                           ),
-                          Text('${apimodel.useraccount?.data?.name}',
-                              style: TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white),),
+                          Text(
+                            '${apimodel.useraccount?.data?.name}',
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white),
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -121,7 +124,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           Navigator.pushAndRemoveUntil(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => FaqScreen(),),
+                                builder: (context) => FaqScreen(),
+                              ),
                               (route) => false);
                         },
                         child: SizedBox(
@@ -152,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ClipPath(
                         clipper: ClipinfoClass(),
                         child: Container(
-                          height: 150,
+                          height: 130,
                           decoration: BoxDecoration(
                             color: Color(0xFF145374),
                           ),
@@ -183,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           'Point Anda',
                                           style: TextStyle(
                                             fontSize: 12,
-                                            fontWeight: FontWeight.bold,
+                                            fontWeight: FontWeight.normal,
                                           ),
                                         ),
                                         Text(
@@ -210,8 +214,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Navigator.pushAndRemoveUntil(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              const BenefitScreen()),
+                                        builder: (context) =>
+                                            const BenefitScreen(),
+                                      ),
                                       (route) => false);
                                 },
                                 child: Container(
@@ -230,13 +235,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             'Cari Tahu',
                                             style: TextStyle(
                                                 fontSize: 12,
-                                                fontWeight: FontWeight.bold),
+                                                fontWeight: FontWeight.normal),
                                           ),
                                           Text(
                                             'Benefit Mu',
@@ -247,12 +252,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ],
                                       ),
                                       SizedBox(
-                                          height: 27,
-                                          width: 27,
-                                          child: Image.asset(
-                                            'assets/logo/logo-benefit.png',
-                                            fit: BoxFit.contain,
-                                          )),
+                                        height: 27,
+                                        width: 27,
+                                        child: Image.asset(
+                                          'assets/logo/logo-benefit.png',
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -261,117 +267,124 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      Material(
-                        elevation: 5,
-                        borderRadius: BorderRadius.circular(10),
-                        color: Color(0xFF145374),
-                        child: MaterialButton(
-                          minWidth: MediaQuery.of(context).size.width * 4.0,
-                          onPressed: () {
-                            Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => InformasiScreen(),
-                                ),
-                                (route) => false);
-                          },
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                  height: 27,
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Material(
+                          elevation: 5,
+                          borderRadius: BorderRadius.circular(10),
+                          color: Color(0xFF145374),
+                          child: MaterialButton(
+                            minWidth: MediaQuery.of(context).size.width * 4.0,
+                            onPressed: () {
+                              Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => InformasiScreen(),
+                                  ),
+                                  (route) => false);
+                            },
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  height: 30,
                                   width: 27,
                                   child: Image.asset(
                                     'assets/logo/logo-bantuan.png',
                                     fit: BoxFit.contain,
-                                  )),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
-                                    'Tahukah Cara Menggunakan Poin ?',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 12,
-                                      color: Colors.white,
-                                    ),
                                   ),
-                                  Text(
-                                    'tap here !',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w100,
-                                      fontSize: 12,
-                                      color: Colors.white,
+                                ),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      'Tahukah Cara Menggunakan Poin ?',
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 12,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    Text(
+                                      'tap here !',
+                                      textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w100,
+                                        fontSize: 12,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ],
                   ),
                 ),
-                Container(
-                  height: 7,
-                  color: Colors.grey[300],
-                ),
-                Expanded(
-                  child: SizedBox(
-                    height: 100,
-                    child: Column(
-                      children: [
-                        // body
-                        Expanded(
-                            child: ListView(
-                          scrollDirection: Axis.vertical,
-                          padding: EdgeInsets.symmetric(horizontal: 5),
-                          children: [
-                            SizedBox(height: 20),
-                            SingleChildScrollView(
-                              scrollDirection: Axis.horizontal,
-                              child: Row(
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Expanded(
+                    child: SizedBox(
+                      height: 306,
+                      child: Column(
+                        children: [
+                          // body
+                          Expanded(
+                              child: ListView(
+                            scrollDirection: Axis.vertical,
+                            padding: EdgeInsets.symmetric(horizontal: 5),
+                            children: [
+                              SizedBox(height: 20),
+                              SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  children: [
+                                    ListPromo(
+                                      image: 'assets/logo/listPromo.svg',
+                                    ),
+                                    SizedBox(
+                                      width: 20,
+                                    ),
+                                    ListPromo(
+                                      image: 'assets/logo/listPromo2.svg',
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Padding(padding: EdgeInsets.only(top: 20)),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  ListPromo(
-                                    image: 'assets/logo/listPromo.svg',
-                                  ),
-                                  SizedBox(
-                                    width: 20,
-                                  ),
-                                  ListPromo(
-                                    image: 'assets/logo/listPromo2.svg',
+                                  Text('Rekomendasi Pulsa Untuk Anda'),
+                                  GestureDetector(
+                                    child: Text('Liat Semua'),
+                                    onTap: () {
+                                      Navigator.pushAndRemoveUntil(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  listRekom()),
+                                          (route) => false);
+                                    },
                                   ),
                                 ],
                               ),
-                            ),
-                            Padding(padding: EdgeInsets.only(top: 20)),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text('Rekomendasi Pulsa Untuk Anda'),
-                                GestureDetector(
-                                  child: Text('Liat Semua'),
-                                  onTap: () {
-                                    Navigator.pushAndRemoveUntil(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => listRekom()),
-                                        (route) => false);
-                                  },
-                                ),
-                              ],
-                            ),
-                            //  SizedBox(height: 20,),
-                            SizedBox(
-                              height: 197,
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    child: ListView.builder(
+                              //  SizedBox(height: 20,),
+                              SizedBox(
+                                height: 197,
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: ListView.builder(
                                         scrollDirection: Axis.horizontal,
                                         itemCount: listAllpulsa?.length,
                                         itemBuilder: ((context, index) {
@@ -391,179 +404,192 @@ class _HomeScreenState extends State<HomeScreen> {
                                               point: listAllpulsa[index].point!,
                                               image: 'assets/logo/pulsa.svg',
                                               context: context);
-                                        })),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(padding: EdgeInsets.only(top: 20)),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text('Rekomendasi Paket Untuk Anda'),
-                                GestureDetector(
-                                  child: Text('Liat Semua'),
-                                  onTap: () {
-                                    Navigator.pushAndRemoveUntil(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                listRekomPaket()),
-                                        (route) => false);
-                                  },
+                                        }),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            SizedBox(
-                              height: 197,
-                              child: Row(
+                              ),
+                              Padding(padding: EdgeInsets.only(top: 20)),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Expanded(
-                                    child: ListView.builder(
-                                        scrollDirection: Axis.horizontal,
-                                        itemCount: listAllpaket?.length,
-                                        itemBuilder: ((context, index) {
-                                          return productall(
-                                              id: listAllpaket![index].id!,
-                                              typeProduct: listAllpaket[index]
-                                                  .typeProduct
-                                                  .toString(),
-                                              providerName: listAllpaket[index]
-                                                  .providerName
-                                                  .toString(),
-                                              productName: listAllpaket[index]
-                                                  .productName
-                                                  .toString(),
-                                              nominal:
-                                                  listAllpaket[index].nominal!,
-                                              point: listAllpaket[index].point!,
-                                              image: 'assets/logo/paket.svg',
-                                              context: context);
-                                        })),
+                                  Text('Rekomendasi Paket Untuk Anda'),
+                                  GestureDetector(
+                                    child: Text('Liat Semua'),
+                                    onTap: () {
+                                      Navigator.pushAndRemoveUntil(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  listRekomPaket(),),
+                                          (route) => false);
+                                    },
                                   ),
                                 ],
                               ),
-                            ),
-                            Padding(padding: EdgeInsets.only(top: 20)),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text('Rekomendasi Cash Out Untuk Anda'),
-                                GestureDetector(
-                                  child: Text('Liat Semua'),
-                                  onTap: () {
-                                    Navigator.pushAndRemoveUntil(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                ListRekomCashout()),
-                                        (route) => false);
-                                  },
+                              SizedBox(
+                                height: 20,
+                              ),
+                              SizedBox(
+                                height: 197,
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: ListView.builder(
+                                          scrollDirection: Axis.horizontal,
+                                          itemCount: listAllpaket?.length,
+                                          itemBuilder: ((context, index) {
+                                            return productall(
+                                                id: listAllpaket![index].id!,
+                                                typeProduct: listAllpaket[index]
+                                                    .typeProduct
+                                                    .toString(),
+                                                providerName:
+                                                    listAllpaket[index]
+                                                        .providerName
+                                                        .toString(),
+                                                productName: listAllpaket[index]
+                                                    .productName
+                                                    .toString(),
+                                                nominal: listAllpaket[index]
+                                                    .nominal!,
+                                                point:
+                                                    listAllpaket[index].point!,
+                                                image: 'assets/logo/paket.svg',
+                                                context: context);
+                                          })),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            SizedBox(
-                              height: 197,
-                              child: Row(
+                              ),
+                              Padding(padding: EdgeInsets.only(top: 20)),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Expanded(
-                                    child: ListView.builder(
-                                        scrollDirection: Axis.horizontal,
-                                        itemCount: listAllcashout?.length,
-                                        itemBuilder: ((context, index) {
-                                          return productall(
-                                              id: listAllcashout![index].id!,
-                                              typeProduct: listAllcashout[index]
-                                                  .typeProduct
-                                                  .toString(),
-                                              providerName:
-                                                  listAllcashout[index]
-                                                      .providerName
-                                                      .toString(),
-                                              productName: listAllcashout[index]
-                                                  .productName
-                                                  .toString(),
-                                              nominal: listAllcashout[index]
-                                                  .nominal!,
-                                              point:
-                                                  listAllcashout[index].point!,
-                                              image: 'assets/logo/cashout.svg',
-                                              context: context);
-                                        })),
+                                  Text('Rekomendasi Cash Out Untuk Anda'),
+                                  GestureDetector(
+                                    child: Text('Liat Semua'),
+                                    onTap: () {
+                                      Navigator.pushAndRemoveUntil(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ListRekomCashout()),
+                                          (route) => false);
+                                    },
                                   ),
                                 ],
                               ),
-                            ),
-                            Padding(padding: EdgeInsets.only(top: 20)),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text('Rekomendasi E Money Untuk Anda'),
-                                GestureDetector(
-                                  child: Text('Liat Semua'),
-                                  onTap: () {
-                                    Navigator.pushAndRemoveUntil(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                ListRekomEmoney()),
-                                        (route) => false);
-                                  },
+                              SizedBox(
+                                height: 20,
+                              ),
+                              SizedBox(
+                                height: 197,
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: ListView.builder(
+                                          scrollDirection: Axis.horizontal,
+                                          itemCount: listAllcashout?.length,
+                                          itemBuilder: ((context, index) {
+                                            return productall(
+                                                id: listAllcashout![index].id!,
+                                                typeProduct:
+                                                    listAllcashout[index]
+                                                        .typeProduct
+                                                        .toString(),
+                                                providerName:
+                                                    listAllcashout[index]
+                                                        .providerName
+                                                        .toString(),
+                                                productName:
+                                                    listAllcashout[index]
+                                                        .productName
+                                                        .toString(),
+                                                nominal: listAllcashout[index]
+                                                    .nominal!,
+                                                point: listAllcashout[index]
+                                                    .point!,
+                                                image:
+                                                    'assets/logo/cashout.svg',
+                                                context: context);
+                                          })),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 20,
-                            ),
-                            SizedBox(
-                              height: 197,
-                              child: Row(
+                              ),
+                              Padding(padding: EdgeInsets.only(top: 20)),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Expanded(
-                                    child: ListView.builder(
-                                        scrollDirection: Axis.horizontal,
-                                        itemCount: listAllemoney?.length,
-                                        itemBuilder: ((context, index) {
-                                          return productall(
-                                              id: listAllemoney![index].id!,
-                                              typeProduct: listAllemoney[index]
-                                                  .typeProduct
-                                                  .toString(),
-                                              providerName: listAllemoney[index]
-                                                  .providerName
-                                                  .toString(),
-                                              productName: listAllemoney[index]
-                                                  .productName
-                                                  .toString(),
-                                              nominal:
-                                                  listAllemoney[index].nominal!,
-                                              point:
-                                                  listAllemoney[index].point!,
-                                              image: 'assets/logo/emoney.svg',
-                                              context: context);
-                                        })),
+                                  Text('Rekomendasi E Money Untuk Anda'),
+                                  GestureDetector(
+                                    child: Text('Liat Semua'),
+                                    onTap: () {
+                                      Navigator.pushAndRemoveUntil(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ListRekomEmoney()),
+                                          (route) => false);
+                                    },
                                   ),
                                 ],
                               ),
-                            ),
-                            SizedBox(
-                              height: 200,
-                              width: double.infinity,
-                              child: SvgPicture.asset('assets/logo/Promo.svg',
-                                  fit: BoxFit.contain),
-                            )
-                          ],
-                        )),
-                      ],
+                              SizedBox(
+                                height: 20,
+                              ),
+                              SizedBox(
+                                height: 197,
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: ListView.builder(
+                                          scrollDirection: Axis.horizontal,
+                                          itemCount: listAllemoney?.length,
+                                          itemBuilder: ((context, index) {
+                                            return productall(
+                                                id: listAllemoney![index].id!,
+                                                typeProduct:
+                                                    listAllemoney[index]
+                                                        .typeProduct
+                                                        .toString(),
+                                                providerName:
+                                                    listAllemoney[index]
+                                                        .providerName
+                                                        .toString(),
+                                                productName:
+                                                    listAllemoney[index]
+                                                        .productName
+                                                        .toString(),
+                                                nominal: listAllemoney[index]
+                                                    .nominal!,
+                                                point:
+                                                    listAllemoney[index].point!,
+                                                image: 'assets/logo/emoney.svg',
+                                                context: context);
+                                          })),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 200,
+                                width: double.infinity,
+                                child: SvgPicture.asset('assets/logo/Promo.svg',
+                                    fit: BoxFit.contain),
+                              )
+                            ],
+                          )),
+                        ],
+                      ),
                     ),
                   ),
                 )

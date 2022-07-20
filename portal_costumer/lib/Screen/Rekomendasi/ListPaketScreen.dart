@@ -39,7 +39,7 @@ class _listRekomPaketState extends State<listRekomPaket> {
     return Scaffold(
         appBar: AppBar( 
            backgroundColor : Colors.white,
-          title: const Text('Rekomendasi',style: TextStyle(color:Colors.black),),
+          title: const Text('Tukar Poin',style: TextStyle(color:Colors.black),),
           centerTitle: true,
             leading: IconButton(
             icon: const Icon(Icons.arrow_back, 

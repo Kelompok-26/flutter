@@ -101,60 +101,63 @@ class _PointScreenState extends State<PointScreen> {
                   ),
                 ],
               ),
-              Container(
-                height: 100,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                  color: Color(0xFFF6F5F5),
-                  elevation: 1,
-                  child: Row(
-                    children: [
-                      SizedBox(width: 20,),
-                      const Icon(
-                        Icons.point_of_sale, size: 35,
-                      ),
-                      SizedBox(width: 10,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            'Point Anda Saat ini',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w300,
-                              color: Color(0xFF00334E),
-                              fontSize: 15,
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  height: 80,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    color: Color(0xFFF6F5F5),
+                    elevation: 1,
+                    child: Row(
+                      children: [
+                        SizedBox(width: 10,),
+                        const Icon(
+                          Icons.point_of_sale, size: 35,
+                        ),
+                        SizedBox(width: 10,),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              'Point Anda Saat ini',
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                color: Color(0xFF00334E),
+                                fontSize: 15,
+                              ),
                             ),
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                '${apimodel.useraccount?.data?.point}',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    color: Color(0xFF00334E),
-                                    fontSize: 15),
-                              ),
-                              SizedBox(
-                                width: 5,
-                              ),
-                              Text(
-                                'Poin',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    color: Color(0xFF00334E),
-                                    fontSize: 15),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                    ],
+                            Row(
+                              children: [
+                                Text(
+                                  '${apimodel.useraccount?.data?.point}',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF00334E),
+                                      fontSize: 15),
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(
+                                  'Poin',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      color: Color(0xFF00334E),
+                                      fontSize: 15),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -194,266 +197,269 @@ class _PointScreenState extends State<PointScreen> {
         //   height: 7,
         //   color: Colors.grey[300],
         // ),
-        Expanded(
-          child: SizedBox(
-            height: 100,
-            child: Column(
-              children: [
-                // body
-                Expanded(
-                  child: ListView(
-                    scrollDirection: Axis.vertical,
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    children: [
-                      const SizedBox(height: 20),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            'Pulsa',
-                            style: TextStyle(
-                                inherit: false,
-                                fontSize: 15,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          GestureDetector(
-                            child: const Text(
-                              'Semua',
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Expanded(
+            child: SizedBox(
+              height: 361,
+              child: Column(
+                children: [
+                  // body
+                  Expanded(
+                    child: ListView(
+                      scrollDirection: Axis.vertical,
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      children: [
+                        const SizedBox(height: 20),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              'Pulsa',
                               style: TextStyle(
                                   inherit: false,
-                                  fontSize: 12,
+                                  fontSize: 15,
                                   color: Colors.black,
-                                  fontWeight: FontWeight.w800),
+                                  fontWeight: FontWeight.w600),
                             ),
-                            onTap: () {
-                              Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const listRekom()),
-                                  (route) => false);
-                            },
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        height: 197,
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: ListView.builder(
-                                  scrollDirection: Axis.horizontal,
-                                  itemCount: listAllpulsa?.length,
-                                  itemBuilder: ((context, index) {
-                                    return productall(
-                                        id: listAllpulsa![index].id!,
-                                        typeProduct: listAllpulsa[index]
-                                            .typeProduct
-                                            .toString(),
-                                        providerName: listAllpulsa[index]
-                                            .providerName
-                                            .toString(),
-                                        productName: listAllpulsa[index]
-                                            .productName
-                                            .toString(),
-                                        nominal: listAllpulsa[index].nominal!,
-                                        point: listAllpulsa[index].point!,
-                                        image: 'assets/logo/pulsa.svg',
-                                        context: context);
-                                  })),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const Padding(padding: EdgeInsets.only(top: 20)),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            'Paket',
-                            style: TextStyle(
-                                inherit: false,
-                                fontSize: 15,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          GestureDetector(
-                            child: const Text(
-                              'Semua',
-                              style: TextStyle(
-                                  inherit: false,
-                                  fontSize: 12,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                            onTap: () {
-                              Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const listRekomPaket()),
-                                  (route) => false);
-                            },
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        height: 197,
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: ListView.builder(
-                                  scrollDirection: Axis.horizontal,
-                                  itemCount: listAllpaket?.length,
-                                  itemBuilder: ((context, index) {
-                                    return productall(
-                                        id: listAllpaket![index].id!,
-                                        typeProduct: listAllpaket[index]
-                                            .typeProduct
-                                            .toString(),
-                                        providerName: listAllpaket[index]
-                                            .providerName
-                                            .toString(),
-                                        productName: listAllpaket[index]
-                                            .productName
-                                            .toString(),
-                                        nominal: listAllpaket[index].nominal!,
-                                        point: listAllpaket[index].point!,
-                                        image: 'assets/logo/paket.svg',
-                                        context: context);
-                                  })),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const Padding(padding: EdgeInsets.only(top: 20)),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            'Cashout',
-                            style: TextStyle(
-                                inherit: false,
-                                fontSize: 15,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          GestureDetector(
-                            child: const Text(
-                              'Semua',
-                              style: TextStyle(
-                                  inherit: false,
-                                  fontSize: 12,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                            onTap: () {
-                              Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const ListRekomCashout()),
-                                  (route) => false);
-                            },
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        height: 197,
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: ListView.builder(
-                                  scrollDirection: Axis.horizontal,
-                                  itemCount: listAllcashout?.length,
-                                  itemBuilder: ((context, index) {
-                                    return productall(
-                                        id: listAllcashout![index].id!,
-                                        typeProduct: listAllcashout[index]
-                                            .typeProduct
-                                            .toString(),
-                                        providerName: listAllcashout[index]
-                                            .providerName
-                                            .toString(),
-                                        productName: listAllcashout[index]
-                                            .productName
-                                            .toString(),
-                                        nominal: listAllcashout[index].nominal!,
-                                        point: listAllcashout[index].point!,
-                                        image: 'assets/logo/cashout.svg',
-                                        context: context);
-                                  })),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(padding: EdgeInsets.only(top: 20)),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text('E-Money'),
-                          GestureDetector(
-                            child: Text('Semua'),
-                            onTap: () {
-                              Navigator.pushAndRemoveUntil(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ListRekomEmoney()),
-                                  (route) => false);
-                            },
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        height: 197,
-                        child: Row(
-                          children: [
-                            Expanded(
-                              child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: listAllemoney?.length,
-                                itemBuilder: ((context, index) {
-                                  return productall(
-                                      id: listAllemoney![index].id!,
-                                      typeProduct: listAllemoney[index]
-                                          .typeProduct
-                                          .toString(),
-                                      providerName: listAllemoney[index]
-                                          .providerName
-                                          .toString(),
-                                      productName: listAllemoney[index]
-                                          .productName
-                                          .toString(),
-                                      nominal: listAllemoney[index].nominal!,
-                                      point: listAllemoney[index].point!,
-                                      image: 'assets/logo/emoney.svg',
-                                      context: context);
-                                }),
+                            GestureDetector(
+                              child: const Text(
+                                'Semua',
+                                style: TextStyle(
+                                    inherit: false,
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w800),
                               ),
+                              onTap: () {
+                                Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const listRekom()),
+                                    (route) => false);
+                              },
                             ),
                           ],
                         ),
-                      ),
-                    ],
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        SizedBox(
+                          height: 197,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: listAllpulsa?.length,
+                                    itemBuilder: ((context, index) {
+                                      return productall(
+                                          id: listAllpulsa![index].id!,
+                                          typeProduct: listAllpulsa[index]
+                                              .typeProduct
+                                              .toString(),
+                                          providerName: listAllpulsa[index]
+                                              .providerName
+                                              .toString(),
+                                          productName: listAllpulsa[index]
+                                              .productName
+                                              .toString(),
+                                          nominal: listAllpulsa[index].nominal!,
+                                          point: listAllpulsa[index].point!,
+                                          image: 'assets/logo/pulsa.svg',
+                                          context: context);
+                                    })),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const Padding(padding: EdgeInsets.only(top: 20)),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              'Paket',
+                              style: TextStyle(
+                                  inherit: false,
+                                  fontSize: 15,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            GestureDetector(
+                              child: const Text(
+                                'Semua',
+                                style: TextStyle(
+                                    inherit: false,
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w800),
+                              ),
+                              onTap: () {
+                                Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const listRekomPaket()),
+                                    (route) => false);
+                              },
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        SizedBox(
+                          height: 197,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: listAllpaket?.length,
+                                    itemBuilder: ((context, index) {
+                                      return productall(
+                                          id: listAllpaket![index].id!,
+                                          typeProduct: listAllpaket[index]
+                                              .typeProduct
+                                              .toString(),
+                                          providerName: listAllpaket[index]
+                                              .providerName
+                                              .toString(),
+                                          productName: listAllpaket[index]
+                                              .productName
+                                              .toString(),
+                                          nominal: listAllpaket[index].nominal!,
+                                          point: listAllpaket[index].point!,
+                                          image: 'assets/logo/paket.svg',
+                                          context: context);
+                                    })),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const Padding(padding: EdgeInsets.only(top: 20)),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              'Cashout',
+                              style: TextStyle(
+                                  inherit: false,
+                                  fontSize: 15,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            GestureDetector(
+                              child: const Text(
+                                'Semua',
+                                style: TextStyle(
+                                    inherit: false,
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w800),
+                              ),
+                              onTap: () {
+                                Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const ListRekomCashout()),
+                                    (route) => false);
+                              },
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        SizedBox(
+                          height: 197,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: listAllcashout?.length,
+                                    itemBuilder: ((context, index) {
+                                      return productall(
+                                          id: listAllcashout![index].id!,
+                                          typeProduct: listAllcashout[index]
+                                              .typeProduct
+                                              .toString(),
+                                          providerName: listAllcashout[index]
+                                              .providerName
+                                              .toString(),
+                                          productName: listAllcashout[index]
+                                              .productName
+                                              .toString(),
+                                          nominal: listAllcashout[index].nominal!,
+                                          point: listAllcashout[index].point!,
+                                          image: 'assets/logo/cashout.svg',
+                                          context: context);
+                                    })),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(padding: EdgeInsets.only(top: 20)),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('E-Money'),
+                            GestureDetector(
+                              child: Text('Semua'),
+                              onTap: () {
+                                Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ListRekomEmoney()),
+                                    (route) => false);
+                              },
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        SizedBox(
+                          height: 197,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: listAllemoney?.length,
+                                  itemBuilder: ((context, index) {
+                                    return productall(
+                                        id: listAllemoney![index].id!,
+                                        typeProduct: listAllemoney[index]
+                                            .typeProduct
+                                            .toString(),
+                                        providerName: listAllemoney[index]
+                                            .providerName
+                                            .toString(),
+                                        productName: listAllemoney[index]
+                                            .productName
+                                            .toString(),
+                                        nominal: listAllemoney[index].nominal!,
+                                        point: listAllemoney[index].point!,
+                                        image: 'assets/logo/emoney.svg',
+                                        context: context);
+                                  }),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         )

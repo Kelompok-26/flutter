@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Material(
               elevation: 2,
               borderRadius: BorderRadius.circular(10),
-              color: Color.fromARGB(255, 11, 48, 121),
+              color: Color(0xFF145374),
               child: MaterialButton(
                 padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
                 onPressed: () {
