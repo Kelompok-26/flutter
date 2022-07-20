@@ -12,7 +12,6 @@ import 'package:portal_costumer/Screen/Informasi/KebijakanPrivasiScreen.dart';
 import 'package:portal_costumer/Screen/Informasi/Syarat&KetentuanScreen.dart';
 import 'package:portal_costumer/Screen/Profil/EditProfile.dart';
 
-
 import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -45,18 +44,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Column(
       children: [
         Container(
-          height: 150,
-          color: const Color.fromARGB(255, 54, 36, 255),
+          height: 110,
+          color: Color(0xFF145374),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 50,
-                width: 50,
-                child: SvgPicture.asset(
-                  'assets/logo/Account circle.svg',
-                  fit: BoxFit.cover,
-                ),
+              Padding(
+                padding: EdgeInsets.only(top: 15.0, left: 15),
+              ),
+              SvgPicture.asset(
+                'assets/logo/Account circle.svg',
+                fit: BoxFit.cover,
               ),
               SizedBox(width: 15),
               Column(
@@ -64,7 +62,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(
-                    height: 55,
+                    height: 40,
                   ),
                   Text('${apimodel.useraccount?.data?.name}',
                       style: TextStyle(
@@ -81,14 +79,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ],
           ),
         ),
-        Container(height: 10, color: Colors.grey[300]),
+        SizedBox(
+          height: 25,
+        ),
         Expanded(
             child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
               Card(
-                elevation: 10,
+                elevation: 1,
                 child: Container(
                   height: 120,
                   width: 360,
@@ -110,7 +110,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             const Icon(
-                              Icons.account_circle_rounded,
+                              Icons.edit,
                               size: 24,
                             ),
                             const Text(
@@ -122,11 +122,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.42,
                             ),
-                            const Icon(Icons.arrow_right_sharp, size: 40),
+                            const Icon(Icons.arrow_forward_ios, size: 25),
                           ],
                         ),
                       ),
-                      const Padding(padding: EdgeInsets.only(top: 10)),
+                      const Padding(padding: EdgeInsets.only(top: 25)),
                       GestureDetector(
                         onTap: () {
                           Navigator.pushAndRemoveUntil(
@@ -151,7 +151,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.44,
                             ),
-                            const Icon(Icons.arrow_right_sharp, size: 40),
+                            const Icon(Icons.arrow_forward_ios, size: 25),
                           ],
                         ),
                       )
@@ -159,12 +159,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
-              Container(
-                height: 3,
-                color: Colors.grey[300],
-              ),
+              // Container(
+              //   height: 3,
+              //   color: Colors.grey[300],
+              // ),
               Card(
-                elevation: 10,
+                elevation: 1,
                 child: Container(
                   height: 150,
                   width: 360,
@@ -173,7 +173,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   child: Column(
                     children: [
-                      const Padding(padding: EdgeInsets.only(top: 10)),
+                      const Padding(padding: EdgeInsets.only(top: 18)),
                       GestureDetector(
                         onTap: () {
                           Navigator.pushAndRemoveUntil(
@@ -198,11 +198,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.47,
                             ),
-                            const Icon(Icons.arrow_right_sharp, size: 40),
+                            const Icon(Icons.arrow_forward_ios, size: 25),
                           ],
                         ),
                       ),
-                      const Padding(padding: EdgeInsets.only(top: 10)),
+                      const Padding(padding: EdgeInsets.only(top: 18)),
                       GestureDetector(
                         onTap: () {
                           Navigator.pushAndRemoveUntil(
@@ -228,11 +228,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.2,
                             ),
-                            const Icon(Icons.arrow_right_sharp, size: 40),
+                            const Icon(Icons.arrow_forward_ios, size: 25),
                           ],
                         ),
                       ),
-                      const Padding(padding: EdgeInsets.only(top: 10)),
+                      const Padding(padding: EdgeInsets.only(top: 18)),
                       GestureDetector(
                         onTap: () {
                           Navigator.pushAndRemoveUntil(
@@ -258,7 +258,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.3,
                             ),
-                            const Icon(Icons.arrow_right_sharp, size: 40),
+                            const Icon(Icons.arrow_forward_ios, size: 25),
                           ],
                         ),
                       )
@@ -266,14 +266,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
-              Container(
-                height: 3,
-                color: Colors.grey[300],
-              ),
+              // Container(
+              //   height: 3,
+              //   color: Colors.grey[300],
+              // ),
               Card(
-                elevation: 10,
+                elevation: 1,
                 child: SizedBox(
                   height: 50,
+                  width: 360,
                   child: GestureDetector(
                     onTap: () {
                       Navigator.pushAndRemoveUntil(
@@ -298,8 +299,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           width: MediaQuery.of(context).size.width * 0.4,
                         ),
                         const Icon(
-                          Icons.arrow_right_sharp,
-                          size: 40,
+                          Icons.arrow_forward_ios,
+                          size: 25,
                           color: Colors.red,
                         ),
                       ],

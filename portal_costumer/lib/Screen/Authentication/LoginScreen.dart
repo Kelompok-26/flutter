@@ -122,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ScaffoldMessenger.of(context).hideCurrentSnackBar();
               print(res);
               if (res == null) {
-                Fluttertoast.showToast(msg: 'Invalid Phonenumber / Password');
+                Fluttertoast.showToast(msg: 'Invalid Email / Password');
                 return;
               }
               // var sp = await SharedPreferences.getInstance();

@@ -320,7 +320,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             print(res);
             if (res == null) {
               Fluttertoast.showToast(
-                msg: 'Invalid Phonenumber / Password',
+                msg: 'Invalid Email / Date of birth',
               );
               return;
             }

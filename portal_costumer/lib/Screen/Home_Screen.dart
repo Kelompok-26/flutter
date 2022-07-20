@@ -10,7 +10,6 @@ import 'package:portal_costumer/Screen/Rekomendasi/ListPulsaScreen.dart';
 import 'package:portal_costumer/Screen/Rekomendasi/EmoneyScreen.dart';
 import 'package:portal_costumer/Screen/Rekomendasi/CashoutScreen.dart';
 
-
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:portal_costumer/Model/API/api_model.dart';
@@ -92,46 +91,48 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       SizedBox(
-                        width: 5,
+                        width: 15,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SizedBox(
-                            height: 20,
+                            height: 8,
                           ),
                           Text(
                             'Selamat datang',
                             style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w100,
-                                color: Colors.white),
+                                color: Colors.white,),
                           ),
                           Text('${apimodel.useraccount?.data?.name}',
                               style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.white)),
+                                  color: Colors.white),),
                         ],
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width * 0.28,
                       ),
                       GestureDetector(
-                          onTap: () {
-                            Navigator.pushAndRemoveUntil(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => FaqScreen()),
-                                (route) => false);
-                          },
-                          child: SizedBox(
-                              height: 30,
-                              width: 30,
-                              child: SvgPicture.asset(
-                                'assets/logo/question.svg',
-                                fit: BoxFit.cover,
-                              ))),
+                        onTap: () {
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => FaqScreen(),),
+                              (route) => false);
+                        },
+                        child: SizedBox(
+                          height: 30,
+                          width: 30,
+                          child: SvgPicture.asset(
+                            'assets/logo/question.svg',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ],
@@ -142,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
             margin: EdgeInsets.only(top: 90),
             child: Column(
               children: [
-                Padding(padding: EdgeInsets.only(top: 20)),
+                Padding(padding: EdgeInsets.only(top: 10)),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.3,
                   // color: Colors.red,
@@ -265,7 +266,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(10),
                         color: Color(0xFF145374),
                         child: MaterialButton(
-                          minWidth: MediaQuery.of(context).size.width*4.0,
+                          minWidth: MediaQuery.of(context).size.width * 4.0,
                           onPressed: () {
                             Navigator.pushAndRemoveUntil(
                                 context,

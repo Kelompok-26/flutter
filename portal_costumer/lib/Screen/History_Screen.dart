@@ -16,11 +16,7 @@ class HistoryScreen extends StatefulWidget {
 
 class _HistoryScreenState extends State<HistoryScreen> {
   APIModel? apimodel;
-  List<Tab> myTab = [
-    const Tab(
-      text: 'Transaksi',
-    ),
-  ];
+ 
   @override
   void initState() {
     APIModel apimodel = Provider.of<APIModel>(context, listen: false);
@@ -35,58 +31,42 @@ class _HistoryScreenState extends State<HistoryScreen> {
   @override
   Widget build(BuildContext context) {
     final apimodel = Provider.of<APIModel>(context);
-    return DefaultTabController(
-      length: myTab.length,
-      child: Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(builder: (context) => itemNav()),
-                  (route) => false);
-            },
-          ),
-          backgroundColor: Colors.blueAccent,
-          title: const Text(
-            'Riwayat',
-            textAlign: TextAlign.justify,
-          ),
-          toolbarHeight: 100,
-          bottom: TabBar(
-            labelColor: Colors.white,
-            unselectedLabelColor: Colors.white,
-            labelStyle: const TextStyle(fontWeight: FontWeight.bold),
-            unselectedLabelStyle:
-                const TextStyle(fontWeight: FontWeight.normal),
-            indicator: BoxDecoration(
-              color: Colors.blue[700],
-              borderRadius: BorderRadius.circular(50),
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => itemNav()),
+                (route) => false);
+          },
+        ),
+        backgroundColor: Color(0xFF145374),
+        title: const Text(
+          'Riwayat Penggunaan',
+        ),
+        toolbarHeight: 60,      
+      ),
+      body: ListView.separated(
+        padding: EdgeInsets.only(top: 15),
+        scrollDirection: Axis.vertical,
+        itemBuilder: (ctx, i) {
+          return ListTile(
+            title: Text('${apimodel.HistoryModel?.data?[i].createdAt}'),
+            subtitle: Text(
+              'Penukaran Product ${apimodel.HistoryModel?.data?[i].product?.typeProduct} , ${apimodel.HistoryModel?.data?[i].product?.providerName} , ${apimodel.HistoryModel?.data?[i].product?.productName}',
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
-            tabs: myTab,
-          ),
-        ),
-        body: ListView.separated(
-          scrollDirection: Axis.vertical,
-          itemBuilder: (ctx, i) {
-            return ListTile(
-              title: Text('${apimodel.HistoryModel?.data?[i].createdAt}'),
-              subtitle: Text(
-                'Penukaran Product ${apimodel.HistoryModel?.data?[i].product?.typeProduct} , ${apimodel.HistoryModel?.data?[i].product?.providerName} , ${apimodel.HistoryModel?.data?[i].product?.productName}',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              trailing: Text(
-                'Point - ${apimodel.HistoryModel?.data?[i].product?.point}',
-              ),
-
-            );
-          },
-          separatorBuilder: (ctx, i) {
-            return Divider();
-          },
-          itemCount: apimodel.HistoryModel!.data!.length,
-        ),
+            trailing: Text(
+              'Point - ${apimodel.HistoryModel?.data?[i].product?.point}',
+            ),
+          );
+        },
+        separatorBuilder: (ctx, i) {
+          return Divider();
+        },
+        itemCount: apimodel.HistoryModel!.data!.length,
       ),
     );
   }

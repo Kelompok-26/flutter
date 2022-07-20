@@ -4,6 +4,7 @@ import 'package:portal_costumer/Model/Navbar_model.dart';
 import 'package:portal_costumer/Screen/Authentication/LoginScreen.dart';
 import 'package:portal_costumer/Screen/History_Screen.dart';
 import 'package:portal_costumer/Screen/Home_Screen.dart';
+import 'package:portal_costumer/Screen/Poin/PointScreen.dart';
 
 import 'package:portal_costumer/Screen/SplashScreen/SplashScreen.dart';
 import 'package:provider/provider.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: SplashScreen(),
+      home: itemNav(),
     );
   }
 }

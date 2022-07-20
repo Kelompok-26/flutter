@@ -39,7 +39,7 @@ class BenefitScreen extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             height: 80,
-            child: SvgPicture.asset('assets/logo/taginformasi.svg'),
+            child: SvgPicture.asset('assets/logo/tagInformasi.svg'),
           ),
           Container(
             height: 7,
@@ -53,7 +53,7 @@ class BenefitScreen extends StatelessWidget {
                   const Padding(padding: EdgeInsets.only(top: 30)),
                   Card(
                     margin: const EdgeInsets.only(right: 8.0, left: 8.0),
-                    color: const Color.fromARGB(97, 150, 150, 150),
+                    color: Color(0xFFF6F5F5),
                     elevation: 10,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0)),
@@ -83,7 +83,7 @@ class BenefitScreen extends StatelessWidget {
                   const Padding(padding: EdgeInsets.only(top: 10)),
                   Card(
                     margin: const EdgeInsets.only(right: 8.0, left: 8.0),
-                    color: const Color.fromARGB(97, 150, 150, 150),
+                    color: Color(0xFFF6F5F5),
                     elevation: 10,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0)),
@@ -111,7 +111,7 @@ class BenefitScreen extends StatelessWidget {
                   const Padding(padding: EdgeInsets.only(top: 10)),
                   Card(
                     margin: const EdgeInsets.only(right: 8.0, left: 8.0),
-                    color: const Color.fromARGB(97, 150, 150, 150),
+                    color: Color(0xFFF6F5F5),
                     elevation: 10,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0)),
@@ -120,21 +120,31 @@ class BenefitScreen extends StatelessWidget {
                       width: double.infinity,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
-                          Padding(padding: EdgeInsets.only(top: 10)),
-                          Text('Kamu dapat mengumpulkan poin',
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w700)),
-                          Text('melalui pembelian yang dilakukan',
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w700)),
-                          Text(' pada halaman redeem dan dapat kamu tukarkan',
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w700)),
-                          Text('secara langsung pada aplikasi C-Loyal',
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w700)),
+                          Padding(
+                            padding: EdgeInsets.only(top: 10),
+                          ),
+                          Text(
+                            'Kamu dapat mengumpulkan poin',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w700),
+                          ),
+                          Text(
+                            'melalui pembelian yang dilakukan',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w700),
+                          ),
+                          Text(
+                            ' pada halaman redeem dan dapat kamu tukarkan',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w700),
+                          ),
+                          Text(
+                            'secara langsung pada aplikasi C-Loyal',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w700),
+                          ),
                         ],
                       ),
                     ),
@@ -142,7 +152,7 @@ class BenefitScreen extends StatelessWidget {
                   const Padding(padding: EdgeInsets.only(top: 10)),
                   Card(
                     margin: const EdgeInsets.only(right: 8.0, left: 8.0),
-                    color: const Color.fromARGB(97, 150, 150, 150),
+                    color: Color(0xFFF6F5F5),
                     elevation: 10,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0)),
@@ -154,15 +164,21 @@ class BenefitScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: const [
                           Padding(padding: EdgeInsets.only(top: 25)),
-                          Text('C-Loyal poin memberikanmu',
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w700)),
-                          Text('kemudahan untuk melakukan berbagai',
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w700)),
-                          Text('transaksi degan cepat',
-                              style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w700)),
+                          Text(
+                            'C-Loyal poin memberikanmu',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w700),
+                          ),
+                          Text(
+                            'kemudahan untuk melakukan berbagai',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w700),
+                          ),
+                          Text(
+                            'transaksi degan cepat',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w700),
+                          ),
                         ],
                       ),
                     ),
